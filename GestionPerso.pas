@@ -23,30 +23,6 @@ var
   taille:integer;
   genre:string;
 
-procedure soignerJoueur(Santemax:integer;Santemax,pvrestorer:integer)
-begin
-  Sante+=pvrestorer;
-end;
-
-procedure gestionSante(Santemax:integer;Sante:integer;degatrecu:integer); // besoin du combat fini svp
-begin
-  Sante-=degatrecu;
-  if Sante<=0 then
-  begin
-    Sante:=0;
-    mourrir();
-  end
-  else if Sante>=Santemax then
-  begin
-    Sante:=Santemax;
-  end; 
-end;
-
-//pour les test unitaires
-procedure InitialisationPersonnage();
-begin
-  InitialisationPersonnage('', 0, '');
-end;
 //initialise le stats du personnage à sa création
 procedure InitialisationPersonnage(nomPersonnage:string; taillePersonnage:integer; genrePersonnage:string);
 begin
@@ -61,16 +37,23 @@ begin
   Santemax:=200;
   Sante:=Santemax;
 end;
+
+//pour les test unitaires
+procedure InitialisationPersonnage();
+begin
+  InitialisationPersonnage('', 0, '');
+end;
+
 //amiliore la santé avec le niveau
-function LevelSante(level:integer;Santemax:integer):integer;
+function LevelSante(level:integer):integer;
 begin
   Santemax:=200+15*(level-1);
   Sante:=Santemax;
   LevelSante:=Santemax;
 end;
 
-
-procedure Experience(expadd:integer);//gère la monter en niveau du joueur
+//gère la monter en niveau du joueur
+procedure Experience(expadd:integer);
 begin
    if level<10 then //level max est 10
    begin
@@ -79,11 +62,14 @@ begin
      begin
          exp-=(level*100) ; // on enleve l'exp de la monter de niveau mais on laisse celle en trop
          level+=1;
-         Santemax:=LevelSante(level,Santemax);
+         Santemax:=LevelSante(level);
      end;
     end;   
 end; 
-  procedure mourrir();
+
+
+//Fait mourrir le personnage
+ procedure mourrir();
   begin
     dessinerCadreXY(3, 25, 115, 36, double, LightGreen, White);
     couleurTexte(Black);
@@ -93,4 +79,26 @@ end;
     readln;
     menu();
   end;
-end.
+
+//gere la baisse de la sante du joueur a cause des degats
+procedure gestionSante(degatrecu:integer); // besoin du combat fini svp
+begin
+  Sante-=degatrecu;
+  if Sante<=0 then
+  begin
+    Sante:=0;
+    mourrir();
+  end;
+end;
+
+//Permet de soigner le joueur
+procedure soignerJoueur(pvrestorer:integer);
+begin
+  Sante+=pvrestorer;
+  if Sante>Santemax then
+  begin
+    Sante:=Santemax;
+  end; 
+end;
+
+end. 
