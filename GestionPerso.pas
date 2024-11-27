@@ -7,6 +7,7 @@ procedure InitialisationPersonnage(nomPersonnage:string; taillePersonnage:intege
 procedure InitialisationPersonnage();
 procedure Experience(expadd:integer);
 procedure mourrir();
+procedure gestionSante(degatrecu:integer);
 var
 exp:integer;
 level:integer;
