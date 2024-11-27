@@ -16,7 +16,7 @@ Santemax:integer;
 
 implementation
 uses
-  SysUtils, Classes,combat,GestionEcran,unitMenuPrincipalLogic, unitCoffreLogic;
+  SysUtils, Classes,combat,GestionEcran,unitMenuPrincipalLogic, unitCoffreLogic,Inventaire;
 
 var
   nom:string;
@@ -36,6 +36,7 @@ begin
   exp:=0;
   Santemax:=200;
   Sante:=Santemax;
+  InventaireInit();
 end;
 
 //pour les test unitaires
