@@ -8,7 +8,7 @@ interface
   
 implementation
   uses
-    unitMenuPrincipalIHM,  GestionEcran;
+    unitMenuPrincipalIHM,  GestionEcran, unitCreerPartieLogic;
 
   // Quitter le jeux
   procedure quitter();
