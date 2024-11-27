@@ -23,6 +23,10 @@ var
   taille:integer;
   genre:string;
 
+procedure soignerJoueur(Santemax:integer;Santemax,pvrestorer:integer)
+begin
+  Sante+=pvrestorer;
+end;
 
 procedure gestionSante(Santemax:integer;Sante:integer;degatrecu:integer); // besoin du combat fini svp
 begin
