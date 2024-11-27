@@ -17,7 +17,7 @@ uses
   SysUtils, Classes,combat,GestionEcran,unitMenuPrincipalLogic;
 
 
-function gestionSante(Santemax:integer;Sante:integer;degatrecu:integer):integer; // besoin du combat fini svp
+procedure gestionSante(Santemax:integer;Sante:integer;degatrecu:integer); // besoin du combat fini svp
 begin
   Sante-=degatrecu;
   if Sante<=0 then
@@ -34,9 +34,9 @@ end;
 //pour les test unitaires
 procedure InitialisationPersonnage();
 begin
-  InitialisationPersonnage('', 0, '')
+  InitialisationPersonnage('', 0, '');
 end;
-//initialise le stats du personnage à sa création
+initialise le stats du personnage à sa création
 procedure InitialisationPersonnage(nomPersonnage:string; taillePersonnage:integer; genrePersonnage:string);
 begin
   initialisationEquipement();
@@ -50,7 +50,6 @@ begin
   Santemax:=200;
   Sante:=Santemax;
 end;
-
 //amiliore la santé avec le niveau
 function LevelSante(level:integer;Santemax:integer):integer;
 begin
