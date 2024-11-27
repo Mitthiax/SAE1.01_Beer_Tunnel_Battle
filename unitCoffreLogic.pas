@@ -81,7 +81,7 @@ interface
 
 implementation
   uses
-    unitCoffreConst, unitCoffreIHM, unitBeerslogic;
+    unitCoffreConst, unitCoffreIHM, unitBeerslogic, unitBeersIhm;
 
   var
     estDisponible: TListeEquipement; // Liste des équipements disponibles
@@ -90,6 +90,16 @@ implementation
     plastronEquipe: integer; // Plastron actuellement équipée
     jambieresEquipe: integer; // Jambieres actuellement équipée
     bottesEquipe: integer; // Bottes actuellement équipée
+
+  {
+    Procedure qui débloque un équipement
+    Parametres:
+      numero: integer; Numero de l'équipement
+  }
+  procedure debloquer(numero: integer);
+  begin
+    estDisponible[numero] := true;
+  end;
   
   {
     Procedure qui initialise tous les equipements
@@ -99,7 +109,7 @@ implementation
     i: integer; // Variable de boucle
   begin
     for i := 1 to 18 do estDisponible[i] := true;
-    estDisponible[epeeCuivre] := true;
+    debloquer(epeeCuivre);
 
     armeEquipe := 0;
     casqueEquipe := 0;
@@ -168,6 +178,8 @@ implementation
       coffreIHM();
       choix := coffreChoixEquipementIHM();
     end;
+    // Si le choix n'est pas un équipement, on quitte le coffre
+    afficherInterface();
   end;
 
   function estDisponibleEquipement(numero: integer): boolean;
@@ -223,16 +235,6 @@ implementation
   function getBottesEquipe(): integer;
   begin
     getBottesEquipe := bottesEquipe;
-  end;
-
-  {
-    Procedure qui débloque un équipement
-    Parametres:
-      numero: integer; Numero de l'équipement
-  }
-  procedure debloquer(numero: integer);
-  begin
-    estDisponible[numero] := true;
   end;
 
   {

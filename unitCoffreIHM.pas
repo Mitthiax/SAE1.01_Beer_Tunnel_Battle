@@ -100,6 +100,9 @@ implementation
     dessinerCadreXY(90, 1, 110, 3, simple, White, Black);
     deplacerCurseurXY(93, 2); write('Coffre');
 
+    deplacerCurseurXY(35, 35); write('Choisir un équipement à équiper ou déséquiper');
+    deplacerCurseurXY(35, 36); write('0 - Quitter le coffre');
+
     afficherArmes();
     afficherArmures();
   end;

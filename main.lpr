@@ -5,5 +5,4 @@ uses
 begin 
   randomize;
   menu();
-  ouvrirCoffre();
 end.

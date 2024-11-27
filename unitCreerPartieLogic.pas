@@ -8,7 +8,7 @@ interface
   
 implementation
   uses
-    unitCreerPartieIHM, GestionPerso;
+    unitCreerPartieIHM, GestionPerso, unitBeersIhm;
   
   // Procedure qui lance une nouvelle partie
   procedure creerPartie();
@@ -20,6 +20,7 @@ implementation
   begin
     creerPartieIHM(nom, taille, genre);
     InitialisationPersonnage(nom, taille, genre);
+    afficherInterface();
   end;
   
 end.

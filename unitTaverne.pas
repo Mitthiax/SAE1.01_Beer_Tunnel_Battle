@@ -11,8 +11,8 @@ procedure afficherJournal();
 procedure boireBiere();
 //Permet d'aller manger
 procedure manger();
-//Permet de quittez la taverne
-procedure quittez();
+//Permet de quitter la taverne
+procedure quitter();
   
 implementation
 uses
@@ -25,7 +25,7 @@ begin
   case choix of 
     1 : boireBiere();
     2 : manger();
-    3 : quittez();
+    3 : quitter();
   end;
 end;
 
@@ -39,7 +39,7 @@ begin
   WriteLn('Vous allez manger.');
 end;
 
-procedure quittez();
+procedure quitter();
 begin
   afficherInterface(); // Appel de l'interface du hall pour revenir au hall
 end;
