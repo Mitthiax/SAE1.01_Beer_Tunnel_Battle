@@ -63,9 +63,9 @@ implementation
     
   end;
 
-  procedure tenterFuite();
+  function tenterFuite(): boolean;
   begin
-    
+    tenterFuite := false;
   end;
   
   {
@@ -77,10 +77,11 @@ implementation
   var
     choix: integer; // Choix du joueur lors du tour de combat
     estTermine: boolean; // True si le combat est terminer, false sinon
-    a: integer;
+    fuiteReussie: boolean; // True si une fuite à été tenter et réussie, false sinon
 
   begin
     estTermine := false;
+    fuiteReussie := false;
 
     choix := combatIHM();
 
@@ -88,13 +89,19 @@ implementation
       1: ennemie.PV-=degatInfliger();
       2: lancerBombe();
       3: boirePotion();
-      4: tenterFuite();
+      4:
+      begin
+        fuiteReussie := tenterFuite();
+        if fuiteReussie then estTermine := true
+        // Si il y a eu tentative de fuite ratée, l'ennemie attaque
+        else gestionSante(subirdegats(ennemie.degats));
+      end;
     end;
 
-    a := degatInfliger();
-
+    // On termine le combat si l'ennemie est mort
     if ennemie.PV <= 0 then estTermine := true;
 
+    // Dans tous les cas, si le combat n'est pas terminé, l'ennemie attaque
     if not estTermine then gestionSante(subirdegats(ennemie.degats));
 
     tourCombat := estTermine
