@@ -3,12 +3,18 @@ unit combat;
 {$mode objfpc}{$H+}
 
 interface
-var
-degatrecu:integer;
+  uses
+    unitCombatConst;
+  {
+    Procedure qui comme un combat contre un ennemie
+    Parametre:
+      ennemie: TEnnemie; Type d'ennemie
+  }
+  procedure commencerCombat(ennemie: TEnnemie);
 
 implementation
   uses
-    SysUtils, Classes, GestionPerso, unitCoffreLogic, unitCombatConst, unitCombatIHM;
+    SysUtils, Classes, GestionPerso, unitCoffreLogic, unitCombatIHM;
 
     
   //fonction qui calcule les dégats infliger à l'ennemie 
@@ -71,6 +77,7 @@ implementation
   var
     choix: integer; // Choix du joueur lors du tour de combat
     estTermine: boolean; // True si le combat est terminer, false sinon
+    a: integer;
 
   begin
     estTermine := false;
@@ -84,9 +91,13 @@ implementation
       4: tenterFuite();
     end;
 
+    a := degatInfliger();
+
     if ennemie.PV <= 0 then estTermine := true;
 
     if not estTermine then gestionSante(subirdegats(ennemie.degats));
+
+    tourCombat := estTermine
   end;
 
   {

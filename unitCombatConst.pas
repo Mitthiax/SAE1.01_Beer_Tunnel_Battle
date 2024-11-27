@@ -25,17 +25,17 @@ interface
     (
       nom: 'Troll';
       PV: 250;
-      degats: 5;
-      XP: 15;
-      gold: 2;
+      degats: 22;
+      XP: 35;
+      gold: 10;
     );
     ORC: TEnnemie =
     (
       nom: 'Orc';
       PV: 300;
-      degats: 5;
-      XP: 15;
-      gold: 2;
+      degats: 30;
+      XP: 70;
+      gold: 15;
     );
   
 implementation

@@ -110,6 +110,7 @@ implementation
     attaque: integer; // Points d'attaque de l'arme
 
   begin
+    attaque := 2;
     case numero of
       1: attaque := 4;
       2: attaque := 7;
@@ -134,6 +135,7 @@ implementation
     defence: integer; // Points de defence de l'armure
 
   begin
+    defence := 0;
     case numero of
       7: defence := 5;
       8: defence := 10;
