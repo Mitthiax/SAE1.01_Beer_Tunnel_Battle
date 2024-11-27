@@ -43,7 +43,7 @@ procedure InitialisationPersonnage();
 begin
   InitialisationPersonnage('', 0, '');
 end;
-initialise le stats du personnage à sa création
+//initialise le stats du personnage à sa création
 procedure InitialisationPersonnage(nomPersonnage:string; taillePersonnage:integer; genrePersonnage:string);
 begin
   initialisationEquipement();
