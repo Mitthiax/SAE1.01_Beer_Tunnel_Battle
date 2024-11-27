@@ -31,7 +31,7 @@ procedure Summary();
 
 
 implementation
-uses Crt;
+uses GestionEcran;
 type
   ECustomException = Class(Exception);                       //Exception personnalisée
   Test = record                                              //Un test
@@ -57,16 +57,16 @@ var
 //Affiche le message de démarrage d'un test
 procedure Start(name : String);
 begin
-  TextBackground(Black);
-  TextColor(White);
+  couleurFond(Black);
+  couleurTexte(White);
   Writeln('----- Exécution du test : '+name+' ----- ');
 end;
 
 //Affichage d'un message d'erreur
 procedure Error(message : String);
 begin
-     TextBackground(Black);
-     TextColor(LightRed);
+     couleurFond(Black);
+     couleurTexte(LightRed);
      Write('----- ERROR ----- ');
      Writeln(message);
      readln;
@@ -113,11 +113,12 @@ end;
 procedure newTestsSeries(name : String);
 var
     serie : TestSeries;
+    index : integer;
 begin
   init();
 
   //Test si la série de test existe déjà
-  if Dict.TryGetData(name,serie) then Error('Une série de test porte déjà le nom : '+name)
+  if (Dict.IndexOf(name) > -1) then Error('Une série de test porte déjà le nom : '+name)
   //Crée la série de test
   else Dict.add(name,TestSeries.Create);
 end;
@@ -127,13 +128,15 @@ procedure newTest(nameOfSerie : String; nameOfTest : String);
 var
     serie : TestSeries;
     currentTest : Test;
+    index : integer;
 begin
   init();
 
   //Test si la série de test existe
-  if Dict.TryGetData(nameOfSerie,serie) then
+  if (Dict.IndexOf(nameOfSerie) > -1) then
   begin
-       if serie.TryGetData(nameOfTest,currentTest) then Error('Un test porte déjà le nom : '+nameOfTest+' dans la série : '+nameOfSerie)
+       serie := Dict.Data[Dict.IndexOf(nameOfSerie)];
+       if (serie.IndexOf(nameOfTest) > -1) then Error('Un test porte déjà le nom : '+nameOfTest+' dans la série : '+nameOfSerie)
        else if  nameOfTest = '' then  Error('Impossible de créer un test avec un nom vide !')
        else
          begin
@@ -251,8 +254,8 @@ var
     i,j:integer;
     nbPassed,nbFailed : integer;
 begin 
-      TextBackground(Black);
-      TextColor(White);
+      couleurFond(Black);
+      couleurTexte(White);
       writeln;
       Writeln('----- Résumé des tests -----');
       if Assigned(Dict) then
@@ -271,8 +274,8 @@ begin
                    end;
               end;
 
-           if(nbFailed=0) then TextColor(Green)
-           else TextColor(LightRed);
+           if(nbFailed=0) then couleurTexte(Green)
+           else couleurTexte(LightRed);
            Writeln();
            Writeln(' --> Série de tests : '+Dict.Keys[i]+'   ('+IntToStr(nbPassed)+' test(s) validé(s) / '+IntToStr(nbFailed)+' test(s) échoués)');
 
@@ -280,13 +283,13 @@ begin
               begin
                    if Dict.Data[i].Data[j].isDefine then
                    begin
-                        if Dict.Data[i].Data[j].isValidate then TextColor(Green)
-                        else TextColor(LightRed);
+                        if Dict.Data[i].Data[j].isValidate then couleurTexte(Green)
+                        else couleurTexte(LightRed);
                         Writeln('     --> Test '+Dict.Data[i].Data[j].name+' : '+Dict.Data[i].Data[j].message);
                    end;
               end;
-           readln;
            end;
+	   readln;
       end;
 end;
 end.
