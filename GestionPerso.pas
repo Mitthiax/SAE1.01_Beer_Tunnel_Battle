@@ -16,11 +16,20 @@ implementation
 uses
   SysUtils, Classes,combat,GestionEcran,unitMenuPrincipalLogic;
 
-{
-function gestionSante(Santemax;Sante;degatrecu):;// a modifier pour l'adapter au combat
+
+function gestionSante(Santemax:integer;Sante:integer;degatrecu:integer):integer; // besoin du combat fini svp
 begin
-  
-end;}
+  Sante-=degatrecu;
+  if Sante<=0 then
+  begin
+    Sante:=0;
+    mourrir();
+  end
+  else if Sante>=Santemax then
+  begin
+    Sante:=Santemax;
+  end; 
+end;
 
 //pour les test unitaires
 procedure InitialisationPersonnage();

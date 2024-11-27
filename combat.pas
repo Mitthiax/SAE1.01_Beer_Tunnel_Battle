@@ -27,11 +27,14 @@ begin
 end;
 
 function subirdegats(deffense:integer;couprecu:integer):integer;
+var
+degatrecureal:real;
 begin
   if random(30-level)<>0 then //on laisse une chance au joueur d'esquiver le coup(c'est petit un nain aussi, ça peut se baisser)
   begin
-    degatrecu:=couprecu+random(11-level);//Augmente les degats que l'ennemie inflige (bah oui pourquoi ça serais que dans 1 sens lui aussi il a le droit au coup critique)(baisse avec le niveau)
-    //degatrecu:=(degatrecu-(degatrecu*(deffense/100))div 1);//calcul les degats reçu avec le bonus de protection (svp faites en sortes que la deffense depasse pas 100 sinon il risque de give des points de vie)
+    degatrecureal:=couprecu+random(11-level);//Augmente les degats que l'ennemie inflige (bah oui pourquoi ça serais que dans 1 sens lui aussi il a le droit au coup critique)(baisse avec le niveau)
+    degatrecureal:=degatrecu-(degatrecu*(deffense/100));//calcul les degats reçu avec le bonus de protection (svp faites en sortes que la deffense depasse pas 100 sinon il risque de give des points de vie)
+    degatrecu:=round(degatrecureal);
     if degatrecu<0 then
     begin
       degatrecu:=0;
