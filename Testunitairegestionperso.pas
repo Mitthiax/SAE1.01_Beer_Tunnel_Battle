@@ -3,7 +3,7 @@ unit Testunitairegestionperso;
 {$mode objfpc}{$H+}
 
 interface
-procedure test(); 
+procedure testgestionperso();
 
 implementation
 uses
@@ -52,7 +52,7 @@ begin
 
 end;
 
-procedure test();
+procedure testgestionperso();
 begin
   testunitaireExperience();
   testunitaireMonterdeSante();

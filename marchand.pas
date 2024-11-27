@@ -3,40 +3,40 @@ unit marchand;
 {$mode objfpc}{$H+}
 
 interface
-  
+procedure achat(objet:integer);
+
+implementation
 uses
   SysUtils, Classes,Inventaire;
   
-implementation
+procedure achat(objet:integer);
 
-procedure achat();
-var
-objet:integer;
 begin
-  readln(objet);
   case objet of
     1:
     begin
-      if tab_invent[monnaie]>= 30 then
+      if invent[monnaie]>= 30 then
       begin
-        tab_invent[bombe]+=1;
-      end;
+        invent[bombe]+=1;
+        invent[monnaie]-=30;
+      end
       else
       begin
-        tab_invent[bombe]:=tab_invent[bombe];
+        invent[bombe]:=invent[bombe];
         //ecrire dans l'IHM "Sort de ma boutique sale pieçard"
       end;
     end;
   
     2:
      begin
-      if tab_invent[monnaie]>= 50 then
+      if invent[monnaie]>= 50 then
       begin
-        tab_invent[potion]+=1;
-      end;
+        invent[potion]+=1;
+        invent[monnaie]-=50;
+      end
       else
       begin
-        tab_invent[potion]:=tab_invent[potion];
+        invent[potion]:=invent[potion];
         //ecrire dans l'IHM "Sort de ma boutique sale pieçard"
       end;
     end;
