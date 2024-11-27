@@ -18,8 +18,10 @@ interface
 
   {
     Procedure qui équipe ou déséquipe un equipement au joueur
+    Parametre:
+      numero: integer; Numero de l'équipement à équiper
   }
-  procedure equiper();
+  procedure equiper(numero: integer);
 
   function estDisponibleEquipement(numero: integer): boolean;
 
@@ -93,45 +95,42 @@ implementation
 
   {
     Procedure qui équipe ou déséquipe un equipement au joueur
+    Parametre:
+      numero: integer; Numero de l'équipement à équiper
   }
-  procedure equiper();
-  var
-    choix: integer; // Choix du joueur dans le coffre
-
+  procedure equiper(numero: integer);
   begin
-    choix := coffreChoixEquipementIHM();
-
-    if estDisponible[choix] then
+    if estDisponible[numero] then
     begin
-      case choix of
+      case numero of
         1..6:
         begin
-          if armeEquipe = choix then armeEquipe := 0
-          else armeEquipe := choix;
+          if armeEquipe = numero then armeEquipe := 0
+          else armeEquipe := numero;
         end;
         
         7..9:
         begin
-          if armeEquipe = choix then casqueEquipe := 0
-          else casqueEquipe := choix;
+          if armeEquipe = numero then casqueEquipe := 0
+          else casqueEquipe := numero;
         end;
         
         10..12:
         begin
-          if armeEquipe = choix then plastronEquipe := 0
-          else plastronEquipe := choix;
+          if armeEquipe = numero then plastronEquipe := 0
+          else plastronEquipe := numero;
         end;
         
         13..15:
         begin
-          if armeEquipe = choix then jambieresEquipe := 0
-          else jambieresEquipe := choix;
+          if armeEquipe = numero then jambieresEquipe := 0
+          else jambieresEquipe := numero;
         end;
         
         16..18:
         begin
-          if armeEquipe = choix then bottesEquipe := 0
-          else bottesEquipe := choix;
+          if armeEquipe = numero then bottesEquipe := 0
+          else bottesEquipe := numero;
         end;
       end;
     end;
@@ -146,8 +145,12 @@ implementation
 
   begin
     coffreIHM();
-    choix := 
-    while choix 
+    choix := coffreChoixEquipementIHM();
+    while (1 <= choix) and (choix <= 18) do
+    begin
+      equiper(choix);
+      coffreIHM();
+    end;
   end;
 
   function estDisponibleEquipement(numero: integer): boolean;

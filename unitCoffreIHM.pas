@@ -19,7 +19,7 @@ interface
   
 implementation
   uses
-    libGestionEcran, unitCoffreConst, unitCoffreLogic;
+    GestionEcran, unitCoffreConst, unitCoffreLogic;
 
   {
     Procedure qui affiche la liste des armes
@@ -107,9 +107,7 @@ implementation
       integer; Choix du joueur dans le coffre
   }
   function coffreChoixEquipementIHM():integer;
-  choix =
   begin
-    while
     dessinerCadreXY(97, 35, 103, 37, simple, White, Black);
     deplacerCurseurXY(100, 36); readln(coffreChoixEquipementIHM);
   end;

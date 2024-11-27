@@ -12,9 +12,16 @@ exp:integer;
 level:integer;
 Sante:integer;
 Santemax:integer;
+
+
 implementation
 uses
-  SysUtils, Classes,combat,GestionEcran,unitMenuPrincipalLogic;
+  SysUtils, Classes,combat,GestionEcran,unitMenuPrincipalLogic, unitCoffreLogic;
+
+var
+  nom:string;
+  taille:integer;
+  genre:string;
 
 
 function gestionSante(Santemax:integer;Sante:integer;degatrecu:integer):integer; // besoin du combat fini svp
