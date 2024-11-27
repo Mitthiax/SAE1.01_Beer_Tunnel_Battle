@@ -68,6 +68,8 @@ implementation
   }
   function menuIHM():integer;
   begin
+    effacerEtColorierEcran(Black);
+    changerTailleConsole(200,40);
     dessinerCadreXY(80, 15, 120, 25, double, White, Black);
     deplacerCurseurXY(87, 18); write('##########################');
     deplacerCurseurXY(87, 19); write('#                        #');

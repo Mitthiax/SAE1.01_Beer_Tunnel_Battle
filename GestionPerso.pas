@@ -3,8 +3,10 @@ unit GestionPerso;
 {$mode objfpc}{$H+}
 
 interface
+procedure InitialisationPersonnage(nomPersonnage:string; taillePersonnage:integer; genrePersonnage:string);
 procedure InitialisationPersonnage();
 procedure Experience(expadd:integer);
+procedure mourrir();
 var
 exp:integer;
 level:integer;
@@ -12,24 +14,43 @@ Sante:integer;
 Santemax:integer;
 implementation
 uses
-  SysUtils, Classes;
+  SysUtils, Classes,combat,GestionEcran,unitMenuPrincipalLogic;
 
+{
+function gestionSante(Santemax;Sante;degatrecu):;// a modifier pour l'adapter au combat
+begin
+  
+end;}
 
-
+//pour les test unitaires
 procedure InitialisationPersonnage();
 begin
+  InitialisationPersonnage('', 0, '')
+end;
+//initialise le stats du personnage à sa création
+procedure InitialisationPersonnage(nomPersonnage:string; taillePersonnage:integer; genrePersonnage:string);
+begin
+  initialisationEquipement();
+
+  nom := nomPersonnage;
+  taille := taillePersonnage;
+  genre := genrePersonnage;
+
   level:=1;
   exp:=0;
   Santemax:=200;
   Sante:=Santemax;
 end;
-//ammiliore la santé avec le niveau
+
+//amiliore la santé avec le niveau
 function LevelSante(level:integer;Santemax:integer):integer;
 begin
   Santemax:=200+15*(level-1);
   Sante:=Santemax;
   LevelSante:=Santemax;
 end;
+
+
 procedure Experience(expadd:integer);//gère la monter en niveau du joueur
 begin
    if level<10 then //level max est 10
@@ -43,5 +64,14 @@ begin
      end;
     end;   
 end; 
-  
+  procedure mourrir();
+  begin
+    dessinerCadreXY(3, 25, 115, 36, double, LightGreen, White);
+    couleurTexte(Black);
+    deplacerCurseurXY(5, 27); Write('Vous ressentez une vive douleur, vous voyez le monde s’assombrir, les hurlements de vos ennemis s''éloignent ');
+    deplacerCurseurXY(5, 28); Write('peu à peu pour laisser place à un lourd silence sombre.');
+    deplacerCurseurXY(5, 29); Write('Il est temps pour vous de rejoindre vos ancêtres au valhnanain, vous êtes mort');
+    readln;
+    menu();
+  end;
 end.
