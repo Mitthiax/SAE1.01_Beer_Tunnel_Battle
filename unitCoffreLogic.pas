@@ -108,8 +108,13 @@ implementation
   var
     i: integer; // Variable de boucle
   begin
-    for i := 1 to 18 do estDisponible[i] := true;
+    for i := 1 to 18 do estDisponible[i] := false;
     debloquer(epeeCuivre);
+    debloquer(hacheCuivre);
+    debloquer(casqueCuivre);
+    debloquer(plastronCuivre);
+    debloquer(jambieresCuivre);
+    debloquer(bottesCuivre);
 
     armeEquipe := 0;
     casqueEquipe := 0;

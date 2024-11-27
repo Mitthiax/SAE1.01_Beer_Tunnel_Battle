@@ -52,9 +52,9 @@ interface
     jambieresFer = 14;
     jambieresMythril = 15;
     
-    botCuivre = 16;
-    botFer = 17;
-    botMythril = 18;
+    bottesCuivre = 16;
+    bottesFer = 17;
+    bottesMythril = 18;
 
 implementation
   {
