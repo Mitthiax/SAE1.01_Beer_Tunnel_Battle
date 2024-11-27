@@ -23,7 +23,7 @@ implementation
 
   begin
     choix := menuIHM();
-    //if choix = 1 then creerPartie()
-    //else quitter();
+    if choix = 1 then creerPartie()
+    else quitter();
   end;
 end.
