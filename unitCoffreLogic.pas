@@ -60,6 +60,21 @@ interface
   }
   function getBottesEquipe(): integer;
 
+  {
+    Fonction qui donne les points d'attaques de l'arme équipée
+    Sortie:
+      integer; Points d'attaques de l'arme équipée
+  }
+  function getAttaqueJoueur(): integer;
+
+
+  {
+    Fonction qui donne la sommes des points de défence des pièces d'armure équipées
+    Sortie:
+      integer; Points de défence des pièces d'armure équipées
+  }
+  function getDefenceJoueur(): integer;
+
 
 
 
@@ -83,7 +98,7 @@ implementation
   var
     i: integer; // Variable de boucle
   begin
-    for i := low(estDisponible) to high(estDisponible) do estDisponible[i] := false;
+    for i := 1 to 18 do estDisponible[i] := true;
     estDisponible[epeeCuivre] := true;
 
     armeEquipe := 0;
@@ -111,25 +126,25 @@ implementation
         
         7..9:
         begin
-          if armeEquipe = numero then casqueEquipe := 0
+          if casqueEquipe = numero then casqueEquipe := 0
           else casqueEquipe := numero;
         end;
         
         10..12:
         begin
-          if armeEquipe = numero then plastronEquipe := 0
+          if plastronEquipe = numero then plastronEquipe := 0
           else plastronEquipe := numero;
         end;
         
         13..15:
         begin
-          if armeEquipe = numero then jambieresEquipe := 0
+          if jambieresEquipe = numero then jambieresEquipe := 0
           else jambieresEquipe := numero;
         end;
         
         16..18:
         begin
-          if armeEquipe = numero then bottesEquipe := 0
+          if bottesEquipe = numero then bottesEquipe := 0
           else bottesEquipe := numero;
         end;
       end;
@@ -144,12 +159,14 @@ implementation
     choix: integer; // Choix du joueur dans le coffre
 
   begin
+    initialisationEquipement();
     coffreIHM();
     choix := coffreChoixEquipementIHM();
     while (1 <= choix) and (choix <= 18) do
     begin
       equiper(choix);
       coffreIHM();
+      choix := coffreChoixEquipementIHM();
     end;
   end;
 
@@ -206,6 +223,39 @@ implementation
   function getBottesEquipe(): integer;
   begin
     getBottesEquipe := bottesEquipe;
+  end;
+
+  {
+    Procedure qui débloque un équipement
+    Parametres:
+      numero: integer; Numero de l'équipement
+  }
+  procedure debloquer(numero: integer);
+  begin
+    estDisponible[numero] := true;
+  end;
+
+  {
+    Fonction qui donne les points d'attaques de l'arme équipée
+    Sortie:
+      integer; Points d'attaques de l'arme équipée
+  }
+  function getAttaqueJoueur(): integer;
+  begin
+    getAttaqueJoueur := getAttaqueArme(armeEquipe);
+  end;
+
+  {
+    Fonction qui donne la sommes des points de défence des pièces d'armure équipées
+    Sortie:
+      integer; Points de défence des pièces d'armure équipées
+  }
+  function getDefenceJoueur(): integer;
+  begin
+    getDefenceJoueur := getDefenceArmure(casqueEquipe)
+                      + getDefenceArmure(plastronEquipe)
+                      + getDefenceArmure(jambieresEquipe)
+                      + getDefenceArmure(bottesEquipe);
   end;
   
 end.

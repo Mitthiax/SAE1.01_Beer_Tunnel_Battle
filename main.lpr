@@ -1,8 +1,9 @@
 program main;
 {$mode objfpc}{$H+}
 uses
-  classes,sysutils,Testunitairegestionperso,unitMenuPrincipalLogic,GestionEcran,GestionPerso;
+  classes,sysutils, unitMenuPrincipalLogic, unitCoffreLogic;
 begin 
   randomize;
   menu();
+  ouvrirCoffre();
 end.

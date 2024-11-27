@@ -56,7 +56,7 @@ implementation
     deplacerCurseurXY(87, 21); write('#                        #');
     deplacerCurseurXY(87, 22); write('##########################');
     dessinerChope(125, 18);
-    attendre(1000);
+    attendre(250);
   end;
 
   {

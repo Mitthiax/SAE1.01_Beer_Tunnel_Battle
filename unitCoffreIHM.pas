@@ -34,6 +34,7 @@ implementation
       if i = getArmeEquipe() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
       deplacerCurseurXY(10, 7 + i*2); write(i, ' -  ', getNomEquipement(i));
+      deplacerCurseurXY(37, 7 + i*2); write('-> ', getAttaqueArme(i), ' points');
       couleurTexte(White)
     end;
   end;
@@ -53,6 +54,7 @@ implementation
       if i = getCasqueEquipe() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
       deplacerCurseurXY(75, 7 + i*2 - 12); write(i, ' -  ', getNomEquipement(i));
+      deplacerCurseurXY(102, 7 + i*2 - 12); write('-> ', getDefenceArmure(i), ' points');
       couleurTexte(White)
     end;
 
@@ -62,6 +64,7 @@ implementation
       if i = getPlastronEquipe() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
       deplacerCurseurXY(75, 7 + i*2 - 12); write(i, ' -  ', getNomEquipement(i));
+      deplacerCurseurXY(102, 7 + i*2 - 12); write('-> ', getDefenceArmure(i), ' points');
       couleurTexte(White)
     end;
 
@@ -71,6 +74,7 @@ implementation
       if i = getJambieresEquipe() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
       deplacerCurseurXY(75, 7 + i*2 - 12); write(i, ' -  ', getNomEquipement(i));
+      deplacerCurseurXY(102, 7 + i*2 - 12); write('-> ', getDefenceArmure(i), ' points');
       couleurTexte(White)
     end;
 
@@ -80,6 +84,7 @@ implementation
       if i = getBottesEquipe() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
       deplacerCurseurXY(75, 7 + i*2 - 12); write(i, ' -  ', getNomEquipement(i));
+      deplacerCurseurXY(102, 7 + i*2 - 12); write('-> ', getDefenceArmure(i), ' points');
       couleurTexte(White)
     end;
   end;
@@ -97,8 +102,6 @@ implementation
 
     afficherArmes();
     afficherArmures();
-
-    dessinerCadreXY(1, 30, 199, 39, simple, White, Black);
   end;
 
   {
