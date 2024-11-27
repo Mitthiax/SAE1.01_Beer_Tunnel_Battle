@@ -4,7 +4,5 @@ uses
   classes,sysutils,Testunitairegestionperso,unitMenuPrincipalLogic,GestionEcran,GestionPerso;
 begin 
   randomize;
-  //test();
-  //menu();
-  mourrir();
+  menu();
 end.
