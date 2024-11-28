@@ -54,13 +54,31 @@ implementation
   end;
 
   {
+    Procedure qui permet d'attaquer l'ennemie
+  }
+  procedure attaquer(var ennemie: TEnnemie);
+  var
+    degats: integer; // Dégats infligées à l'ennemie
+
+  begin
+    degats := degatInfliger();
+    ennemie.PV -= degats;
+    afficherAttaque(degats);
+  end;
+
+  {
     Procedure qui lance une bombe sur l'ennemie et lui inflige de dégats
     Parametres:
       ennemie: TEnnemie; Ennemie du combat
   }
   procedure lancerBombe(var ennemie: TEnnemie);
+  var
+    degats: integer; // Dégats infligées à l'ennemie
+    
   begin
-    ennemie.PV -= round(30 * randomReal(0.9, 1.1));
+    degats := round(30 * randomReal(0.9, 1.1));
+    ennemie.PV -= degats;
+    afficherBombe(degats);
   end;
 
   {
@@ -99,7 +117,7 @@ implementation
     choix := combatIHM(ennemie);
 
     case choix of
-      1: ennemie.PV -= degatInfliger();
+      1: attaquer(ennemie);
       2: lancerBombe(ennemie);
       3: boirePotion();
       4:

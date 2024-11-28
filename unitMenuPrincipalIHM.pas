@@ -67,23 +67,30 @@ implementation
       Choix de l'utilisateur
   }
   function menuIHM():integer;
+  var
+    choix: integer; // Choix du joueur
+
   begin
     effacerEtColorierEcran(Black);
     changerTailleConsole(200,40);
-    dessinerCadreXY(80, 15, 120, 25, double, White, Black);
-    deplacerCurseurXY(87, 18); write('##########################');
-    deplacerCurseurXY(87, 19); write('#                        #');
-    deplacerCurseurXY(87, 20); write('#  Beer Tunnels Battles  #');
-    deplacerCurseurXY(87, 21); write('#                        #');
-    deplacerCurseurXY(87, 22); write('##########################');
+    dessinerCadreXY(81, 15, 119, 25, double, White, Black);
+    deplacerCurseurXY(88, 18); write('##########################');
+    deplacerCurseurXY(88, 19); write('#                        #');
+    deplacerCurseurXY(88, 20); write('#  Beer Tunnels Battles  #');
+    deplacerCurseurXY(88, 21); write('#                        #');
+    deplacerCurseurXY(88, 22); write('##########################');
 
     dessinerChope(5, 32);
 
-    dessinerCadreXY(97, 35, 103, 37, simple, White, Black);
-    deplacerCurseurXY(90, 29); write('1 - Nouvelle partie');
-    deplacerCurseurXY(90, 31); write('2 - Quitter');
+    deplacerCurseurXY(91, 29); write('1/ Nouvelle partie');
+    deplacerCurseurXY(91, 31); write('0/ Quitter');
     
-    deplacerCurseurXY(100, 36); readln(menuIHM);
+    repeat
+      dessinerCadreXY(97, 35, 103, 37, simple, White, Black);
+      deplacerCurseurXY(100, 36); readln(choix);
+    until (0 <= choix) and (choix <= 1);
+
+    menuIHM := choix;
   end;
 
 end.

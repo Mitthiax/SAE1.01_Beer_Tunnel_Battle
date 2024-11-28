@@ -8,12 +8,45 @@ interface
     IHM des combats
   }
   function combatIHM(ennemie: TEnnemie): integer;
+
+  {
+    Procedure qui affiche le message d'attaque
+    Parametres:
+      degats: integer; Dégats infligées à l'ennemie
+  }
+  procedure afficherAttaque(degats: integer);
+
+
+  {
+    Procedure qui affiche le message d'attaque ratée
+  }
+  procedure afficherAttaqueRatee();
+
+
+  {
+    Procedure qui affiche le message de lancer de bombe
+    Parametres:
+      degats: integer; Dégats infligées à l'ennemie
+  }
+  procedure afficherBombe(degats: integer);
+
+
+  {
+    Procedure qui affiche le message de fuite réussi
+  }
+  procedure afficherFuite();
+
+
+  {
+    Procedure qui affiche le message de fuite ratée
+  }
+  procedure afficherFuiteRatee();
   
 
 
 implementation
   uses
-    SysUtils, Classes, GestionEcran,journalihm,;
+    SysUtils, Classes, GestionEcran,journalihm;
   
   {
     Fonction qui demande au joueur de choisir entre les options lors d'un tour de combat
@@ -52,6 +85,7 @@ implementation
   }
   procedure afficherMessageCombat(message: string);
   begin
+    dessinerCadreXY(100, 32, 110, 34, double, Black, Black);
     deplacerCurseurXY(0, 0); write(message);
     readln;
   end;
