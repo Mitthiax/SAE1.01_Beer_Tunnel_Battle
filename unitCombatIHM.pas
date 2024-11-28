@@ -63,7 +63,7 @@ implementation
   }
   procedure afficherAttaque(degats: integer);
   begin
-    afficherMessageCombat('Vous attaquer l''ennnemie et lui infliger ', degats, ' points de dégats.');
+    afficherMessageCombat('Vous attaquer l''ennnemie et lui infliger ' + intToStr(degats) + ' points de dégats.');
   end;
 
   {
@@ -79,14 +79,18 @@ implementation
     Parametres:
       degats: integer; Dégats infligées à l'ennemie
   }
-  procedure afficherBombe(degats);
+  procedure afficherBombe(degats: integer);
   begin
-    afficherMessageCombat('Vous lancer une bombe sur l''ennemie et lui infliger ', degats, ' points de dégats.')
+    afficherMessageCombat('Vous lancer une bombe sur l''ennemie et lui infliger ' + intToStr(degats) + ' points de dégats.')
   end;
 
   {
     Procedure qui affiche le message de fuite réussi
   }
+  procedure afficherFuite();
+  begin
+    afficherMessageCombat('Vous vous enfuyez.')
+  end;
 
   {
     Procedure qui affiche le message de fuite ratée
