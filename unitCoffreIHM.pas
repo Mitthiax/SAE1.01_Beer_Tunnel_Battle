@@ -17,25 +17,35 @@ interface
   }
   function coffreChoixEquipementIHM():integer;
   
+
+
+
+  
 implementation
   uses
-    GestionEcran, unitCoffreConst, unitCoffreLogic;
+    GestionEcran, unitCoffreConst, unitCoffreLogic, journalihm;
 
   {
     Procedure qui affiche la liste des armes
   }
   procedure afficherArmes();
+  const
+    X = 10; Y = 7; // Coordonnées de l'affichage
   var
     i: integer; // Variable de boucle
   begin
-    deplacerCurseurXY(10, 7); write('--- Vos armes ---');
+    deplacerCurseurXY(X, Y); write('--- Vos armes ---');
     for i := 1 to 6 do
     begin
+      // Choix de la couleur pous les équipements équipés ou bloquées
       if i = getArmeEquipe() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
-      deplacerCurseurXY(10, 7 + i*2); write(i, ' -  ', getNomEquipement(i));
-      deplacerCurseurXY(37, 7 + i*2); write('-> ', getAttaqueArme(i), ' points');
-      couleurTexte(White)
+      
+      // Affichage du nom et des points d'attaque
+      deplacerCurseurXY(X,      Y + i*2); write(i, ' -  ', getNomEquipement(i));
+      deplacerCurseurXY(X + 27, Y + i*2); write('-> ', getAttaqueArme(i), ' points');
+
+      couleurTexte(White);
     end;
   end;
 
@@ -43,49 +53,67 @@ implementation
     Procedure qui affiche la liste des casques
   }
   procedure afficherArmures();
+  const
+    X = 75; Y = 7; // Coordonnées de l'affichage
   var
     i: integer; // Variable de boucle
   begin
-    deplacerCurseurXY(75, 7); write('--- Vos pièces d''armure ---');
+    deplacerCurseurXY(X, Y); write('--- Vos pièces d''armure ---');
 
     // Liste des casques
     for i := 7 to 9 do
     begin
+      // Choix de la couleur pous les équipements équipés ou bloquées
       if i = getCasqueEquipe() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
-      deplacerCurseurXY(75, 7 + i*2 - 12); write(i, ' -  ', getNomEquipement(i));
-      deplacerCurseurXY(102, 7 + i*2 - 12); write('-> ', getDefenceArmure(i), ' points');
-      couleurTexte(White)
+      
+      // Affichage du nom et des points de defence
+      deplacerCurseurXY(X,      Y + i*2 - 12); write(i, ' -  ', getNomEquipement(i));
+      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', getDefenceArmure(i), ' points');
+
+      couleurTexte(White);
     end;
 
     // Liste des plastron
     for i := 10 to 12 do
     begin
+      // Choix de la couleur pous les équipements équipés ou bloquées
       if i = getPlastronEquipe() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
-      deplacerCurseurXY(75, 7 + i*2 - 12); write(i, ' -  ', getNomEquipement(i));
-      deplacerCurseurXY(102, 7 + i*2 - 12); write('-> ', getDefenceArmure(i), ' points');
-      couleurTexte(White)
+      
+      // Affichage du nom et des points de defence
+      deplacerCurseurXY(X,      Y + i*2 - 12); write(i, ' -  ', getNomEquipement(i));
+      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', getDefenceArmure(i), ' points');
+
+      couleurTexte(White);
     end;
 
     // Liste des jambières
     for i := 13 to 15 do
     begin
+      // Choix de la couleur pous les équipements équipés ou bloquées
       if i = getJambieresEquipe() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
-      deplacerCurseurXY(75, 7 + i*2 - 12); write(i, ' -  ', getNomEquipement(i));
-      deplacerCurseurXY(102, 7 + i*2 - 12); write('-> ', getDefenceArmure(i), ' points');
-      couleurTexte(White)
+      
+      // Affichage du nom et des points de defence
+      deplacerCurseurXY(X,      Y + i*2 - 12); write(i, ' -  ', getNomEquipement(i));
+      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', getDefenceArmure(i), ' points');
+
+      couleurTexte(White);
     end;
 
     // Liste des bottes
     for i := 16 to 18 do
     begin
+      // Choix de la couleur pous les équipements équipés ou bloquées
       if i = getBottesEquipe() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
-      deplacerCurseurXY(75, 7 + i*2 - 12); write(i, ' -  ', getNomEquipement(i));
-      deplacerCurseurXY(102, 7 + i*2 - 12); write('-> ', getDefenceArmure(i), ' points');
-      couleurTexte(White)
+      
+      // Affichage du nom et des points de defence
+      deplacerCurseurXY(X,      Y + i*2 - 12); write(i, ' -  ', getNomEquipement(i));
+      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', getDefenceArmure(i), ' points');
+
+      couleurTexte(White);
     end;
   end;
 
@@ -105,6 +133,7 @@ implementation
 
     afficherArmes();
     afficherArmures();
+    journal();
   end;
 
   {
@@ -113,9 +142,17 @@ implementation
       integer; Choix du joueur dans le coffre
   }
   function coffreChoixEquipementIHM():integer;
+  var
+    choix: integer; // Choix du joueur dans le coffre
   begin
-    dessinerCadreXY(97, 35, 103, 37, simple, White, Black);
-    deplacerCurseurXY(100, 36); readln(coffreChoixEquipementIHM);
+    // On redemande jusqu'a ce que le choix soit valide
+    repeat
+        dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
+        deplacerCurseurXY(105, 33); readln(choix);
+    until (0 <= choix) and (choix <= 18);
+    couleurTexte(White);
+    
+    coffreChoixEquipementIHM := choix
   end;
   
 end.

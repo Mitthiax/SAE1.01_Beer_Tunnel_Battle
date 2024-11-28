@@ -26,8 +26,10 @@ implementation
     
   begin
     repeat
-      readln(choix);
+      dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
+      deplacerCurseurXY(105, 33); readln(choix);
     until ((1 <= choix) and (choix <= 4));
+    couleurTexte(White);
     choixCombatIHM := choix;
   end;
 
@@ -46,15 +48,23 @@ implementation
   end;
 
   {
+    Procedure qui affiche l'action qui vient de se dérouler
+  }
+  procedure afficherAction(message: string);
+  begin
+    deplacerCurseurXY(0, 0);
+  end;
+
+  {
     IHM des combats
   }
   function combatIHM(ennemie: TEnnemie): integer;
   begin
     dessinerCadreXY(1, 0, 198, 39, simple, White, Black);
-    deplacerCurseurXY(20, 30); write('1 - Attaquer');
-    deplacerCurseurXY(20, 31); write('2 - Lancer une bombe');
-    deplacerCurseurXY(20, 32); write('3 - Boire une potion');
-    deplacerCurseurXY(20, 33); write('4 - Fuire');
+    deplacerCurseurXY(20, 29); write('1 - Attaquer');
+    deplacerCurseurXY(20, 30); write('2 - Lancer une bombe');
+    deplacerCurseurXY(20, 31); write('3 - Boire une potion');
+    deplacerCurseurXY(20, 32); write('4 - Fuire');
 
     afficherEnnemie(ennemie);
     journal();

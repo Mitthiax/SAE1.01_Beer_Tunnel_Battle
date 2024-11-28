@@ -14,7 +14,7 @@ interface
 
 implementation
   uses
-    SysUtils, Classes, GestionPerso, unitCoffreLogic, unitCombatIHM,gestionbuff;
+    SysUtils, Classes, GestionPerso, unitCoffreLogic, unitCombatIHM,libRandom,gestionbuff;
 
     
   //fonction qui calcule les dégats infliger à l'ennemie 
@@ -63,9 +63,14 @@ implementation
     
   end;
 
+  {
+    Fonction qui permet de tenter une fuite avec une taux de réussite de 20%
+    Sortie:
+      boolean; True si la fuite est réussi, false sinon
+  }
   function tenterFuite(): boolean;
   begin
-    tenterFuite := false;
+    tenterFuite := randomReal(1) < 0.20
   end;
   
   {
