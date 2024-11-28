@@ -53,14 +53,22 @@ implementation
     subirdegats:=round(degatrecureal);
   end;
 
-  procedure lancerBombe();
+  {
+    Procedure qui lance une bombe sur l'ennemie et lui inflige de dégats
+    Parametres:
+      ennemie: TEnnemie; Ennemie du combat
+  }
+  procedure lancerBombe(var ennemie: TEnnemie);
   begin
-    
+    ennemie.PV -= round(30 * randomReal(0.9, 1.1));
   end;
 
+  {
+    Procedure qui fait boire une potion qui soigne le joueur
+  }
   procedure boirePotion();
   begin
-    
+    soignerJoueur();
   end;
 
   {
@@ -70,7 +78,7 @@ implementation
   }
   function tenterFuite(): boolean;
   begin
-    tenterFuite := randomReal(1) < 0.20
+    tenterFuite := randomReal(1) < 0.20;
   end;
   
   {
@@ -91,8 +99,8 @@ implementation
     choix := combatIHM(ennemie);
 
     case choix of
-      1: ennemie.PV-=degatInfliger();
-      2: lancerBombe();
+      1: ennemie.PV -= degatInfliger();
+      2: lancerBombe(ennemie);
       3: boirePotion();
       4:
       begin

@@ -30,7 +30,7 @@ implementation
   }
   procedure afficherArmes();
   const
-    X = 10; Y = 7; // Coordonnées de l'affichage
+    X = 10; Y = 5; // Coordonnées de l'affichage
   var
     i: integer; // Variable de boucle
   begin
@@ -54,7 +54,7 @@ implementation
   }
   procedure afficherArmures();
   const
-    X = 75; Y = 7; // Coordonnées de l'affichage
+    X = 75; Y = 5; // Coordonnées de l'affichage
   var
     i: integer; // Variable de boucle
   begin

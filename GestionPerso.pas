@@ -8,6 +8,8 @@ procedure InitialisationPersonnage();
 procedure Experience(expadd:integer);
 procedure mourrir();
 procedure gestionSante(degatrecu:integer);
+procedure soignerJoueur();
+procedure soignerJoueur(pvrestorer:integer);
 
 //On iinitialise les variables dans l'interface pour les utilisé dans d'autre unité comme journalihm
 var
@@ -96,6 +98,14 @@ begin
     mourrir();
   end;
 end;
+
+{
+  Procedure qui redonne tous ses points de vie au joueur
+}
+procedure soignerJoueur();
+begin
+  Sante:=Santemax;
+end; 
 
 //Permet de soigner le joueur
 procedure soignerJoueur(pvrestorer:integer);

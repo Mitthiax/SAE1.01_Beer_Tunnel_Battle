@@ -50,9 +50,50 @@ implementation
   {
     Procedure qui affiche l'action qui vient de se dérouler
   }
-  procedure afficherAction(message: string);
+  procedure afficherMessageCombat(message: string);
   begin
-    deplacerCurseurXY(0, 0);
+    deplacerCurseurXY(0, 0); write(message);
+    readln;
+  end;
+
+  {
+    Procedure qui affiche le message d'attaque
+    Parametres:
+      degats: integer; Dégats infligées à l'ennemie
+  }
+  procedure afficherAttaque(degats: integer);
+  begin
+    afficherMessageCombat('Vous attaquer l''ennnemie et lui infliger ', degats, ' points de dégats.');
+  end;
+
+  {
+    Procedure qui affiche le message d'attaque ratée
+  }
+  procedure afficherAttaqueRatee();
+  begin
+    afficherMessageCombat('Vous attaquer l''ennemie mais vous ratez votre attaque.');
+  end;
+
+  {
+    Procedure qui affiche le message de lancer de bombe
+    Parametres:
+      degats: integer; Dégats infligées à l'ennemie
+  }
+  procedure afficherBombe(degats);
+  begin
+    afficherMessageCombat('Vous lancer une bombe sur l''ennemie et lui infliger ', degats, ' points de dégats.')
+  end;
+
+  {
+    Procedure qui affiche le message de fuite réussi
+  }
+
+  {
+    Procedure qui affiche le message de fuite ratée
+  }
+  procedure afficherFuiteRatee();
+  begin
+    afficherMessageCombat('Vous tenter de fuire mais vous echouez.')
   end;
 
   {
