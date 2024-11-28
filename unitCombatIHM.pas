@@ -13,7 +13,7 @@ interface
 
 implementation
   uses
-    SysUtils, Classes, GestionEcran;
+    SysUtils, Classes, GestionEcran,journalihm;
   
   {
     Fonction qui demande au joueur de choisir entre les options lors d'un tour de combat
@@ -57,6 +57,7 @@ implementation
     deplacerCurseurXY(20, 33); write('4 - Fuire');
 
     afficherEnnemie(ennemie);
+    journal();
 
     combatIHM := choixCombatIHM();
   end;
