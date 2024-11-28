@@ -10,7 +10,7 @@ procedure afficherInterfaceTaverne();
 implementation
 
 uses
-  SysUtils, Classes, GestionEcran, unitTaverne;
+  SysUtils, Classes, GestionEcran, unitTaverne,journalihm,GestionPerso,unitBeersIhm;
 
 //Affichague du titre et du texte pincipal de la taverne
 procedure afficherTextePrincipalTaverne();
@@ -33,14 +33,7 @@ begin
   deplacerCurseurXY(7, 16); write('Que puis-je pour vous mon brave ?');
 end;
 
-//Procedure qui affiche le journal du joueur
-procedure journal();
-begin
-  dessinerCadreXY(120, 1, 197, 37, simple, DarkGray, Black);
-  dessinerCadreXY(135, 3, 185, 3, double, DarkGray, Black);
-  couleurTexte(White);
-  deplacerCurseurXY(152, 3); write('Journal de Bords');
-end;
+
 
 
 //Procedure qui affiche le choix des actions
@@ -63,6 +56,11 @@ procedure afficherInterfaceTaverne();
 var
   choix: Integer;
 begin
+  if nom='Alexian' then
+  begin
+    afficherInterface();
+    deplacerCurseurXY(9,34);Write('Vous êtes banni de la taverne vous ne pouvez pas y rentrer');
+  end;
   changerTailleConsole(200,40);
   afficherTextePrincipalTaverne();
   journal();

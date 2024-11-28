@@ -21,7 +21,7 @@ var
 
 implementation
 uses
-  SysUtils, Classes,combat,GestionEcran,unitMenuPrincipalLogic, unitCoffreLogic,Inventaire,journalihm;
+  SysUtils, Classes,combat,GestionEcran,unitMenuPrincipalLogic, unitCoffreLogic,Inventaire,journalihm,gestionbuff;
 
 
 
@@ -39,6 +39,7 @@ begin
   Santemax:=200;
   Sante:=Santemax;
   InventaireInit();
+  resetBuffs();
 end;
 
 //pour les test unitaires
@@ -51,6 +52,7 @@ end;
 function LevelSante(level:integer):integer;
 begin
   Santemax:=200+15*(level-1);
+  getBuffSanteeMax();
   Sante:=Santemax;
   LevelSante:=Santemax;
 end;

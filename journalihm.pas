@@ -13,7 +13,7 @@ uses
 procedure journalperso();
 begin
   deplacerCurseurXY(150,6);write('Nom : ',nom);
-  deplacerCurseurXY(150,7);write('Taille : ',taille div 100, 'm', taille mod 100);
+  deplacerCurseurXY(150,7);write('Taille : ',taille div 100, 'm ', taille mod 100,'cm');
   deplacerCurseurXY(150,8);write('Genre : ',genre);
   deplacerCurseurXY(180,6);write('PV : ',Sante,'/',Santemax);
   deplacerCurseurXY(180,7);write('Niveau : ',level,'/10');//affiche le lever face au level max

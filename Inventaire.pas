@@ -4,8 +4,8 @@ unit inventaire;
 
 interface
 type//tableau qui permet l'inventaire
-cont_invent=(cuivre,fer,mythril,bombe,potion,monnaie);
-tab_invent= array[cuivre..monnaie] of integer;
+  cont_invent=(cuivre,fer,mythril,bombe,potion,monnaie);
+  tab_invent= array[cuivre..monnaie] of integer;
 
 //commme dans l'unité gestion perso ici on déclare les variable dans l'interface car elles sont réutiliser dans l'ihm ou dans d'autre unité
 var
