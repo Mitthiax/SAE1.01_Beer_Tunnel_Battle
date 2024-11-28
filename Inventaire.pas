@@ -9,11 +9,6 @@ type//tableau qui permet l'inventaire
 
 //commme dans l'unité gestion perso ici on déclare les variable dans l'interface car elles sont réutiliser dans l'ihm ou dans d'autre unité
 var
-  armeequip:string;
-  botte:string;
-  casque:string;
-  Jambiere:string;
-  Plastron:string;
   invent:tab_invent;
 procedure InventaireInit();
 

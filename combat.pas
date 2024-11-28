@@ -14,7 +14,7 @@ interface
 
 implementation
   uses
-    SysUtils, Classes, GestionPerso, unitCoffreLogic, unitCombatIHM,libRandom,gestionbuff;
+    SysUtils, Classes, GestionPerso, unitCoffreLogic, unitCombatIHM, libRandom, gestionbuff, Inventaire, unitBeersIhm;
 
     
   //fonction qui calcule les dégats infliger à l'ennemie 
@@ -64,6 +64,21 @@ implementation
     degats := degatInfliger();
     ennemie.PV -= degats;
     afficherAttaque(degats);
+  end;
+
+  {
+    Procedure qui permet à l'ennemie d'attaquer le joueur
+    Parametres:
+      ennemie: TEnnemie; Ennemie du combat
+  }
+  procedure attaqueEnnemie(var ennemie: TEnnemie);
+  var
+    degats: integer; // Dégats subits par le joueur
+    
+  begin
+    degats := subirdegats(ennemie.degats);
+    gestionSante(degats);
+    afficherAttaqueEnnemie(degats);
   end;
 
   {
@@ -125,17 +140,52 @@ implementation
         fuiteReussie := tenterFuite();
         if fuiteReussie then estTermine := true
         // Si il y a eu tentative de fuite ratée, l'ennemie attaque
-        else gestionSante(subirdegats(ennemie.degats));
+        else attaqueEnnemie(ennemie);
       end;
     end;
 
     // On termine le combat si l'ennemie est mort
     if ennemie.PV <= 0 then estTermine := true;
 
-    // Dans tous les cas, si le combat n'est pas terminé, l'ennemie attaque
-    if not estTermine then gestionSante(subirdegats(ennemie.degats));
+    // Si le combat n'est pas terminé, l'ennemie attaque
+    if not estTermine then attaqueEnnemie(ennemie);
 
     tourCombat := estTermine
+  end;
+
+  {
+    Procedure qui donnne au joueur ce qu'il a gagné en gagnant le combat
+    Parametres:
+      ennemie: TEnnemie; Ennemie tué
+  }
+  procedure gagneCombat(var ennemie: TEnnemie);
+  var
+    cuivreGagne    : integer; // Cuivre gagné par le joueur
+    ferGagne       : integer; // Fer gagné par le joueur
+    mythrilGagne   : integer; // Mythril gagné par le joueur
+    monnaieGagne   : integer; // Monnaie gagnée par le joueur
+    experienceGagne: integer; // Experience gagnée par le joueur
+
+  begin
+    cuivreGagne     := randomInteger(7, 26);
+    ferGagne        := randomInteger(5, 16);
+    mythrilGagne    := randomInteger(0, 5);
+    monnaieGagne    := round(ennemie.gold * randomReal(0.75, 1.25));
+    experienceGagne := round(ennemie.XP   * randomReal(0.75, 1.25));
+
+    invent[cuivre]  += cuivreGagne;
+    invent[fer]     += ferGagne;
+    invent[mythril] += mythrilGagne;
+    invent[monnaie] += monnaieGagne;
+    Experience(experienceGagne);
+    
+    afficherRecompensesCombat(
+      cuivreGagne,
+      ferGagne,
+      mythrilGagne,
+      monnaieGagne,
+      experienceGagne
+    );
   end;
 
   {
@@ -149,8 +199,13 @@ implementation
 
   begin
     estTermine := false;
+
+    // Initialisation des valeur points de vie de l'ennemie à une valeur plus aléatoire
+    ennemie.degats := round(ennemie.degats * randomReal(0.75, 1.25));
+
     while (not estTermine) do estTermine := tourCombat(ennemie);
-    if ennemie.PV <= 0 then write('Gagné');
+    if ennemie.PV <= 0 then gagneCombat(ennemie);
+    afficherInterface();
   end;
 
 
