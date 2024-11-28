@@ -86,7 +86,8 @@ implementation
   procedure afficherMessageCombat(message: string);
   begin
     dessinerCadreXY(100, 32, 110, 34, double, Black, Black);
-    deplacerCurseurXY(0, 0); write(message);
+    couleurTexte(White);
+    deplacerCurseurXY(70, 32); write(message);
     readln;
   end;
 
@@ -97,7 +98,8 @@ implementation
   }
   procedure afficherAttaque(degats: integer);
   begin
-    afficherMessageCombat('Vous attaquer l''ennnemie et lui infliger ' + intToStr(degats) + ' points de dégats.');
+    if degats = 0 then afficherMessageCombat('Vous attaquer l''ennnemie mais il esquive votre attaque, vous ne lui infligez aucun dégats.')
+    else afficherMessageCombat('Vous attaquer l''ennnemie et lui infliger ' + intToStr(degats) + ' points de dégats.');
   end;
 
   {

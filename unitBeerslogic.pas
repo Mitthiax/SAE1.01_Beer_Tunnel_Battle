@@ -38,14 +38,12 @@ end;
 
 procedure AllerChambre;
 begin
-  WriteLn('Vous allez à votre chambre.');
   // Logique spécifique à la chambre
   ouvrirCoffre()
 end;
 
 procedure AllerMarchand;
 begin
-  WriteLn('Vous allez aux marchands.');
   // Logique spécifique aux marchands
   afficherInterfaceMarchand();
 end;
@@ -63,15 +61,7 @@ end;
 
 procedure AllerMine;
 begin
-  WriteLn('Vous allez aux mines.');
   // Logique spécifique aux mines
   commencerCombat(GOBLIN);
-end;
-
-
-//Procedure qui affiche le journal du joueur avec tout les informations sur sont personnage
-procedure afficherJournal();
-begin
-  //afficherJournalIHM();
 end;
 end.
