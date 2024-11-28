@@ -31,11 +31,19 @@ implementation
   end;
 
   {
+    Procedure qui affiche l'ennemie
+  }
+  procedure afficherEnnemie();
+  begin
+    
+  end;
+
+  {
     IHM des combats
   }
   function combatIHM(): integer;
   begin
-    effacerEcran();
+    dessinerCadreXY(1, 0, 198, 39, simple, White, Black);
     deplacerCurseurXY(20, 30); write('1 - Attaquer');
     deplacerCurseurXY(20, 31); write('2 - Lancer une bombe');
     deplacerCurseurXY(20, 32); write('3 - Boire une potion');

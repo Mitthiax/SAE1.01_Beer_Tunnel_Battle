@@ -20,7 +20,7 @@ implementation
     deplacerCurseurXY(93, 2); write('Nouvelle partie');
 
     deplacerCurseurXY(70, 10); write('Quel est votre nom ? '); readln(nom);
-    deplacerCurseurXY(70, 12); write('Quel est votre taille ? (en cm) '); readln(nom);
+    deplacerCurseurXY(70, 12); write('Quel est votre taille ? (en cm) '); readln(taille);
     deplacerCurseurXY(70, 14); write('Quel est votre Genre ? '); readln(genre);
   end;
   
