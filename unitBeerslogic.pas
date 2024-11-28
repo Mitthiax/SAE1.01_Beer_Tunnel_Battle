@@ -21,7 +21,7 @@ procedure allerMine();
   
 implementation
   uses
-  SysUtils, Classes, unitBeersIhm, unitTaverneIHM, unitTaverne, combat, unitCombatConst, unitCoffreLogic;
+  SysUtils, Classes, unitBeersIhm, unitTaverneIHM, unitTaverne, combat, unitCombatConst, unitCoffreLogic,unitMarchandIHM;
 
 //Procedure qui gere les choix fait par le joueur
 procedure gererChoix(choix : Integer);
@@ -47,6 +47,7 @@ procedure AllerMarchand;
 begin
   WriteLn('Vous allez aux marchands.');
   // Logique spécifique aux marchands
+  afficherInterfaceMarchand();
 end;
 
 procedure AllerForge;

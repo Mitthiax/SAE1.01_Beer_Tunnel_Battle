@@ -10,7 +10,7 @@ procedure afficherInterfaceMarchand();
 implementation
 
 uses
-  SysUtils, Classes, GestionEcran, unitMarchand, unitBeersIhm,journalihm;
+  SysUtils, Classes, GestionEcran, marchand, unitBeersIhm,journalihm;
 
 //Affichague du titre et du texte pincipal de la taverne
 procedure afficherTextePrincipalMarchand();
