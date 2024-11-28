@@ -3,10 +3,11 @@ unit unitCombatIHM;
 {$mode objfpc}{$H+}
 
 interface
+  uses unitCombatConst;
   {
     IHM des combats
   }
-  function combatIHM(): integer;
+  function combatIHM(ennemie: TEnnemie): integer;
   
 
 
@@ -31,14 +32,31 @@ implementation
   end;
 
   {
+    Procedure qui affiche l'ennemie
+  }
+  procedure afficherEnnemie(var ennemie: TEnnemie);
+  const
+    X = 50; Y = 5; // Coordonnées de l'affichage
+  begin
+    dessinerCadreXY(X, Y, X+21, Y+5, simple, White, Black);
+    dessinerCadreXY(X+5, Y+1, X+16, Y+1, double, White, Black);
+    deplacerCurseurXY(X+11 - length(ennemie.nom) div 2, Y+1); write(ennemie.nom);
+    deplacerCurseurXY(X+2, Y+3); write('PV : ', ennemie.PV);
+
+  end;
+
+  {
     IHM des combats
   }
-  function combatIHM(): integer;
+  function combatIHM(ennemie: TEnnemie): integer;
   begin
+    dessinerCadreXY(1, 0, 198, 39, simple, White, Black);
     deplacerCurseurXY(20, 30); write('1 - Attaquer');
     deplacerCurseurXY(20, 31); write('2 - Lancer une bombe');
     deplacerCurseurXY(20, 32); write('3 - Boire une potion');
     deplacerCurseurXY(20, 33); write('4 - Fuire');
+
+    afficherEnnemie(ennemie);
 
     combatIHM := choixCombatIHM();
   end;

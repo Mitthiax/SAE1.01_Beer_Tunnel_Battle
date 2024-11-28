@@ -83,7 +83,7 @@ implementation
     estTermine := false;
     fuiteReussie := false;
 
-    choix := combatIHM();
+    choix := combatIHM(ennemie);
 
     case choix of
       1: ennemie.PV-=degatInfliger();
