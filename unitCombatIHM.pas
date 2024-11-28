@@ -35,6 +35,7 @@ implementation
   }
   function combatIHM(): integer;
   begin
+    effacerEcran();
     deplacerCurseurXY(20, 30); write('1 - Attaquer');
     deplacerCurseurXY(20, 31); write('2 - Lancer une bombe');
     deplacerCurseurXY(20, 32); write('3 - Boire une potion');
