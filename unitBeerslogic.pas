@@ -6,8 +6,6 @@ interface
 //Permet de savoir quel choix est fait
 procedure gererChoix(choix : Integer);
 //Affichage du journal du joueur avec tout les informations sur sont personnage
-procedure afficherJournal();
-//Permet d'aller a la chambre
 procedure allerChambre();
 //Permet d'aller au marchant
 procedure AllerMarchand();
