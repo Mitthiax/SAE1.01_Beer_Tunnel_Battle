@@ -12,7 +12,7 @@ implementation
 uses
   SysUtils, Classes, GestionEcran, unitTaverne;
 
-//Affichague du titre et du texte pincipal du hall
+//Affichague du titre et du texte pincipal de la taverne
 procedure afficherTextePrincipalTaverne();
 begin
   //En-tete

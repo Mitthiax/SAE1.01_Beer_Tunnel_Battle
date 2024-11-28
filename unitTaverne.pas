@@ -11,12 +11,12 @@ procedure afficherJournal();
 procedure boireBiere();
 //Permet d'aller manger
 procedure manger();
-//Permet de quitter la taverne
-procedure quitter();
+//Permet de quittez la taverne
+procedure quittez();
   
 implementation
 uses
-  SysUtils, Classes, unitBeersIhm;
+  SysUtils, Classes, unitBeersIhm, unitTaverneAnecdote, unitTaverneAnecdoteIHM;
 
 
 //Procedure qui gere les choix fait par le joueur a la taverne
@@ -25,13 +25,13 @@ begin
   case choix of 
     1 : boireBiere();
     2 : manger();
-    3 : quitter();
+    3 : quittez();
   end;
 end;
 
 procedure boireBiere();
 begin
-  WriteLn('Vous allez boire une bière.');
+  afficherInterfaceBiere(); // Appel de l'interface de consommation biere
 end;
 
 procedure manger();
@@ -39,7 +39,7 @@ begin
   WriteLn('Vous allez manger.');
 end;
 
-procedure quitter();
+procedure quittez();
 begin
   afficherInterface(); // Appel de l'interface du hall pour revenir au hall
 end;
