@@ -177,13 +177,12 @@ implementation
     initialisationEquipement();
     coffreIHM();
     choix := coffreChoixEquipementIHM();
-    while (1 <= choix) and (choix <= 18) do
+    while (choix <> 0) do
     begin
       equiper(choix);
       coffreIHM();
       choix := coffreChoixEquipementIHM();
     end;
-    // Si le choix n'est pas un équipement, on quitte le coffre
     afficherInterface();
   end;
 
