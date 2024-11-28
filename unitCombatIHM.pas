@@ -13,7 +13,7 @@ interface
 
 implementation
   uses
-    SysUtils, Classes, GestionEcran,journalihm;
+    SysUtils, Classes, GestionEcran,journalihm,;
   
   {
     Fonction qui demande au joueur de choisir entre les options lors d'un tour de combat

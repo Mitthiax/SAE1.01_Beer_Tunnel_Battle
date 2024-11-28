@@ -10,7 +10,7 @@ procedure afficherInterfaceMarchand();
 implementation
 
 uses
-  SysUtils, Classes, GestionEcran, unitMarchand, unitBeersIhm;
+  SysUtils, Classes, GestionEcran, unitMarchand, unitBeersIhm,journalihm;
 
 //Affichague du titre et du texte pincipal de la taverne
 procedure afficherTextePrincipalMarchand();
@@ -36,14 +36,7 @@ begin
   deplacerCurseurXY(7, 18); Write('Thalnir " Vous trouverez tout ce qu''il vous faut pour vos contrats ici aventurier ! "');
 end;
 
-//Procedure qui affiche le journal du joueur
-procedure journal();
-begin
-  dessinerCadreXY(120, 1, 197, 37, simple, DarkGray, Black);
-  dessinerCadreXY(135, 3, 185, 3, double, DarkGray, Black);
-  couleurTexte(White);
-  deplacerCurseurXY(152, 3); write('Journal de Bords');
-end;
+
 
 
 //Procedure qui affiche le choix des actions
