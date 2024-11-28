@@ -13,7 +13,7 @@ interface
 
 implementation
   uses
-    SysUtils, Classes, GestionEcran,journalihm;
+    SysUtils, Classes, GestionEcran,journalihm,;
   
   {
     Fonction qui demande au joueur de choisir entre les options lors d'un tour de combat
@@ -79,7 +79,7 @@ implementation
     Parametres:
       degats: integer; Dégats infligées à l'ennemie
   }
-  procedure afficherBombe(degats);
+  procedure afficherBombe(degats:integer);
   begin
     afficherMessageCombat('Vous lancer une bombe sur l''ennemie et lui infliger ', degats, ' points de dégats.')
   end;
