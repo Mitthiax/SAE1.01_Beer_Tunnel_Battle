@@ -8,21 +8,22 @@ procedure InitialisationPersonnage();
 procedure Experience(expadd:integer);
 procedure mourrir();
 procedure gestionSante(degatrecu:integer);
-var
-exp:integer;
-level:integer;
-Sante:integer;
-Santemax:integer;
 
+//on déclare les variables dans l'interface car elles sont réutilisé dans d'autre unité comme journalihm
+var
+  exp:integer;
+  level:integer;
+  Sante:integer;
+  Santemax:integer;
+  nom:string;
+  taille:integer;
+  genre:string;
 
 implementation
 uses
   SysUtils, Classes,combat,GestionEcran,unitMenuPrincipalLogic, unitCoffreLogic,Inventaire;
 
-var
-  nom:string;
-  taille:integer;
-  genre:string;
+
 
 //initialise le stats du personnage à sa création
 procedure InitialisationPersonnage(nomPersonnage:string; taillePersonnage:integer; genrePersonnage:string);

@@ -9,7 +9,7 @@ procedure afficherInterface();
 implementation
   
 uses
-  SysUtils, Classes, GestionEcran, unitBeerslogic, unitTaverneIHM;
+  SysUtils, Classes, GestionEcran, unitBeerslogic, unitTaverneIHM,journalihm;
 
 //Affichague du titre et du texte pincipal du hall
 procedure afficherTextePrincipal();
@@ -33,14 +33,8 @@ begin
   deplacerCurseurXY(5, 18); Write('guilde où vous pourriez vous reposer ou prendre de nouveau contrat.');
 end;
 
-//Procedure qui affiche le journal du joueur
-procedure journal();
-begin
-  dessinerCadreXY(120, 1, 197, 37, simple, DarkGray, Black);
-  dessinerCadreXY(135, 3, 185, 3, double, DarkGray, Black);
-  couleurTexte(White);
-  deplacerCurseurXY(152, 3); write('Journal de Bords');
-end;
+
+
 
 
 //Procedure qui affiche le choix des actions
