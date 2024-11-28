@@ -56,10 +56,12 @@ procedure afficherInterfaceTaverne();
 var
   choix: Integer;
 begin
+  //Empêche les gens du nom d'alexian de rentrer dans la taverne(fallait pas manger tout les pancakes)
   if nom='Alexian' then
   begin
+    deplacerCurseurXY(9,35);Write('Vous êtes banni de la taverne vous ne pouvez pas y rentrer');
+    readln;
     afficherInterface();
-    deplacerCurseurXY(9,34);Write('Vous êtes banni de la taverne vous ne pouvez pas y rentrer');
   end;
   changerTailleConsole(200,40);
   afficherTextePrincipalTaverne();

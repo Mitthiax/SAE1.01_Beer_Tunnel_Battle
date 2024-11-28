@@ -7,7 +7,7 @@ procedure achat(objet:integer);
 
 implementation
 uses
-  SysUtils, Classes,Inventaire;
+  SysUtils, Classes,Inventaire,GestionEcran;
   
 procedure achat(objet:integer);
 
@@ -23,7 +23,8 @@ begin
       else
       begin
         invent[bombe]:=invent[bombe];
-        //ecrire dans l'IHM "Sort de ma boutique sale pieçard"
+         deplacerCurseurXY(9, 34); Write('Sort de ma boutique sale pieçard');
+         
       end;
     end;
   
@@ -37,7 +38,7 @@ begin
       else
       begin
         invent[potion]:=invent[potion];
-        //ecrire dans l'IHM "Sort de ma boutique sale pieçard"
+         deplacerCurseurXY(9, 34); Write('Sort de ma boutique sale pieçard');
       end;
     end;
   end;
