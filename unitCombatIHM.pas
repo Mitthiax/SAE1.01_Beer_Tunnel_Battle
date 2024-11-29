@@ -3,6 +3,9 @@ unit unitCombatIHM;
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
+{$WARN 4104 OFF}
+{$WARN 4105 OFF}
+
 interface
   uses unitCombatConst;
   {
@@ -31,6 +34,21 @@ interface
       degats: integer; Dégats infligées à l'ennemie
   }
   procedure afficherBombe(degats: integer);
+
+  {
+    Procedure qui affiche le message quand le joueur n'as plus de bombe
+  }
+  procedure afficherBombeVide();
+
+  {
+    Procedure qui affiche le message de boire une potion
+  }
+  procedure afficherPotion();
+
+  {
+    Procedure qui affiche le message quand le joueur n'as plus de potion
+  }
+  procedure afficherPotionVide();
 
 
   {
@@ -119,6 +137,30 @@ implementation
   procedure afficherBombe(degats: integer);
   begin
     afficherMessageCombat('Vous lancez une bombe sur l''ennemie et lui infligez ' + intToStr(degats) + ' points de dégats.')
+  end;
+
+  {
+    Procedure qui affiche le message quand le joueur n'as plus de bombe
+  }
+  procedure afficherBombeVide();
+  begin
+    afficherMessageCombat('Vous voulez lancez une bombe mais vous n''avez plus de bombe dans votre inventaire.')
+  end;
+
+  {
+    Procedure qui affiche le message de boire une potion
+  }
+  procedure afficherPotion();
+  begin
+    afficherMessageCombat('Vous buvez une potion qui vous fait regagner tous vos points de vie.')
+  end;
+
+  {
+    Procedure qui affiche le message quand le joueur n'as plus de potion
+  }
+  procedure afficherPotionVide();
+  begin
+    afficherMessageCombat('Vous voulez lancez une bombe mais vous n''avez plus de bombe dans votre inventaire.')
   end;
 
   {
