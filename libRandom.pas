@@ -1,3 +1,7 @@
+{
+  Bibliotèque proposant différentes fonctions d'aléatoires
+}
+
 unit libRandom;
 
 {$codepage utf8}

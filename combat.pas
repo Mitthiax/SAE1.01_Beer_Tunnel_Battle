@@ -7,11 +7,9 @@ interface
   uses
     unitCombatConst;
   {
-    Procedure qui comme un combat contre un ennemie
-    Parametre:
-      ennemie: TEnnemie; Type d'ennemie
+    Procedure qui comme un combat contre un ennemie aléatoire
   }
-  procedure commencerCombat(ennemie: TEnnemie);
+  procedure commencerCombat();
 
 implementation
   uses
@@ -64,7 +62,7 @@ implementation
   begin
     degats := degatInfliger();
     ennemie.PV -= degats;
-    afficherAttaque(degats);
+    afficherAttaque(degats, ennemie.nom);
   end;
 
   {
@@ -79,7 +77,7 @@ implementation
   begin
     degats := subirdegats(ennemie.degats);
     gestionSante(degats);
-    afficherAttaqueEnnemie(degats);
+    afficherAttaqueEnnemie(degats, ennemie.nom);
   end;
 
   {
@@ -96,7 +94,7 @@ implementation
     begin
         degats := round(30 * randomReal(0.9, 1.1));
         ennemie.PV -= degats;
-        afficherBombe(degats);
+        afficherBombe(degats, ennemie.nom);
     end
     else afficherBombeVide();
   end;
@@ -115,9 +113,22 @@ implementation
     Sortie:
       boolean; True si la fuite est réussi, false sinon
   }
-  function tenterFuite(): boolean;
+  function tenterFuite(var ennemie: TEnnemie): boolean;
+  var
+    fuiteReussie: boolean; // True si une fuite à été réussi, false sinon
+
   begin
-    tenterFuite := randomReal(1) < 0.20;
+    fuiteReussie := randomReal(1) < 0.2;
+
+    if fuiteReussie then afficherFuite()
+
+    else
+    begin
+      afficherFuiteRatee(ennemie.nom);
+      attaqueEnnemie(ennemie);
+    end;
+
+    tenterFuite := fuiteReussie;
   end;
   
   {
@@ -129,11 +140,9 @@ implementation
   var
     choix: integer; // Choix du joueur lors du tour de combat
     estTermine: boolean; // True si le combat est terminer, false sinon
-    fuiteReussie: boolean; // True si une fuite à été tenter et réussie, false sinon
 
   begin
     estTermine := false;
-    fuiteReussie := false;
 
     choix := combatIHM(ennemie);
 
@@ -141,13 +150,7 @@ implementation
       1: attaquer(ennemie);
       2: lancerBombe(ennemie);
       3: boirePotion();
-      4:
-      begin
-        fuiteReussie := tenterFuite();
-        if fuiteReussie then estTermine := true
-        // Si il y a eu tentative de fuite ratée, l'ennemie attaque
-        else attaqueEnnemie(ennemie);
-      end;
+      4: estTermine := tenterFuite(ennemie);
     end;
 
     // On termine le combat si l'ennemie est mort
@@ -195,15 +198,23 @@ implementation
   end;
 
   {
-    Procedure qui comme un combat contre un ennemie
-    Parametre:
-      ennemie: TEnnemie; Type d'ennemie
+    Procedure qui comme un combat contre un ennemie aléatoire
   }
-  procedure commencerCombat(ennemie: TEnnemie);
+  procedure commencerCombat();
   var
     estTermine: boolean; // True si le joueur est mort, false sinon
+    choixEnnemie: integer; // Choix aléatoire d'un ennemie
+    ennemie: TEnnemie; // Ennemie lors du combat
 
   begin
+    // Choix de l'ennemie
+    choixEnnemie := randomInteger(1, 3);
+    case choixEnnemie of
+      1: ennemie := GOBLIN;
+      2: ennemie := TROLL;
+      3: ennemie := ORC;
+    end;
+
     estTermine := false;
 
     // Initialisation des valeur points de vie de l'ennemie à une valeur plus aléatoire

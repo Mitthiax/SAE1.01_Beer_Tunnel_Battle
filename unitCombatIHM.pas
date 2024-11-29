@@ -17,23 +17,26 @@ interface
     Procedure qui affiche le message d'attaque
     Parametres:
       degats: integer; Dégats infligées à l'ennemie
+      nomEnnemie: integer; Nom de l'ennemie
   }
-  procedure afficherAttaque(degats: integer);
+  procedure afficherAttaque(degats: integer; nomEnnemie: string);
 
   {
     Procedure qui affiche le message d'attaque de l'ennemie
     Parametres:
       degats: integer; Dégats subits
+      nomEnnemie: integer; Nom de l'ennemie
   }
-  procedure afficherAttaqueEnnemie(degats: integer);
+  procedure afficherAttaqueEnnemie(degats: integer; nomEnnemie: string);
 
 
   {
     Procedure qui affiche le message de lancer de bombe
     Parametres:
       degats: integer; Dégats infligées à l'ennemie
+      nomEnnemie: integer; Nom de l'ennemie
   }
-  procedure afficherBombe(degats: integer);
+  procedure afficherBombe(degats: integer; nomEnnemie: string);
 
   {
     Procedure qui affiche le message quand le joueur n'as plus de bombe
@@ -56,11 +59,12 @@ interface
   }
   procedure afficherFuite();
 
-
   {
     Procedure qui affiche le message de fuite ratée
+    Parametres:
+      nomEnnemie: integer; Nom de l'ennemie
   }
-  procedure afficherFuiteRatee();
+  procedure afficherFuiteRatee(nomEnnemie: string);
 
   {
     Procedure qui affiche le tableau des récompenes gagnéss
@@ -73,6 +77,8 @@ interface
   }
   procedure afficherRecompensesCombat(cuivreGagne, ferGagne, mythrilGagne, monnaieGagne, experienceGagne: integer);
   
+
+
 
 
 implementation
@@ -111,32 +117,35 @@ implementation
     Procedure qui affiche le message d'attaque
     Parametres:
       degats: integer; Dégats infligées à l'ennemie
+      nomEnnemie: integer; Nom de l'ennemie
   }
-  procedure afficherAttaque(degats: integer);
+  procedure afficherAttaque(degats: integer; nomEnnemie: string);
   begin
     if degats = 0 then afficherMessageCombat('Vous attaquez l''ennnemie mais il esquive votre attaque')
-    else afficherMessageCombat('Vous attaquez l''ennnemie et lui infligez ' + intToStr(degats) + ' points de dégats.');
+    else afficherMessageCombat('Vous attaquez ' + nomEnnemie + ' et lui infligez ' + intToStr(degats) + ' points de dégats.');
   end;
 
   {
     Procedure qui affiche le message d'attaque de l'ennemie
     Parametres:
       degats: integer; Dégats subits
+      nomEnnemie: integer; Nom de l'ennemie
   }
-  procedure afficherAttaqueEnnemie(degats: integer);
+  procedure afficherAttaqueEnnemie(degats: integer; nomEnnemie: string);
   begin
-    if degats = 0 then afficherMessageCombat('L''ennemie vous attaque mais vous réussissez à éviter l''attaque')
-    else afficherMessageCombat('L''ennemie vous attaque et vous inflige ' + intToStr(degats) + ' points de dégats.');
+    if degats = 0 then afficherMessageCombat(nomEnnemie + ' vous attaque mais vous réussissez à éviter l''attaque')
+    else afficherMessageCombat(nomEnnemie + ' vous attaque et vous inflige ' + intToStr(degats) + ' points de dégats.');
   end;
 
   {
     Procedure qui affiche le message de lancer de bombe
     Parametres:
       degats: integer; Dégats infligées à l'ennemie
+      nomEnnemie: integer; Nom de l'ennemie
   }
-  procedure afficherBombe(degats: integer);
+  procedure afficherBombe(degats: integer; nomEnnemie: string);
   begin
-    afficherMessageCombat('Vous lancez une bombe sur l''ennemie et lui infligez ' + intToStr(degats) + ' points de dégats.');
+    afficherMessageCombat('Vous lancez une bombe sur ' + nomEnnemie + ' et lui infligez ' + intToStr(degats) + ' points de dégats.');
   end;
 
   {
@@ -169,15 +178,17 @@ implementation
   }
   procedure afficherFuite();
   begin
-    afficherMessageCombat('Vous vous enfuyez.')
+    afficherMessageCombat('Vous parvenez à vous enfuire et rejoingnez le hall.');
   end;
 
   {
     Procedure qui affiche le message de fuite ratée
+    Parametres:
+      nomEnnemie: integer; Nom de l'ennemie
   }
-  procedure afficherFuiteRatee();
+  procedure afficherFuiteRatee(nomEnnemie: string);
   begin
-    afficherMessageCombat('Vous tentez de fuire mais vous echouez.')
+    afficherMessageCombat('Vous tentez de fuire mais vous echouez, ' + nomEnnemie + ' vous attaque.');
   end;
 
   {
