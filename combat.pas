@@ -92,7 +92,7 @@ implementation
     degats: integer; // Dégats infligées à l'ennemie
     
   begin
-    if invent[bombe] > 0 then
+    if getinvent(bombe) > 0 then
     begin
         degats := round(30 * randomReal(0.9, 1.1));
         ennemie.PV -= degats;
@@ -106,7 +106,7 @@ implementation
   }
   procedure boirePotion();
   begin
-    if invent[potion] > 0 then soignerJoueur();
+    if getinvent(potion) > 0 then soignerJoueur()
     else afficherPotionVide();
   end;
 

@@ -136,7 +136,7 @@ implementation
   }
   procedure afficherBombe(degats: integer);
   begin
-    afficherMessageCombat('Vous lancez une bombe sur l''ennemie et lui infligez ' + intToStr(degats) + ' points de dégats.')
+    afficherMessageCombat('Vous lancez une bombe sur l''ennemie et lui infligez ' + intToStr(degats) + ' points de dégats.');
   end;
 
   {
@@ -144,7 +144,7 @@ implementation
   }
   procedure afficherBombeVide();
   begin
-    afficherMessageCombat('Vous voulez lancez une bombe mais vous n''avez plus de bombe dans votre inventaire.')
+    afficherMessageCombat('Vous voulez lancez une bombe mais vous n''en plus.');
   end;
 
   {
@@ -152,7 +152,8 @@ implementation
   }
   procedure afficherPotion();
   begin
-    afficherMessageCombat('Vous buvez une potion qui vous fait regagner tous vos points de vie.')
+    afficherMessageCombat('Vous buvez une potion qui vous fait regagner tous vos points de vie.');
+    journal();
   end;
 
   {
@@ -160,7 +161,7 @@ implementation
   }
   procedure afficherPotionVide();
   begin
-    afficherMessageCombat('Vous voulez lancez une bombe mais vous n''avez plus de bombe dans votre inventaire.')
+    afficherMessageCombat('Vous voulez lancez une bombe mais vous n''en plus.');
   end;
 
   {
