@@ -11,7 +11,22 @@ procedure gestionSante(degatrecu:integer);
 procedure soignerJoueur();
 procedure soignerJoueur(pvrestorer:integer);
 
-//On iinitialise les variables dans l'interface pour les utilisé dans d'autre unité comme journalihm
+//Fonction getvar
+function getexp():integer;
+function getlevel():integer;
+function getSante():integer;
+function getSantemax():integer;
+function getnom():string;
+function gettaille():integer;
+function getgenre():string;
+
+//procedure de set
+procedure setSantemax(Santemaxset:integer);
+
+implementation
+uses
+  SysUtils, Classes,combat,GestionEcran,unitMenuPrincipalLogic, unitCoffreLogic,Inventaire,journalihm,gestionbuff;
+//Initialisation des variables on utilisera un getvar pour les utilisé dans les autres modules
 var
   exp:integer;
   level:integer;
@@ -21,13 +36,12 @@ var
   taille:integer;
   genre:string;
 
-implementation
-uses
-  SysUtils, Classes,combat,GestionEcran,unitMenuPrincipalLogic, unitCoffreLogic,Inventaire,journalihm,gestionbuff;
-
-
-
-//initialise le stats du personnage à sa création
+{
+initialise le stats du personnage à sa création
+Entrée : Nom du personnage
+        Taille du personnage
+        genre du Personnage
+}
 procedure InitialisationPersonnage(nomPersonnage:string; taillePersonnage:integer; genrePersonnage:string);
 begin
   initialisationEquipement();
@@ -53,8 +67,8 @@ end;
 //amiliore la santé avec le niveau
 function LevelSante(level:integer):integer;
 begin
-  Santemax:=200+15*(level-1);
-  getBuffSanteeMax();
+  Santemax:=200+15*(level-1);//Calcul de la santé max de base on ne réutilise pas Santemax pour éviter les bugs si jamais le joueur à un buff
+  getBuffSanteeMax();//On redonne le buff au joueur
   Sante:=Santemax;
   LevelSante:=Santemax;
 end;
@@ -115,6 +129,49 @@ begin
   begin
     Sante:=Santemax;
   end; 
+end;
+
+//Ici on délcare toute les fonctions get de l'unité
+
+function getexp():integer;
+begin
+  getexp:=exp;
+end;
+
+function getlevel():integer;
+begin
+  getlevel:=level;
+end;
+
+function getSante():integer;
+begin
+  getSante:=Sante;
+end;
+
+
+function getSantemax():integer;
+begin
+  getSantemax:=Santemax;
+end;
+
+function getnom():string;
+begin
+  getnom:=nom;
+end;
+
+function gettaille():integer;
+begin
+  gettaille:=taille;
+end;
+
+function getgenre():string;
+begin
+  getgenre:=genre;
+end;
+
+procedure setSantemax(Santemaxset:integer);
+begin
+  Santemax:=Santemaxset;
 end;
 
 end. 

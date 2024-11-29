@@ -57,7 +57,7 @@ var
   choix: Integer;
 begin
   //Empêche les gens du nom d'alexian de rentrer dans la taverne(fallait pas manger tout les pancakes)
-  if nom='Alexian' then
+  if getnom()='Alexian' then
   begin
     deplacerCurseurXY(9,35);Write('Vous êtes banni de la taverne vous ne pouvez pas y rentrer');
     readln;
