@@ -17,8 +17,8 @@ begin
   newTest('Test incrementation de l''inventaire','Achat d''une bombe');
   InventaireInit();
   achat(1);
-  testIsEqual(invent[bombe],1);//vérifie l'ajout de 1bombe
-  testIsEqual(invent[monnaie],170);//vérifie le debit des 30pièces
+  testIsEqual(getinventinvent[bombe],1);//vérifie l'ajout de 1bombe
+  testIsEqual(getinvent[monnaie],170);//vérifie le debit des 30pièces
 end;
 
 //rassemble les test unitaire sous une seule et même procedure pour cette unité

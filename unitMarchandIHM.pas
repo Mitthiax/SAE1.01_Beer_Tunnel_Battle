@@ -7,7 +7,8 @@ interface
 //Procèdure que affiche l'interface du marchand
 procedure afficherInterfaceMarchand(); 
 procedure Argentmanquant();
-  
+procedure objectmanquant(nom:string);
+
 implementation
 
 uses
@@ -47,8 +48,8 @@ begin
   couleurTexte(White);
   deplacerCurseurXY(7, 27); Write('Que souhaitez-vous faire ?');
 
-  deplacerCurseurXY(9, 30); Write('1/ Acheter une Bombe --> 30 pièces d''OR');
-  deplacerCurseurXY(9, 31); Write('2/ Acheter une postion de Soin --> 50 pièces d''OR');
+  deplacerCurseurXY(9, 30); Write('1/ Acheter une Bombe --> 30 pièces d''OR               stock : ',getstockbombe(),'/',getmaxstockbombe());
+  deplacerCurseurXY(9, 31); Write('2/ Acheter une postion de Soin --> 50 pièces d''OR     stock : ',getstockpotion(),'/',getmaxstockpotion());
   deplacerCurseurXY(9, 32); Write('3/ Quittez la Boutique');
   dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
   deplacerCurseurXY(105, 33);
@@ -83,5 +84,14 @@ begin
   deplacerCurseurXY(9, 34); Write('Sort de ma boutique sale pieçard !');
   readln;
   afficherInterface();
+end;
+
+//Affiche qu'il n'y a plus de cet objet dans le stock de la boutique et laisse le joueur faire un autre choix
+procedure objectmanquant(nom:string);
+begin
+  couleurTexte(White);
+  deplacerCurseurXY(9, 34); Write('Désolé mais nous n''avons plus de ',nom,' en stock');
+  readln;
+  afficherInterfaceMarchand();
 end;
 end.
