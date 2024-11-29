@@ -8,14 +8,18 @@ type//tableau qui permet l'inventaire
   cont_invent=(cuivre,fer,mythril,bombe,potion,monnaie);
   tab_invent= array[cuivre..monnaie] of integer;
 
-//commme dans l'unité gestion perso ici on déclare les variable dans l'interface car elles sont réutiliser dans l'ihm ou dans d'autre unité
-var
-  invent:tab_invent;
+
+function getinvent(get_cont:cont_invent):integer;
+procedure setinvent(cont_set:cont_invent;nombreset:integer);
 procedure InventaireInit();
 
 implementation
+
 uses
   SysUtils, Classes,unitCoffreLogic,unitCoffreConst,GestionEcran;
+
+var
+  invent:tab_invent;
 
 //Initialise le tableau de l'inventaire(0 partout sauf pour l'or)
 procedure InventaireInit();
@@ -28,5 +32,12 @@ for i:= low(invent) to high (invent) do
   end;
   invent[monnaie]:=200
 end;
-  
+  function getinvent(get_cont:cont_invent):integer;
+  begin
+    getinvent:=invent[get_cont];
+  end;
+  procedure setinvent(cont_set:cont_invent;nombreset:integer);
+  begin
+    invent[cont_set]:=nombreset;
+  end;
 end.

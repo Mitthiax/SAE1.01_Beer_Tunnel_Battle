@@ -174,10 +174,10 @@ implementation
     monnaieGagne    := round(ennemie.gold * randomReal(0.75, 1.25));
     experienceGagne := round(ennemie.XP   * randomReal(0.75, 1.25));
 
-    invent[cuivre]  += cuivreGagne;
-    invent[fer]     += ferGagne;
-    invent[mythril] += mythrilGagne;
-    invent[monnaie] += monnaieGagne;
+    setinvent(cuivre,(getinvent(cuivre)+cuivreGagne));
+    setinvent(fer,(getinvent(fer)+ferGagne));
+    setinvent(mythril,(getinvent(mythril)+mythrilGagne));
+    setinvent(monnaie,(getinvent(monnaie)+monnaieGagne));
     Experience(experienceGagne);
     
     afficherRecompensesCombat(
