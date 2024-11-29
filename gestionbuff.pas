@@ -33,12 +33,12 @@ procedure getBuffSanteeMax();
 begin
   if buff[BuffSanteeMax]=true then
   begin
-    Santemax:=Santemax+30;
+    setSantemax(getSantemax()+30);
 
   end
   else
   begin
-    Santemax:=Santemax;
+    setSantemax(getSantemax());
   end;
 end;
 

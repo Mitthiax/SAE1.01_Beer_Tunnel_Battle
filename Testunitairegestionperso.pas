@@ -18,19 +18,19 @@ newTestsSeries('Monter en level');
 newTest('Monter en level','donne l''exp necessaire');
 InitialisationPersonnage();
 Experience(100);
-testIsEqual(level,2);
+testIsEqual(getlevel(),2);
 
 //Test exp insufissant pour la monter en niveau
 newTest('Monter en level','donner de l''exp sans monter de level');
 InitialisationPersonnage();
 Experience(50);
-testIsEqual(level,1);
+testIsEqual(getlevel(),1);
 
 //test pour monter de 2 niveau
 newTest('Monter en level','donne l''exp de 2 level');
 InitialisationPersonnage();
 Experience(400);
-testIsEqual(level,3);
+testIsEqual(getlevel(),3);
 
 //Serie de test sur l'expérience du joueur
 newTestsSeries('Test monter en exp');
@@ -49,7 +49,7 @@ begin
   newTest('Monter de Sante','fait monter le level et la sante');
   InitialisationPersonnage();
   Experience(100);
-  testIsEqual(Santemax,215);
+  testIsEqual(getSantemax(),215);
 
 end;
 

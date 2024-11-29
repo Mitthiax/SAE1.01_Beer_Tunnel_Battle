@@ -23,9 +23,9 @@ implementation
   var
   degatmit:integer;
   begin
-    if random(15+level)>2 then // on fait un jeu de harsard pour savoir si on réussi le coup ou pas(les chances sont augmenter avec le niveau)
+    if random(15+getlevel())>2 then // on fait un jeu de harsard pour savoir si on réussi le coup ou pas(les chances sont augmenter avec le niveau)
     begin
-      degatmit:= getAttaqueJoueur()+random(5+level); //on donne la possibilité de mettre plus de dégats (une sorte de coup critique)(augmenter avec le niveau)
+      degatmit:= getAttaqueJoueur()+random(5+getlevel()); //on donne la possibilité de mettre plus de dégats (une sorte de coup critique)(augmenter avec le niveau)
     end
     else
     begin
@@ -38,9 +38,9 @@ implementation
   var
   degatrecureal:real;
   begin
-    if random(30-level)<>0 then //on laisse une chance au joueur d'esquiver le coup(c'est petit un nain aussi, ça peut se baisser)
+    if random(30-getlevel())<>0 then //on laisse une chance au joueur d'esquiver le coup(c'est petit un nain aussi, ça peut se baisser)
     begin
-      degatrecureal:=couprecu+random(11-level);//Augmente les degats que l'ennemie inflige (bah oui pourquoi ça serais que dans 1 sens lui aussi il a le droit au coup critique)(baisse avec le niveau)
+      degatrecureal:=couprecu+random(11-getlevel());//Augmente les degats que l'ennemie inflige (bah oui pourquoi ça serais que dans 1 sens lui aussi il a le droit au coup critique)(baisse avec le niveau)
       degatrecureal:=degatrecureal-(degatrecureal*((getDefenceJoueur()+getBuffResistanceMax)/100));//calcul les degats reçu avec le bonus de protection (svp faites en sortes que la deffense depasse pas 100 sinon il risque de give des points de vie)
       if degatrecureal<0 then
       begin
@@ -179,10 +179,10 @@ implementation
     monnaieGagne    := round(ennemie.gold * randomReal(0.75, 1.25));
     experienceGagne := round(ennemie.XP   * randomReal(0.75, 1.25));
 
-    invent[cuivre]  += cuivreGagne;
-    invent[fer]     += ferGagne;
-    invent[mythril] += mythrilGagne;
-    invent[monnaie] += monnaieGagne;
+    setinvent(cuivre,(getinvent(cuivre)+cuivreGagne));
+    setinvent(fer,(getinvent(fer)+ferGagne));
+    setinvent(mythril,(getinvent(mythril)+mythrilGagne));
+    setinvent(monnaie,(getinvent(monnaie)+monnaieGagne));
     Experience(experienceGagne);
     
     afficherRecompensesCombat(
