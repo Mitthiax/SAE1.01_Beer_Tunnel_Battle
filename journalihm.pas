@@ -1,6 +1,7 @@
 unit journalihm;
 
-{$mode delphi}{$H+}
+{$codepage utf8}
+{$mode objfpc}{$H+}
 
 interface
 procedure journal();

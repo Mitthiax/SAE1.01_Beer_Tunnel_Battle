@@ -1,5 +1,6 @@
 unit GestionPerso;
 
+{$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface

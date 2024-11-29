@@ -1,5 +1,6 @@
 unit unitCombatConst;
 
+{$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface

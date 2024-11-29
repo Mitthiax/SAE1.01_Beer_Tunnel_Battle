@@ -1,5 +1,6 @@
 unit unitDate;
 
+{$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface

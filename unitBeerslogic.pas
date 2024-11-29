@@ -1,5 +1,6 @@
 unit unitBeerslogic;
 
+{$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface

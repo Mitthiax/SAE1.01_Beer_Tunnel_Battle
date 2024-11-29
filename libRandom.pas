@@ -1,5 +1,6 @@
 unit libRandom;
 
+{$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface
