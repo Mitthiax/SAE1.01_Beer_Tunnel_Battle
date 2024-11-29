@@ -178,14 +178,14 @@ implementation
   begin
     cuivreGagne     := randomInteger(7, 26);
     ferGagne        := randomInteger(5, 16);
-    mythrilGagne    := randomInteger(0, 5);
+    mythrilGagne    := randomInteger(0, 6);
     monnaieGagne    := round(ennemie.gold * randomReal(0.75, 1.25));
     experienceGagne := round(ennemie.XP   * randomReal(0.75, 1.25));
 
-    setinvent(cuivre,(getinvent(cuivre)+cuivreGagne));
-    setinvent(fer,(getinvent(fer)+ferGagne));
-    setinvent(mythril,(getinvent(mythril)+mythrilGagne));
-    setinvent(monnaie,(getinvent(monnaie)+monnaieGagne));
+    setinvent(cuivre, (getinvent(cuivre)  + cuivreGagne));
+    setinvent(fer,    (getinvent(fer)     + ferGagne));
+    setinvent(mythril,(getinvent(mythril) + mythrilGagne));
+    setinvent(monnaie,(getinvent(monnaie) + monnaieGagne));
     Experience(experienceGagne);
     
     afficherRecompensesCombat(

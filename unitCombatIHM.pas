@@ -134,7 +134,11 @@ implementation
   procedure afficherAttaqueEnnemie(degats: integer; nomEnnemie: string);
   begin
     if degats = 0 then afficherMessageCombat(nomEnnemie + ' vous attaque mais vous réussissez à éviter l''attaque')
-    else afficherMessageCombat(nomEnnemie + ' vous attaque et vous inflige ' + intToStr(degats) + ' points de dégats.');
+    else
+    begin
+      journal();
+      afficherMessageCombat(nomEnnemie + ' vous attaque et vous inflige ' + intToStr(degats) + ' points de dégats.');
+    end;
   end;
 
   {
@@ -244,6 +248,7 @@ implementation
   }
   function combatIHM(ennemie: TEnnemie): integer;
   begin
+    effacerEcran();
     dessinerCadreXY(1, 0, 198, 39, simple, White, Black);
     deplacerCurseurXY(20, 29); write('1 - Attaquer');
     deplacerCurseurXY(20, 30); write('2 - Lancer une bombe');

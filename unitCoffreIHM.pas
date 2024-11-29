@@ -38,13 +38,13 @@ implementation
     deplacerCurseurXY(X, Y); write('--- Vos armes ---');
     for i := 1 to 6 do
     begin
-      // Choix de la couleur pous les équipements équipés ou bloquées
+      // Choix de la couleur pous les équipements équipés ou bloqués
       if i = getArmeEquipe() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
       
       // Affichage du nom et des points d'attaque
       deplacerCurseurXY(X,      Y + i*2); write(i, ' -  ', getNomEquipement(i));
-      deplacerCurseurXY(X + 27, Y + i*2); write('-> ', getAttaqueArme(i), ' points');
+      deplacerCurseurXY(X + 27, Y + i*2); write('-> ', getAttaqueArme(i), ' attaque');
 
       couleurTexte(White);
     end;
@@ -64,13 +64,13 @@ implementation
     // Liste des casques
     for i := 7 to 9 do
     begin
-      // Choix de la couleur pous les équipements équipés ou bloquées
+      // Choix de la couleur pous les équipements équipés ou bloqués
       if i = getCasqueEquipe() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
       
       // Affichage du nom et des points de defence
       deplacerCurseurXY(X,      Y + i*2 - 12); write(i, ' -  ', getNomEquipement(i));
-      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', getDefenceArmure(i), ' points');
+      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', getDefenceArmure(i), ' défense');
 
       couleurTexte(White);
     end;
@@ -78,13 +78,13 @@ implementation
     // Liste des plastron
     for i := 10 to 12 do
     begin
-      // Choix de la couleur pous les équipements équipés ou bloquées
+      // Choix de la couleur pous les équipements équipés ou bloqués
       if i = getPlastronEquipe() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
       
       // Affichage du nom et des points de defence
       deplacerCurseurXY(X,      Y + i*2 - 12); write(i, ' -  ', getNomEquipement(i));
-      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', getDefenceArmure(i), ' points');
+      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', getDefenceArmure(i), ' défense');
 
       couleurTexte(White);
     end;
@@ -92,13 +92,13 @@ implementation
     // Liste des jambières
     for i := 13 to 15 do
     begin
-      // Choix de la couleur pous les équipements équipés ou bloquées
+      // Choix de la couleur pous les équipements équipés ou bloqués
       if i = getJambieresEquipe() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
       
       // Affichage du nom et des points de defence
       deplacerCurseurXY(X,      Y + i*2 - 12); write(i, ' -  ', getNomEquipement(i));
-      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', getDefenceArmure(i), ' points');
+      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', getDefenceArmure(i), ' défense');
 
       couleurTexte(White);
     end;
@@ -106,13 +106,13 @@ implementation
     // Liste des bottes
     for i := 16 to 18 do
     begin
-      // Choix de la couleur pous les équipements équipés ou bloquées
+      // Choix de la couleur pous les équipements équipés ou bloqués
       if i = getBottesEquipe() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
       
       // Affichage du nom et des points de defence
       deplacerCurseurXY(X,      Y + i*2 - 12); write(i, ' -  ', getNomEquipement(i));
-      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', getDefenceArmure(i), ' points');
+      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', getDefenceArmure(i), ' défense');
 
       couleurTexte(White);
     end;
@@ -123,6 +123,8 @@ implementation
   }
   procedure coffreIHM();
   begin
+    effacerEcran();
+
     // Entête
     dessinerCadreXY(1, 0, 198, 39, simple, White, Black);
     dessinerCadreXY(80, 0, 120, 2, simple, White, Black);

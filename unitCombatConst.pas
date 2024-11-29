@@ -42,7 +42,4 @@ interface
 implementation
   uses
     SysUtils, Classes;
-  
-
-  
 end.
