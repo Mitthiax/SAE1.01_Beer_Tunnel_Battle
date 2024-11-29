@@ -1,5 +1,6 @@
 unit unitCoffreConst;
 
+{$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface

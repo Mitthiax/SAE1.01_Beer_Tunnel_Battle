@@ -1,7 +1,7 @@
 unit unitBeersTestUnitaire;
 
-{$mode objfpc}{$H+}
 {$codepage utf8}
+{$mode objfpc}{$H+}
 
 interface
 
