@@ -8,7 +8,7 @@ procedure achat(objet:integer);
 
 implementation
 uses
-  SysUtils, Classes,Inventaire,GestionEcran;
+  SysUtils, Classes,Inventaire,GestionEcran,unitMarchandIHM;
   
 procedure achat(objet:integer);
 
@@ -24,8 +24,7 @@ begin
       else
       begin
         setinvent(bombe,getinvent(bombe));
-         deplacerCurseurXY(9, 34); Write('Sort de ma boutique sale pieçard');
-         
+        Argentmanquant();
       end;
     end;
   
@@ -39,7 +38,7 @@ begin
       else
       begin
         setinvent(potion,getinvent(potion));
-         deplacerCurseurXY(9, 34); Write('Sort de ma boutique sale pieçard');
+        Argentmanquant();
       end;
     end;
   end;

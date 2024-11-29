@@ -6,7 +6,7 @@ unit unitMarchandIHM;
 interface
 //Procèdure que affiche l'interface du marchand
 procedure afficherInterfaceMarchand(); 
-  
+procedure Argentmanquant();
   
 implementation
 
@@ -74,5 +74,14 @@ readln(choix);
   end
   else if (choix = 3) then afficherInterface(); // Retours dans le hall
 
+end;
+
+//procédure qui expulse le joueur de la boutique si il tente d'acheter sans avoir suffisament d'argent
+procedure Argentmanquant();
+begin
+  couleurTexte(White);
+  deplacerCurseurXY(9, 34); Write('Sort de ma boutique sale pieçard !');
+  readln;
+  afficherInterface();
 end;
 end.
