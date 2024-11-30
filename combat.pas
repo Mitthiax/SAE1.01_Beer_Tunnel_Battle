@@ -92,6 +92,7 @@ implementation
   begin
     if getinvent(bombe) > 0 then
     begin
+        setinvent(bombe, getinvent(bombe) - 1);
         degats := round(30 * randomReal(0.9, 1.1));
         ennemie.PV -= degats;
         afficherBombe(degats, ennemie.nom);
@@ -104,7 +105,11 @@ implementation
   }
   procedure boirePotion();
   begin
-    if getinvent(potion) > 0 then soignerJoueur()
+    if getinvent(potion) > 0 then
+    begin
+      setinvent(potion, getinvent(potion) - 1);
+      soignerJoueur();
+    end
     else afficherPotionVide();
   end;
 
