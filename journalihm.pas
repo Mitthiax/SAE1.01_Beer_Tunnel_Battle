@@ -28,11 +28,11 @@ begin
   
   deplacerCurseurXY(166,15);write('Inventaire');
 
-  deplacerCurseurXY(150,17);write('Arme  : ',getNomEquipement(getArmeEquipe()));
+  deplacerCurseurXY(150,17);write('Arme  : ',getNomEquipement(getArmeEquipee()));
   deplacerCurseurXY(150,19);write('Tête : ',getNomEquipement(getCasqueEquipe()));
   deplacerCurseurXY(150,20);write('Torse : ',getNomEquipement(getPlastronEquipe()));
-  deplacerCurseurXY(150,21);write('Jambe : ',getNomEquipement(getJambieresEquipe()));
-  deplacerCurseurXY(150,22);write('Pied  : ',getNomEquipement(getBottesEquipe()));
+  deplacerCurseurXY(150,21);write('Jambe : ',getNomEquipement(getJambieresEquipees()));
+  deplacerCurseurXY(150,22);write('Pied  : ',getNomEquipement(getBottesEquipees()));
   deplacerCurseurXY(150,24);write('Bombe : ',getinvent(Bombe));
   deplacerCurseurXY(150,25);write('Pièces d''or : ',getinvent(monnaie));
   deplacerCurseurXY(180,24);write('Potion : ',getinvent(potion));

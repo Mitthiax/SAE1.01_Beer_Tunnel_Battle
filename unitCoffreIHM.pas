@@ -39,7 +39,7 @@ implementation
     for i := 1 to 6 do
     begin
       // Choix de la couleur pous les équipements équipés ou bloqués
-      if i = getArmeEquipe() then couleurTexte(Green)
+      if i = getArmeEquipee() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
       
       // Affichage du nom et des points d'attaque
@@ -93,7 +93,7 @@ implementation
     for i := 13 to 15 do
     begin
       // Choix de la couleur pous les équipements équipés ou bloqués
-      if i = getJambieresEquipe() then couleurTexte(Green)
+      if i = getJambieresEquipees() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
       
       // Affichage du nom et des points de defence
@@ -107,7 +107,7 @@ implementation
     for i := 16 to 18 do
     begin
       // Choix de la couleur pous les équipements équipés ou bloqués
-      if i = getBottesEquipe() then couleurTexte(Green)
+      if i = getBottesEquipees() then couleurTexte(Green)
       else if not estDisponibleEquipement(i) then couleurTexte(Red);
       
       // Affichage du nom et des points de defence

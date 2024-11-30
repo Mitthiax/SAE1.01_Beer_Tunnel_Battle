@@ -31,7 +31,7 @@ interface
     Sortie:
       integer: Numero de l'armure équipée
   }
-  function getArmeEquipe(): integer;
+  function getArmeEquipee(): integer;
 
   {
     Fonction qui retourne le numero du casque équipé
@@ -52,14 +52,14 @@ interface
     Sortie:
       integer: Numero des jambières équipées
   }
-  function getJambieresEquipe(): integer;
+  function getjambieresEquipees(): integer;
 
   {
     Fonction qui retourne le numero des bottes équipées
     Sortie:
       integer: Numero des bottes équipées
   }
-  function getBottesEquipe(): integer;
+  function getBottesEquipees(): integer;
 
   {
     Fonction qui donne les points d'attaques de l'arme équipée
@@ -197,9 +197,9 @@ implementation
     Sortie:
       integer: Numero de l'armure équipée
   }
-  function getArmeEquipe(): integer;
+  function getArmeEquipee(): integer;
   begin
-    getArmeEquipe := armeEquipe;
+    getArmeEquipee := armeEquipe;
   end;
 
   {
@@ -227,9 +227,9 @@ implementation
     Sortie:
       integer: Numero des jambières équipées
   }
-  function getJambieresEquipe(): integer;
+  function getjambieresEquipees(): integer;
   begin
-    getJambieresEquipe := jambieresEquipe;
+    getjambieresEquipees := jambieresEquipe;
   end;
 
   {
@@ -237,9 +237,9 @@ implementation
     Sortie:
       integer: Numero des bottes équipées
   }
-  function getBottesEquipe(): integer;
+  function getBottesEquipees(): integer;
   begin
-    getBottesEquipe := bottesEquipe;
+    getBottesEquipees := bottesEquipe;
   end;
 
   {

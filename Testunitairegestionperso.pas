@@ -38,7 +38,7 @@ newTestsSeries('Test monter en exp');
 newTest('Test monter en exp','Donne juste de l''sans faire monter en level');
 InitialisationPersonnage();
 Experience(50);
-testIsEqual(getexp,50);
+testIsEqual(getexp(),50);
 end;
 
 procedure testunitaireMonterdeSante();
