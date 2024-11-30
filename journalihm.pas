@@ -36,6 +36,9 @@ begin
   deplacerCurseurXY(150,24);write('Bombe : ',getinvent(Bombe));
   deplacerCurseurXY(150,25);write('Pièces d''or : ',getinvent(monnaie));
   deplacerCurseurXY(180,24);write('Potion : ',getinvent(potion));
+  deplacerCurseurXY(150,27);write('Cuivre : ',getinvent(cuivre));
+  deplacerCurseurXY(150,28);write('Fer : ',getinvent(fer));
+  deplacerCurseurXY(150,29);write('Mythril : ',getinvent(mythril));
 end;
 
 //Procedure qui affiche le journal du joueur
