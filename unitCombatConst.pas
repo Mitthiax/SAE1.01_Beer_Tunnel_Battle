@@ -32,7 +32,7 @@ interface
     );
     ORC: TEnnemie =
     (
-      nom: 'Orc';
+      nom: 'Orque';
       PV: 300;
       degats: 30;
       XP: 70;

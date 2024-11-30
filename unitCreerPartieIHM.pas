@@ -45,8 +45,8 @@ implementation
     while (choixGenre < 1) or (3 < choixGenre) do
     begin
       // Effacer la ligne pour ne pas voir la réponse précédente
-      deplacerCurseurXY(127, 14); write('                                                                       ');
-      deplacerCurseurXY(127, 14); readln(choixGenre);
+      deplacerCurseurXY(70, 33); write('                                                                      ');
+      deplacerCurseurXY(70, 33); readln(choixGenre);
     end;
 
     case choixGenre of
