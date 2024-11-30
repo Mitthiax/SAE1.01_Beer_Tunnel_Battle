@@ -4,34 +4,53 @@ unit unitCoffreConst;
 {$mode objfpc}{$H+}
 
 interface
-  {
-    Fonction qui donne le nom d'un équipement à partir de son numero
-    Parametres:
-      numero: integer; Numero de l'équipement
-    Sortie:
-      string; Nom de l'équipement
-  }
-  function getNomEquipement(numero: integer): string;
+  type
+    TEquipement = record
+      nom:      string;  // Nom de l'équipement
+      materiau: string;  // Materiau de l'équipement
+      points:   integer; // Points de défence ou d'attaque de l'équipement
+      prix:     integer; // Prix en materiau de l'équipement à la forge
+      prixOr:   integer; // Prix en or de l'équipement à la forge
+    end;
 
-  {
-    Fonction qui donne les points d'attaque d'une arme
-    Parametres:
-      numero: integer; Numero de l'équipement
-    Sortie:
-      integer; Points d'attaque de l'arme
-  }
-  function getAttaqueArme(numero: integer): integer;
-
-  {
-    Fonction qui donne les points de defence d'une armure
-    Parametres:
-      numero: integer; Numero de l'équipement
-    Sortie:
-      integer; Points de defence de l'armure
-  }
-  function getDefenceArmure(numero: integer): integer;
-  
   const
+    listeEquipement: array[-1..18] of TEquipement = (
+      // Arme vide
+      (nom: 'Poings de nain';      materiau: '';        points: 4;  prix: 0;  prixOr: 0),
+      // Armure vide
+      (nom: 'Aucun';               materiau: '';        points: 0;  prix: 0;  prixOr: 0),
+
+      // Épées
+      (nom: 'Epee en cuivre';      materiau: 'Cuivre';  points: 4;  prix: 0;  prixOr: 0),
+      (nom: 'Epee en fer';         materiau: 'Fer';     points: 7;  prix: 50; prixOr: 500),
+      (nom: 'Epee en mythril';     materiau: 'Mythril'; points: 14; prix: 20; prixOr: 500),
+      
+      // Haches
+      (nom: 'Hache en cuivre';     materiau: 'Cuivre';  points: 6;  prix: 0;  prixOr: 0),
+      (nom: 'Hache en fer';        materiau: 'Fer';     points: 10; prix: 75; prixOr: 500),
+      (nom: 'Hache en mythril';    materiau: 'Mythril'; points: 18; prix: 25; prixOr: 500),
+      
+      // Casques
+      (nom: 'Casque en cuivre';    materiau: 'Cuivre';  points: 5;  prix: 0;  prixOr: 0),
+      (nom: 'Casque en fer';       materiau: 'Fer';     points: 10; prix: 50; prixOr: 250),
+      (nom: 'Casque en mythril';   materiau: 'Mythril'; points: 15; prix: 20; prixOr: 250),
+      
+      // Plastrons
+      (nom: 'Plastron en cuivre';  materiau: 'Cuivre';  points: 10; prix: 0;  prixOr: 0),
+      (nom: 'Plastron en fer';     materiau: 'Fer';     points: 15; prix: 75; prixOr: 250),
+      (nom: 'Plastron en mythril'; materiau: 'Mythril'; points: 20; prix: 25; prixOr: 250),
+      
+      // Jambières
+      (nom: 'Jambiere en cuivre';  materiau: 'Cuivre';  points: 10; prix: 0;  prixOr: 0),
+      (nom: 'Jambiere en fer';     materiau: 'Fer';     points: 15; prix: 75; prixOr: 250),
+      (nom: 'Jambiere en mythril'; materiau: 'Mythril'; points: 20; prix: 25; prixOr: 250),
+      
+      // Bottes
+      (nom: 'Bottes en cuivre';    materiau: 'Cuivre';  points: 5;  prix: 0;  prixOr: 0),
+      (nom: 'Bottes en fer';       materiau: 'Fer';     points: 10; prix: 50; prixOr: 250),
+      (nom: 'Bottes en mythril';   materiau: 'Mythril'; points: 15; prix: 20; prixOr: 250)
+    );
+
     epeeCuivre = 1;
     epeeFer = 2;
     epeeMythril = 3;
@@ -56,105 +75,5 @@ interface
     bottesCuivre = 16;
     bottesFer = 17;
     bottesMythril = 18;
-
 implementation
-  {
-    Fonction qui donne le nom d'un équipement à partir de son numero
-    Parametres:
-      numero: integer; Numero de l'équipement
-    Sortie:
-      string; Nom de l'équipement
-  }
-  function getNomEquipement(numero: integer): string;
-  var
-    nom: string; // Nom de l'équipement
-
-  begin
-    nom := 'Aucun';
-    case numero of
-      1: nom := 'Epee en cuivre';
-      2: nom := 'Epee en fer';
-      3: nom := 'Epee en mythril';
-      
-      4: nom := 'Hache en cuivre';
-      5: nom := 'Hache en fer';
-      6: nom := 'Hache en mythril';
-      
-      7: nom := 'Casque en cuivre';
-      8: nom := 'Casque en fer';
-      9: nom := 'Casque en mythril';
-      
-      10: nom := 'Plastron en cuivre';
-      11: nom := 'Plastron en fer';
-      12: nom := 'Plastron en mythril';
-      
-      13: nom := 'Jambiere en cuivre';
-      14: nom := 'Jambiere en fer';
-      15: nom := 'Jambiere en mythril';
-      
-      16: nom := 'Bottes en cuivre';
-      17: nom := 'Bottes en fer';
-      18: nom := 'Bottes en mythril';
-    end;
-    getNomEquipement := nom;
-  end;
-
-  {
-    Fonction qui donne les points d'attaque d'une arme
-    Parametres:
-      numero: integer; Numero de l'équipement
-    Sortie:
-      integer; Points d'attaque de l'arme
-  }
-  function getAttaqueArme(numero: integer): integer;
-  var
-    attaque: integer; // Points d'attaque de l'arme
-
-  begin
-    attaque := 2;
-    case numero of
-      1: attaque := 4;
-      2: attaque := 7;
-      3: attaque := 14;
-      
-      4: attaque := 6;
-      5: attaque := 10;
-      6: attaque := 18;
-    end;
-    getAttaqueArme := attaque;
-  end;
-
-  {
-    Fonction qui donne les points de defence d'une armure
-    Parametres:
-      numero: integer; Numero de l'équipement
-    Sortie:
-      integer; Points de defence de l'armure
-  }
-  function getDefenceArmure(numero: integer): integer;
-  var
-    defence: integer; // Points de defence de l'armure
-
-  begin
-    defence := 0;
-    case numero of
-      7: defence := 5;
-      8: defence := 10;
-      9: defence := 15;
-      
-      10: defence := 10;
-      11: defence := 15;
-      12: defence := 20;
-      
-      13: defence := 10;
-      14: defence := 15;
-      15: defence := 20;
-      
-      16: defence := 5;
-      17: defence := 10;
-      18: defence := 15;
-    end;
-    getDefenceArmure := defence;
-  end;
-
 end.

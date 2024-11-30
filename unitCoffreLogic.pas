@@ -249,7 +249,7 @@ implementation
   }
   function getAttaqueJoueur(): integer;
   begin
-    getAttaqueJoueur := getAttaqueArme(armeEquipe);
+    getAttaqueJoueur := listeEquipement[armeEquipe].points;
   end;
 
   {
@@ -259,10 +259,10 @@ implementation
   }
   function getDefenceJoueur(): integer;
   begin
-    getDefenceJoueur := getDefenceArmure(casqueEquipe)
-                      + getDefenceArmure(plastronEquipe)
-                      + getDefenceArmure(jambieresEquipe)
-                      + getDefenceArmure(bottesEquipe);
+    getDefenceJoueur := listeEquipement[casqueEquipe].points
+                      + listeEquipement[plastronEquipe].points
+                      + listeEquipement[jambieresEquipe].points
+                      + listeEquipement[bottesEquipe].points;
   end;
   
 end.
