@@ -4,6 +4,12 @@ unit unitForgeLogic;
 {$mode objfpc}{$H+}
 
 interface
+  {
+    Fonction qui retourne si un équipement est possédé
+    Sortie:
+      boolean; True si l'équipement n'est pas déjà possédé, sinon false
+  }
+  function equipementPossede(idEquipememt: integer): boolean;
 
   {
     Fonction qui retourne si un équipement est achetable
