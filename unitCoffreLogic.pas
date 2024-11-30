@@ -136,31 +136,31 @@ implementation
       case numero of
         1..6:
         begin
-          if armeEquipe = numero then armeEquipe := 0
+          if armeEquipe = numero then armeEquipe := -1 // Code arme non équipée
           else armeEquipe := numero;
         end;
         
         7..9:
         begin
-          if casqueEquipe = numero then casqueEquipe := 0
+          if casqueEquipe = numero then casqueEquipe := 0 // Code armure non équipée
           else casqueEquipe := numero;
         end;
         
         10..12:
         begin
-          if plastronEquipe = numero then plastronEquipe := 0
+          if plastronEquipe = numero then plastronEquipe := 0 // Code armure non équipée
           else plastronEquipe := numero;
         end;
         
         13..15:
         begin
-          if jambieresEquipe = numero then jambieresEquipe := 0
+          if jambieresEquipe = numero then jambieresEquipe := 0 // Code armure non équipée
           else jambieresEquipe := numero;
         end;
         
         16..18:
         begin
-          if bottesEquipe = numero then bottesEquipe := 0
+          if bottesEquipe = numero then bottesEquipe := 0 // Code armure non équipée
           else bottesEquipe := numero;
         end;
       end;

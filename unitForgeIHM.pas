@@ -32,8 +32,8 @@ uses
 
     // Seulement cette procedure et choixForgeIHM sont appelées
     // Pour l'IHM, je propose de faire comme le prof, des couleur pour savoir ce qui est achetable et deja équipé,
-    // ils y donc les fonctions equipementAchetable, equipementAchete, et getPrix
-    // Tu peux aller voir unitCoffreIHM si tu veux
+    // ils y donc les fonctions equipementAchetable, equipementAchete
+    // Tu peux aller voir unitCoffreIHM si tu veux pour voir comment avoir les prix
   end;
 
   {

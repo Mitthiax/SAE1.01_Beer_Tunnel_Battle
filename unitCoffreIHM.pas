@@ -44,7 +44,7 @@ implementation
       
       // Affichage du nom et des points d'attaque
       deplacerCurseurXY(X,      Y + i*2); write(i, ' -  ', listeEquipement[i].nom);
-      deplacerCurseurXY(X + 27, Y + i*2); write('-> ', listeEquipement[i].nom, ' attaque');
+      deplacerCurseurXY(X + 27, Y + i*2); write('-> ', listeEquipement[i].points, ' attaque');
 
       couleurTexte(White);
     end;
@@ -70,7 +70,7 @@ implementation
       
       // Affichage du nom et des points de defence
       deplacerCurseurXY(X,      Y + i*2 - 12); write(i, ' -  ', listeEquipement[i].nom);
-      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', listeEquipement[i].nom, ' défense');
+      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', listeEquipement[i].points, ' défense');
 
       couleurTexte(White);
     end;
@@ -84,7 +84,7 @@ implementation
       
       // Affichage du nom et des points de defence
       deplacerCurseurXY(X,      Y + i*2 - 12); write(i, ' -  ', listeEquipement[i].nom);
-      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', listeEquipement[i].nom, ' défense');
+      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', listeEquipement[i].points, ' défense');
 
       couleurTexte(White);
     end;
@@ -98,7 +98,7 @@ implementation
       
       // Affichage du nom et des points de defence
       deplacerCurseurXY(X,      Y + i*2 - 12); write(i, ' -  ', listeEquipement[i].nom);
-      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', listeEquipement[i].nom, ' défense');
+      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', listeEquipement[i].points, ' défense');
 
       couleurTexte(White);
     end;
@@ -112,7 +112,7 @@ implementation
       
       // Affichage du nom et des points de defence
       deplacerCurseurXY(X,      Y + i*2 - 12); write(i, ' -  ', listeEquipement[i].nom);
-      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', listeEquipement[i].nom, ' défense');
+      deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', listeEquipement[i].points, ' défense');
 
       couleurTexte(White);
     end;
