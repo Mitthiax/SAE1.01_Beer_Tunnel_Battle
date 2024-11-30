@@ -76,7 +76,7 @@ interface
   }
   function getDefenceJoueur(): integer;
 
-
+  procedure debloquer(numero: integer);
 
 
 

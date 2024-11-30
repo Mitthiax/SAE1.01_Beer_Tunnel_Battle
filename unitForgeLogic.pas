@@ -9,14 +9,14 @@ interface
     Sortie:
       boolean; True si l'équipement n'est pas déjà possédé, sinon false
   }
-  function equipementPossede(idEquipememt: integer): boolean;
+  function equipementPossede(idEquipement: integer): boolean;
 
   {
     Fonction qui retourne si un équipement est achetable
     Sortie:
       boolean; True si l'équipement n'est pas déjà possédé et achetable, sinon false
   }
-  function equipementAchetable(idEquipememt: integer): boolean;
+  function equipementAchetable(idEquipement: integer): boolean;
 
   {
     Procedure qui ouvre la forge
@@ -36,9 +36,9 @@ implementation
     Sortie:
       boolean; True si l'équipement n'est pas déjà possédé, sinon false
   }
-  function equipementPossede(idEquipememt: integer): boolean;
+  function equipementPossede(idEquipement: integer): boolean;
   begin
-    equipementPossede := estDisponibleEquipement(idEquipememt);
+    equipementPossede := estDisponibleEquipement(idEquipement);
   end;
 
   {
@@ -46,19 +46,19 @@ implementation
     Sortie:
       boolean; True si l'équipement n'est pas déjà possédé et achetable, sinon false
   }
-  function equipementAchetable(idEquipememt: integer): boolean;
+  function equipementAchetable(idEquipement : integer): boolean;
   var
-    estAchetable: boolean // True si l'équipement n'est pas déjà possédé et achetable, sinon false
+    estAchetable: boolean; // True si l'équipement n'est pas déjà possédé et achetable, sinon false
 
   begin
     // Initialisation des variables
-    estAchetable := true
+    estAchetable := true;
 
-    estAchetable := not equipementPossede(idEquipememt);
+    estAchetable := not equipementPossede(idEquipement);
     
-    if      listeEquipement[idEquipememt].materiau = 'Cuivre'  then estAchetable := getinvent(cuivre)  >= listeEquipement[idEquipememt].prix
-    else if listeEquipement[idEquipememt].materiau = 'Fer'     then estAchetable := getinvent(fer)     >= listeEquipement[idEquipememt].prix
-    else    listeEquipement[idEquipememt].materiau = 'Mythril' then estAchetable := getinvent(mythril) >= listeEquipement[idEquipememt].prix;
+    if      listeEquipement[idEquipement].materiau = 'Cuivre'  then estAchetable := getinvent(cuivre)  >= listeEquipement[idEquipement].prix
+    else if listeEquipement[idEquipement].materiau = 'Fer'     then estAchetable := getinvent(fer)     >= listeEquipement[idEquipement].prix
+    else if  listeEquipement[idEquipement].materiau = 'Mythril' then estAchetable := getinvent(mythril) >= listeEquipement[idEquipement].prix;
 
     // Sortie
     equipementAchetable := estAchetable;
@@ -67,17 +67,17 @@ implementation
   {
     Procedure qui achete un équipement si cela est possible
     Parametre:
-      idEquipememt: integer; Identifiant de l'équipement
+      idEquipement: integer; Identifiant de l'équipement
   }
-  procedure acheter(idEquipement: integer);
+  procedure acheter(idEquipement : integer);
   begin
-    if equipementAchetable(idEquipememt) then
+    if equipementAchetable(idEquipement) then
     begin
-      if      listeEquipement[idEquipememt].materiau = 'Cuivre'  then setinvent(cuivre,  getinvent(cuivre)  - listeEquipement[idEquipememt].prix)
-      else if listeEquipement[idEquipememt].materiau = 'Fer'     then setinvent(fer,     getinvent(fer)     - listeEquipement[idEquipememt].prix)
-      else    listeEquipement[idEquipememt].materiau = 'Mythril' then setinvent(mythril, getinvent(mythril) - listeEquipement[idEquipememt].prix);
-      setinvent(monnaie, getinvent(monnaie) - listeEquipement[idEquipememt].prixOr);
-      debloquer(idEquipememt);
+      if      listeEquipement[idEquipement].materiau = 'Cuivre'  then setinvent(cuivre,  getinvent(cuivre)  - listeEquipement[idEquipement].prix)
+      else if listeEquipement[idEquipement].materiau = 'Fer'     then setinvent(fer,     getinvent(fer)     - listeEquipement[idEquipement].prix)
+      else if listeEquipement[idEquipement].materiau = 'Mythril' then setinvent(mythril, getinvent(mythril) - listeEquipement[idEquipement].prix);
+      setinvent(monnaie, getinvent(monnaie) - listeEquipement[idEquipement].prixOr);
+      debloquer(idEquipement);
     end;
   end;
   

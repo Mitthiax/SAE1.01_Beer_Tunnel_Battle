@@ -1,4 +1,4 @@
-unit unitForgeLogic;
+unit unitForgeIHM;
 
 {$mode objfpc}{$H+}
 
@@ -7,10 +7,10 @@ interface
     IHM de la forge
   }
   procedure forgeIHM();
-  
+  function choixForgeIHM(): integer;
 implementation
 uses
-  SysUtils, Classes, unitForgeLogic, unitCoffreConst;
+  SysUtils, Classes, unitForgeLogic, unitCoffreConst,GestionEcran;
   
 
   {
