@@ -29,7 +29,7 @@ interface
 
 implementation
   uses
-    SysUtils, Classes, unitForgeIHM, Inventaire, unitCoffreLogic, unitCoffreConst;
+    SysUtils, Classes, unitForgeIHM, Inventaire, unitCoffreLogic, unitCoffreConst, unitBeersIhm;
 
   {
     Fonction qui retourne si un équipement est possédé
@@ -95,5 +95,7 @@ implementation
       choix := choixForgeIHM();
       acheter(choix);
     until (choix = 0);
+
+    afficherInterface();
   end;
 end.
