@@ -58,22 +58,26 @@ var
   choix: Integer;
 begin
   //Empêche les gens du nom d'alexian de rentrer dans la taverne(fallait pas manger tout les pancakes)
-  if getnom()='Alexian' then
+  if getnom()<>'Alexian' then
+  begin
+    changerTailleConsole(200,40);
+    afficherTextePrincipalTaverne();
+    journal();
+    afficherOptionsTaverne();
+
+    // Capture et traitement du choix de l'utilisateur
+    repeat
+      readln(choix);
+      gererChoixTaverne(choix);
+    until (choix = 3); // Quitter la taverne et revenir au hall
+  end
+  
+  else
   begin
     couleurTexte(White);
     deplacerCurseurXY(9,35);Write('Vous êtes banni de la taverne vous ne pouvez pas y rentrer');
     readln;
     afficherInterface();
   end;
-  changerTailleConsole(200,40);
-  afficherTextePrincipalTaverne();
-  journal();
-  afficherOptionsTaverne();
-
-  // Capture et traitement du choix de l'utilisateur
-  repeat
-    readln(choix);
-    gererChoixTaverne(choix);
-  until (choix = 3); // Quitter la taverne et revenir au hall
 end;
 end.
