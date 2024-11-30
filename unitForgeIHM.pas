@@ -45,6 +45,13 @@ uses
   var
     choix: integer; // Choix du joueur parmi les équipements et quitter
   begin
-    readln(choix);
+    // On redemande jusqu'a ce que le choix soit valide
+    repeat
+        dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
+        deplacerCurseurXY(105, 33); readln(choix);
+    until (0 <= choix) and (choix <= 18);
+    couleurTexte(White);
+
+    choixForgeIHM := choix;
   end;
 end.

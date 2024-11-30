@@ -56,9 +56,12 @@ implementation
 
     estAchetable := not equipementPossede(idEquipement);
     
-    if      listeEquipement[idEquipement].materiau = 'Cuivre'  then estAchetable := getinvent(cuivre)  >= listeEquipement[idEquipement].prix
-    else if listeEquipement[idEquipement].materiau = 'Fer'     then estAchetable := getinvent(fer)     >= listeEquipement[idEquipement].prix
-    else if  listeEquipement[idEquipement].materiau = 'Mythril' then estAchetable := getinvent(mythril) >= listeEquipement[idEquipement].prix;
+    if estAchetable then
+    begin
+      if      listeEquipement[idEquipement].materiau = 'Cuivre'  then estAchetable := getinvent(cuivre)  >= listeEquipement[idEquipement].prix
+      else if listeEquipement[idEquipement].materiau = 'Fer'     then estAchetable := getinvent(fer)     >= listeEquipement[idEquipement].prix
+      else if listeEquipement[idEquipement].materiau = 'Mythril' then estAchetable := getinvent(mythril) >= listeEquipement[idEquipement].prix;
+    end;
 
     // Sortie
     equipementAchetable := estAchetable;
