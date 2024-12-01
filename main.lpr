@@ -8,5 +8,6 @@ uses
 begin 
   changerTailleConsole(200,40);
   randomize;
-  menu();
+  //menu();
+  testbeer;
 end.

@@ -7,8 +7,8 @@ interface
 
 // Types pour représenter les jours de la semaine et les mois de l'année selon le calendrier Sindarin
 type
-  TJourSemaine = (Oranor, Oranoril, Oranorion, Oranorad, Oranorath, Oranorathil, Oranorathon);
-  TMois = (Gwaeron, Gwirith, Lothron, Noren, Cerveth, Norui, Ivanneth, Narbeleth, Hithui, Girithron, Narvinye, Nenime);
+  TJourSemaine = (Orgilion, Oranor, Orithil, Orgaladh, Ormenel, Oraearon, Orbelain);
+  TMois = (Narwain, Ninui, Gwaeron, Gwirith, Lothron, Norui, Cerveth, Urui, Ivanneth, Narbeleth, Hithui, Girithron);
 
 // Structure pour représenter la date du jeu
 type
@@ -29,7 +29,10 @@ procedure AvancerDate();
 
 // Fonction pour accéder à la date actuelle (pour les tests)
 function ObtenirDateActuelle: TDateJeu;
-//function GetDatejour():integer;
+
+//procédures qui initalise la date à une époque précise pour des test unitaires
+procedure InitialiserDateTest();
+procedure InitialiserDateTest2();
 implementation
 
 uses
@@ -47,19 +50,35 @@ var
 // Initialiser la date du jeu
 procedure InitialiserDate();
 begin
-  DateActuelle.JourSemaine := Oranor;
+  DateActuelle.JourSemaine := Orgilion;
   DateActuelle.Jour := 1;
-  DateActuelle.Mois := Gwaeron;
+  DateActuelle.Mois := Narwain;
+end;
+
+//pour certains test unitaire
+procedure InitialiserDateTest();
+begin
+  DateActuelle.JourSemaine := Oranor;
+  DateActuelle.Jour := 30;
+  DateActuelle.Mois := Cerveth;
+end;
+
+//pour certains test unitaire
+procedure InitialiserDateTest2();
+begin
+  DateActuelle.JourSemaine := Oranor;
+  DateActuelle.Jour := 30;
+  DateActuelle.Mois := Girithron;
 end;
 
 // Afficher la date sur l'écran principal
 procedure AfficherDate();
 const
   NomsJoursSemaine: array[TJourSemaine] of string = (
-    'Oranor', 'Oranoril', 'Oranorion', 'Oranorad', 'Oranorath', 'Oranorathil', 'Oranorathon'
+    'Orgilion', 'Oranor', 'Orithil', 'Orgaladh', 'Ormenel', '	Oraearon', 'Orbelain'
   );
   NomsMois: array[TMois] of string = (
-    'Gwaeron', 'Gwirith', 'Lothron', 'Noren', 'Cerveth', 'Nórui', 'Ivanneth', 'Narbeleth', 'Hithui', 'Girithron', 'Narvinye', 'Nenime'
+    'Narwain', 'Ninui', 'Gwaeron', 'Gwirith', 'Lothron', 'Norui', 'Cerveth', 'Urui', 'Ivanneth', 'Narbeleth', 'Hithui', 'Girithron'
   );
 begin
   couleurTexte(White);
@@ -90,10 +109,5 @@ function ObtenirDateActuelle: TDateJeu;
 begin
   ObtenirDateActuelle := DateActuelle;
 end;
-
-{function GetDatejour():integer;
-begin
-  GetDatejour:=DateActuelle.Jour;
-end;}
 
 end.
