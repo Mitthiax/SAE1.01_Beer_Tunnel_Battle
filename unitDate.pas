@@ -40,7 +40,7 @@ uses
 
 const
   JoursDansMois: array[TMois] of Integer = (
-    30, 30, 30, 30, 31, 31, 30, 30, 30, 30, 30, 30  // Modifié pour Nórui et Cerveth ayant 31 jours
+    30, 30, 30, 30, 30, 31, 31, 30, 30, 30, 30, 30  // Modifié pour Norui et Cerveth ayant 31 jours
 );
 
 // Variable globale pour stocker la date actuelle du jeu
