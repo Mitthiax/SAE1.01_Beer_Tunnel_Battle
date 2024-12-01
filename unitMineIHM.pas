@@ -66,7 +66,7 @@ implementation
     repeat
       dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
       deplacerCurseurXY(105, 33); readln(choix);
-    until ((1 <= choix) and (choix <= 4));
+    until ((0 <= choix) and (choix <= 3));
     couleurTexte(White);
 
     // Sortie
