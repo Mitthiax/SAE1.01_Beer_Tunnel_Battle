@@ -175,7 +175,6 @@ implementation
     choix: integer; // Choix du joueur dans le coffre
 
   begin
-    initialisationEquipement();
     coffreIHM();
     choix := coffreChoixEquipementIHM();
     while (choix <> 0) do
