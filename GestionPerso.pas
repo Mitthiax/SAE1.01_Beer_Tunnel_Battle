@@ -26,7 +26,7 @@ procedure setSantemax(Santemaxset:integer);
 
 implementation
 uses
-  SysUtils, Classes,combat,GestionEcran,unitMenuPrincipalLogic, unitCoffreLogic,Inventaire,journalihm,gestionbuff,marchand,unitDormir;
+  SysUtils, Classes,combat,GestionEcran,unitMenuPrincipalLogic, unitCoffreLogic,Inventaire,journalihm,gestionbuff,marchand,unitDate;
 //Initialisation des variables on utilisera un getvar pour les utilisé dans les autres modules
 var
   exp:integer;

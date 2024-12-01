@@ -1,5 +1,6 @@
 unit unitChambre;
 
+{$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface
@@ -16,7 +17,7 @@ procedure quittez();
   
 implementation
 uses
-  SysUtils, Classes, unitBeersIhm, unitCoffreIHM, unitDormirIhm;
+  SysUtils, Classes, unitBeersIhm, unitCoffreLogic, unitDormirIhm;
 
 
 //Procedure qui gere les choix fait par le joueur dans la chambre
@@ -36,7 +37,7 @@ end;
 
 procedure regarderCoffre();
 begin
-  coffreIHM();
+  ouvrirCoffre();
 end;
 
 procedure quittez();

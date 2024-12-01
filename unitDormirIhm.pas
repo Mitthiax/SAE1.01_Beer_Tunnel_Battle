@@ -1,5 +1,6 @@
 unit unitDormirIhm;
 
+{$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface
@@ -42,8 +43,7 @@ begin
   dessinerCadreXY(135, 3, 185, 3, double, DarkGray, Black);
   couleurTexte(White);
   deplacerCurseurXY(152, 3); write('Journal de Bords');
-  //gererChoixDormir(choix);
-  deplacerCurseurXY(140, 15); write('Date initiale : Jour ', getDatejour, ', Jour de la semaine : ', getDatesemaine, ', Mois ', getDatemois)
+  deplacerCurseurXY(110, 15); write('Date initiale : Jour ', getDatejour, ', Jour de la semaine : ', getDatesemaine, ', Mois ', getDatemois)
 end;
 
 
@@ -73,6 +73,7 @@ begin
   readln(choix);
   if (choix = 1) then
     begin
+    gererChoixDormir();
     afficherInterfaceChambre(); // Revenir à la chambre après avoir fini de dormir
     end;
   end;
