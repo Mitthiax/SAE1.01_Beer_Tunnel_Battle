@@ -25,16 +25,16 @@ interface
     TROLL: TEnnemie =
     (
       nom: 'Troll';
-      PV: 250;
+      PV: 200;
       degats: 22;
       XP: 35;
       gold: 10;
     );
-    ORC: TEnnemie =
+    ORQUE: TEnnemie =
     (
       nom: 'Orque';
       PV: 300;
-      degats: 30;
+      degats: 35;
       XP: 70;
       gold: 15;
     );

@@ -8,6 +8,13 @@ interface
     unitCombatConst;
   {
     Procedure qui comme un combat contre un ennemie aléatoire
+    Parametres:
+      ennemie: TEnnemie; Ennemie lors du combat
+  }
+  procedure commencerCombat(ennemie: TEnnemie);
+
+  {
+    Procedure qui comme un combat contre un ennemie aléatoire
   }
   procedure commencerCombat();
 
@@ -204,10 +211,27 @@ implementation
 
   {
     Procedure qui comme un combat contre un ennemie aléatoire
+    Parametres:
+      ennemie: TEnnemie; Ennemie lors du combat
+  }
+  procedure commencerCombat(ennemie: TEnnemie);
+  var
+    estTermine: boolean; // True si le joueur est mort, false sinon
+
+  begin
+    estTermine := false;
+
+    while (not estTermine) do estTermine := tourCombat(ennemie);
+    
+    if ennemie.PV <= 0 then gagneCombat(ennemie);
+    afficherInterface();
+  end;
+
+  {
+    Procedure qui comme un combat contre un ennemie aléatoire
   }
   procedure commencerCombat();
   var
-    estTermine: boolean; // True si le joueur est mort, false sinon
     choixEnnemie: integer; // Choix aléatoire d'un ennemie
     ennemie: TEnnemie; // Ennemie lors du combat
 
@@ -217,18 +241,9 @@ implementation
     case choixEnnemie of
       1: ennemie := GOBLIN;
       2: ennemie := TROLL;
-      3: ennemie := ORC;
+      3: ennemie := ORQUE;
     end;
 
-    estTermine := false;
-
-    // Initialisation des valeur points de vie de l'ennemie à une valeur plus aléatoire
-    ennemie.degats := round(ennemie.degats * randomReal(0.75, 1.25));
-
-    while (not estTermine) do estTermine := tourCombat(ennemie);
-    if ennemie.PV <= 0 then gagneCombat(ennemie);
-    afficherInterface();
+    commencerCombat(ennemie)
   end;
-
-
 end.

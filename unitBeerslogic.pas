@@ -20,7 +20,7 @@ procedure allerMine();
   
 implementation
   uses
-  SysUtils, Classes, unitBeersIhm, unitTaverneIHM, unitTaverne, combat, unitCoffreLogic,unitMarchandIHM, unitForgeLogic,unitChambreIhm;
+  SysUtils, Classes, unitBeersIhm, unitTaverneIHM, unitTaverne, unitMineLogic, unitCoffreLogic, unitMarchandIHM, unitForgeLogic, unitChambreIhm;
 
 //Procedure qui gere les choix fait par le joueur
 procedure gererChoix(choix : Integer);
@@ -61,6 +61,6 @@ end;
 procedure AllerMine;
 begin
   // Logique spécifique aux mines
-  commencerCombat();
+  ouvrirMine();
 end;
 end.
