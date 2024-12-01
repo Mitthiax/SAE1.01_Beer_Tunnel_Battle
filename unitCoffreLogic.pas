@@ -76,6 +76,11 @@ interface
   }
   function getDefenceJoueur(): integer;
 
+  {
+    Procedure qui débloque un équipement
+    Parametres:
+      numero: integer; Numero de l'équipement
+  }
   procedure debloquer(numero: integer);
 
 
@@ -110,12 +115,6 @@ implementation
     i: integer; // Variable de boucle
   begin
     for i := 1 to 18 do estDisponible[i] := false;
-    debloquer(epeeCuivre);
-    debloquer(hacheCuivre);
-    debloquer(casqueCuivre);
-    debloquer(plastronCuivre);
-    debloquer(jambieresCuivre);
-    debloquer(bottesCuivre);
 
     armeEquipe := 0;
     casqueEquipe := 0;
@@ -175,7 +174,6 @@ implementation
     choix: integer; // Choix du joueur dans le coffre
 
   begin
-    initialisationEquipement();
     coffreIHM();
     choix := coffreChoixEquipementIHM();
     while (choix <> 0) do

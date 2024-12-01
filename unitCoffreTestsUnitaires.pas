@@ -29,20 +29,13 @@ implementation
     initialisationEquipement();
 
     // Initialisation du test unitaire
-    newTestsSeries('Tests de l''initialisation du coffre');
-    newTest('Tests de l''initialisation du coffre', 'Test des équipement bloqués et débloqués');
+    newTestsSeries('Test de l''initialisation du coffre');
+    newTest('Test de l''initialisation du coffre', 'Test des équipement bloqués');
 
-    // Test en parcourant le tableau de valeur
+    // On verifie si tous les autres équipements sont bien bloqués
     while (i <= 18) and testEquipementsBloquesValide do
     begin
-      // On verifie si les 6 équipements en cuivre sont bien débloqués
-      if ((i = 1) or (i = 4) or (i = 7) or (i = 10) or (i = 13) or (i = 16)) then
-      begin
-        testEquipementsBloquesValide := estDisponibleEquipement(i);
-      end
-      // On verifie si tous les autres équipements sont bien bloqués
-      else testEquipementsBloquesValide := not estDisponibleEquipement(i);
-
+      testEquipementsBloquesValide := not estDisponibleEquipement(i);
       i += 1;
     end;
     testIsEqual(testEquipementsBloquesValide);

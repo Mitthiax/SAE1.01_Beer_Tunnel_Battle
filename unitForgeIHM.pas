@@ -1,5 +1,6 @@
 unit unitForgeIHM;
 
+{$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface
@@ -7,11 +8,102 @@ interface
     IHM de la forge
   }
   procedure forgeIHM();
+
+  {
+    Pocedure qui affiche le message d'entrée dans la forge
+  }
+  procedure forgeMessage();
+
+  {
+    Fonction qui affiche la case pour le choix du joueur et retourne sont choix
+    Sortie:
+      integer; Choix du joueur parmi les équipements et quitter
+  }
   function choixForgeIHM(): integer;
+
+
+
+
+
 implementation
-uses
-  SysUtils, Classes, unitForgeLogic, unitCoffreConst,GestionEcran;
+  uses
+    SysUtils, Classes, unitForgeLogic, unitCoffreConst, journalihm, GestionEcran;
+
+  const
+    COULEUR_POSSEDE       = White;
+    COULEUR_ACHETABLE     = LightGreen;
+    COULEUR_NON_ACHETABLE = Red;
   
+
+  //Procedure qui affiche la liste des armes
+  procedure afficherArmesForge();
+  const
+    X = 10; Y = 5; // Coordonnées de l'affichage
+  var
+    i: integer; // Variable de boucle
+  begin
+    deplacerCurseurXY(X, Y); write('--- Les armes ---');
+
+    for i := 1 to 6 do
+    begin
+      // Si déjà possédé, on affiche le nom et 'Déjà possédé'
+      if equipementPossede(i) then
+      begin
+        couleurTexte(COULEUR_POSSEDE);
+        deplacerCurseurXY(X,      Y + i*2); write(i, ' -  ', listeEquipement[i].nom);
+        deplacerCurseurXY(X + 27, Y + i*2); write('-> Déjà possédé');
+      end
+
+      // Sinon, on choisi la couleur et affiche le nom et le prix
+      else
+      begin
+        // Choix de la couleur des équipement achetable et non achetable
+        if equipementAchetable(i) then couleurTexte(COULEUR_ACHETABLE)
+        else couleurTexte(COULEUR_NON_ACHETABLE);
+        
+        // Affichage du nom et du prix
+        deplacerCurseurXY(X,      Y + i*2); write(i, ' -  ', listeEquipement[i].nom);
+        deplacerCurseurXY(X + 27, Y + i*2); write('-> ', listeEquipement[i].prix, ' ', listeEquipement[i].materiau, ', ', listeEquipement[i].prixOr, ' Or');
+      end;
+    end;
+  end;
+
+  {
+    Procedure qui affiche la liste des armures
+  }
+  procedure afficherArmuresForge();
+  const
+    X = 75; Y = 5; // Coordonnées de l'affichage
+
+  var
+    i: integer; // Variable de boucle
+
+  begin
+    deplacerCurseurXY(X, Y); write('--- Les pièces d''armure ---');
+
+    for i := 7 to 18 do
+    begin
+      // Si déjà possédé, on affiche en vert le nom et 'Déjà possédé'
+      if equipementPossede(i) then
+      begin
+        couleurTexte(COULEUR_POSSEDE);
+        deplacerCurseurXY(X,      Y + i*2 - 12); write(i, ' -  ', listeEquipement[i].nom);
+        deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> Déjà possédé');
+      end
+
+      // Sinon, on choisi la couleur et affiche le nom et le prix
+      else
+      begin
+        // Choix de la couleur des équipement achetable et non achetable
+        if equipementAchetable(i) then couleurTexte(COULEUR_ACHETABLE)
+        else couleurTexte(COULEUR_NON_ACHETABLE);
+        
+        // Affichage du nom et du prix
+        deplacerCurseurXY(X,      Y + i*2 - 12); write(i, ' -  ', listeEquipement[i].nom);
+        deplacerCurseurXY(X + 27, Y + i*2 - 12); write('-> ', listeEquipement[i].prix, ' ', listeEquipement[i].materiau, ', ', listeEquipement[i].prixOr, ' Or');
+      end;
+    end;
+  end;
 
   {
     Pocedure qui affiche le message d'entrée dans la forge
@@ -19,7 +111,9 @@ uses
   procedure forgeMessage();
   begin
     effacerEcran();
-    deplacerCurseurXY(0, 0); write('entrer dans forge');
+
+    // Message d'entrée dans la forge
+
     readln;
   end;
 
@@ -28,12 +122,25 @@ uses
   }
   procedure forgeIHM();
   begin
-    forgeMessage();
+    effacerEcran(); 
+    //En-tete
+    dessinerCadreXY(0, 0, 199, 39, simple, LightGreen, Black);
+    dessinerCadreXY(39, 1, 80, 1, double, Green, Black);
+    couleurTexte(White);
 
-    // Seulement cette procedure et choixForgeIHM sont appelées
-    // Pour l'IHM, je propose de faire comme le prof, des couleur pour savoir ce qui est achetable et deja équipé,
-    // ils y donc les fonctions equipementAchetable, equipementAchete
-    // Tu peux aller voir unitCoffreIHM si tu veux pour voir comment avoir les prix
+    //Affiche le titre
+    deplacerCurseurXY(46, 1); write(' La Forge ');
+
+    // Afficher la liste de armes et armures
+    afficherArmesForge();
+    afficherArmuresForge();
+
+    //Afficher les choix
+    couleurTexte(White);
+    deplacerCurseurXY(9, 31); Write('?/ Choisir un équipement à acheter');
+    deplacerCurseurXY(9, 32); write('0/ Quitter la forge');
+
+    journal();
   end;
 
   {
