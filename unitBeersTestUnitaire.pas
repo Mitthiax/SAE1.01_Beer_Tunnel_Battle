@@ -8,11 +8,11 @@ interface
 uses
   Classes, SysUtils;
 
-procedure test();
+procedure testbeer();
 
 implementation
 uses
-  unitDate,testUnitaire;
+unitDate,testUnitaire,unitDormir;
 
  
 //Initialise le numéro du jours (début de partie)
@@ -43,7 +43,7 @@ begin
 end; 
 
 //Lance tous les tests
-procedure test();
+procedure testbeer();
 begin
      initialisationDateJour_test();
      initialisationDateJourSemaine_test();

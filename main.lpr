@@ -4,8 +4,10 @@ program main;
 {$mode objfpc}{$H+}
 
 uses
-  classes,sysutils, unitMenuPrincipalLogic;
+  classes,sysutils, unitMenuPrincipalLogic,GestionEcran,unitBeersTestUnitaire;
 begin 
+  changerTailleConsole(200,40);
   randomize;
-  menu();
+  //menu();
+  testbeer();
 end.
