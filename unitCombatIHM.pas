@@ -87,6 +87,8 @@ implementation
 
   {
     Procedure qui affiche l'ennemie
+    Parametres:
+      ennemie: TEnnemie; Ennemie du combat
   }
   procedure afficherEnnemie(var ennemie: TEnnemie);
   const
