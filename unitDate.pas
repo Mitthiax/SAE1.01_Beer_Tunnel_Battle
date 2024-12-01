@@ -71,7 +71,8 @@ end;
 procedure AvancerDate();
 begin
   // Avancer le jour de la semaine
-  DateActuelle.JourSemaine := TJourSemaine((Ord(DateActuelle.JourSemaine) + 1) mod 7);
+  if DateActuelle.JourSemaine = high(TJourSemaine) then DateActuelle.JourSemaine := low(TJourSemaine)
+  else DateActuelle.JourSemaine := succ(DateActuelle.JourSemaine);
 
   // Avancer le jour du mois
   Inc(DateActuelle.Jour);
@@ -79,7 +80,8 @@ begin
   begin
     DateActuelle.Jour := 1;
     // Avancer le mois
-    DateActuelle.Mois := TMois((Ord(DateActuelle.Mois) + 1) mod 12);
+    if DateActuelle.mois = high(TMois) then DateActuelle.mois := low(TMois)
+    else DateActuelle.mois := succ(DateActuelle.mois);
   end;
 end;
 
