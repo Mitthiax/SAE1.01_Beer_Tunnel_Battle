@@ -8,7 +8,7 @@ procedure journal();
 
 implementation
 uses
-  SysUtils, Classes,GestionPerso,GestionEcran,Inventaire,unitCoffreLogic,unitCoffreConst,unitDormir;
+  SysUtils, Classes,GestionPerso,GestionEcran,Inventaire,unitCoffreLogic,unitCoffreConst,unitDormir,gestionbuff;
   
 //affiche les informations du personnage du joueur pour l'ihm du journal
 procedure journalperso();
@@ -43,11 +43,32 @@ end;
 
 procedure journaldate();
 begin
-  deplacerCurseurXY(150, 31); write('Numéro du Jour     : ', getDatejour);
-  deplacerCurseurXY(150, 32); write('Jour de la semaine : ', getDatesemaine);
-  deplacerCurseurXY(150, 33); write('Mois               : ', getDatemois);
+  deplacerCurseurXY(170,31);write('Date');
+  deplacerCurseurXY(150, 33); write('Numéro du Jour     : ', getDatejour);
+  deplacerCurseurXY(150, 33); write('Jour de la semaine : ', getDatesemaine);
+  deplacerCurseurXY(150, 34); write('Mois               : ', getDatemois);
 end;
+procedure JournalBuff();
+begin
+  deplacerCurseurXY(170,10);write('Buff');
 
+  if indicationBuffSanteeMax=true then
+  begin
+    deplacerCurseurXY(150, 12); write('Vous avez un Buff de Santé maximum');
+  end
+  else if indicationBuffSanteeMax=false then
+  begin
+    deplacerCurseurXY(150, 12); write('Vous n''avez pas un Buff de Santé maximum');
+  end;
+   if indicationBuffResistanceMax=true then
+  begin
+    deplacerCurseurXY(150, 13); write('Vous avez un Buff de Résistance');
+  end
+  else if indicationBuffResistanceMax=false then
+  begin
+    deplacerCurseurXY(150, 13); write('Vous n''avez pas un Buff de Résistance');
+  end;
+end;
 //Procedure qui affiche le journal du joueur
 procedure journal();
 begin
@@ -58,6 +79,7 @@ begin
   journalperso();//appelle la fonction qui affiche les info du joueur
   journalivent();//appelle la fonction qui affiche les info de l'inventaire
   journaldate();
+  JournalBuff();
 end;
 
   

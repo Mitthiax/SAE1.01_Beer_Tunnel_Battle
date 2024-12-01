@@ -10,7 +10,7 @@ procedure afficherInterfaceDormir();
 implementation
   
 uses
-  SysUtils, Classes, unitDormir, unitBeersIhm, unitChambreIhm, GestionPerso, GestionEcran, unitDate,journalihm;
+  SysUtils, Classes, unitDormir, unitBeersIhm, unitChambreIhm, GestionPerso, GestionEcran, unitDate,journalihm,gestionbuff;
 
 //Affichague du titre et du texte pincipal de la taverne
 procedure afficherTextePrincipalDormir();
@@ -64,6 +64,7 @@ begin
   if (choix = 1) then
     begin
     gererChoixDormir();
+    resetBuffs();
     afficherInterfaceChambre(); // Revenir à la chambre après avoir fini de dormir
     end;
   end;

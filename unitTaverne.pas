@@ -14,10 +14,10 @@ procedure boireBiere();
 procedure manger();
 //Permet de quittez la taverne
 procedure quittez();
-  
+
 implementation
 uses
-  SysUtils, Classes, unitBeersIhm, unitTaverneAnecdote, unitTaverneAnecdoteIHM;
+  SysUtils, Classes, unitBeersIhm, unitTaverneAnecdote, unitTaverneAnecdoteIHM,gestionbuff,unitTaverneIHM;
 
 
 //Procedure qui gere les choix fait par le joueur a la taverne
@@ -36,8 +36,15 @@ begin
 end;
 
 procedure manger();
+var
+choixnourriture :integer;
 begin
-  WriteLn('Vous allez manger.');
+readln(choixnourriture);
+case choixnourriture of 
+  1 : setbuffResistanceMax();
+  2 : setBuffSanteeMax();
+end;
+afficherInterfaceTaverne();
 end;
 
 procedure quittez();

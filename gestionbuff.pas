@@ -10,6 +10,10 @@ type//tableau qui permet l'inventaire
 procedure resetBuffs();
 function getBuffResistanceMax():integer;
 procedure getBuffSanteeMax();
+procedure setbuffResistanceMax();
+procedure setBuffSanteeMax();
+function indicationBuffResistanceMax():boolean;
+function indicationBuffSanteeMax():boolean;
 implementation
 uses
   SysUtils, Classes,GestionPerso;
@@ -34,7 +38,6 @@ begin
   if buff[BuffSanteeMax]=true then
   begin
     setSantemax(getSantemax()+30);
-
   end
   else
   begin
@@ -57,5 +60,42 @@ begin
   end;
   getBuffResistanceMax:=resistanceadd;
 end;
-  
+  procedure setbuffResistanceMax();
+  begin
+    buff[ResistanceMax]:=true;
+  end;
+
+  procedure setBuffSanteeMax();
+  begin
+    buff[BuffSanteeMax]:=true; 
+  end;
+function indicationBuffSanteeMax():boolean;
+var
+indication:boolean;
+begin
+    if buff[BuffSanteeMax]=true then
+  begin
+    indication:=true
+  end
+  else
+  begin
+    indication:=false
+  end;
+  indicationBuffSanteeMax:=indication;
+end;
+
+function indicationBuffResistanceMax():boolean;
+var
+indication:boolean;
+begin
+    if buff[ResistanceMax]=true then
+  begin
+    indication:=true
+  end
+  else
+  begin
+    indication:=false
+  end;
+  indicationBuffResistanceMax:=indication;
+end;
 end.

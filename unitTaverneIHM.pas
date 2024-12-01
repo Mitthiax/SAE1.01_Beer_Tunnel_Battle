@@ -80,4 +80,29 @@ begin
     afficherInterface();
   end;
 end;
+
+procedure mangerihm();
+begin
+
+  manger();
+   //En-tete
+  dessinerCadreXY(1, 1, 199, 39, simple, LightGreen, Black);
+  dessinerCadreXY(39, 1, 80, 1, double, Green, Black);
+  couleurTexte(White);
+
+  //Affiche le titre
+  deplacerCurseurXY(46, 1); write(' La Taverne Patte de Cochon ');
+
+  //Afficher la phrase basic 
+  deplacerCurseurXY(7,5); write('Voila votre nourriture.');
+
+  dessinerCadreXY(3, 25, 115, 36, double, LightGreen, Black);
+  couleurTexte(White);
+  deplacerCurseurXY(9, 31); Write('1/ Ragouts de Ragondin(déffense amiliorer)');
+  deplacerCurseurXY(9,32);  Write('2/ Patte de Cochon(Santé amilioré)');
+  dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
+  deplacerCurseurXY(105, 33);
+  journal();
+end;
+
 end.
