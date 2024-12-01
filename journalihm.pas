@@ -8,7 +8,7 @@ procedure journal();
 
 implementation
 uses
-  SysUtils, Classes,GestionPerso,GestionEcran,Inventaire,unitCoffreLogic,unitCoffreConst;
+  SysUtils, Classes,GestionPerso,GestionEcran,Inventaire,unitCoffreLogic,unitCoffreConst,unitDormir;
   
 //affiche les informations du personnage du joueur pour l'ihm du journal
 procedure journalperso();
@@ -29,7 +29,7 @@ begin
   deplacerCurseurXY(166,15);write('Inventaire');
 
   deplacerCurseurXY(150,17);write('Arme  : ',listeEquipement[getArmeEquipee()].nom);
-  deplacerCurseurXY(150,19);write('Tête : ',listeEquipement[getCasqueEquipe()].nom);
+  deplacerCurseurXY(150,19);write('Tête  : ',listeEquipement[getCasqueEquipe()].nom);
   deplacerCurseurXY(150,20);write('Torse : ',listeEquipement[getPlastronEquipe()].nom);
   deplacerCurseurXY(150,21);write('Jambe : ',listeEquipement[getJambieresEquipees()].nom);
   deplacerCurseurXY(150,22);write('Pied  : ',listeEquipement[getBottesEquipees()].nom);
@@ -41,6 +41,13 @@ begin
   deplacerCurseurXY(150,29);write('Mythril     : ',getinvent(mythril));
 end;
 
+procedure journaldate();
+begin
+  deplacerCurseurXY(150, 31); write('Numéro du Jour     : ', getDatejour);
+  deplacerCurseurXY(150, 32); write('Jour de la semaine : ', getDatesemaine);
+  deplacerCurseurXY(150, 33); write('Mois               : ', getDatemois);
+end;
+
 //Procedure qui affiche le journal du joueur
 procedure journal();
 begin
@@ -50,6 +57,7 @@ begin
   deplacerCurseurXY(163, 3); write('Journal de Bords');
   journalperso();//appelle la fonction qui affiche les info du joueur
   journalivent();//appelle la fonction qui affiche les info de l'inventaire
+  journaldate();
 end;
 
   

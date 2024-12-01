@@ -10,7 +10,7 @@ procedure afficherInterfaceDormir();
 implementation
   
 uses
-  SysUtils, Classes, unitDormir, unitBeersIhm, unitChambreIhm, GestionPerso, GestionEcran, unitDate;
+  SysUtils, Classes, unitDormir, unitBeersIhm, unitChambreIhm, GestionPerso, GestionEcran, unitDate,journalihm;
 
 //Affichague du titre et du texte pincipal de la taverne
 procedure afficherTextePrincipalDormir();
@@ -34,16 +34,6 @@ begin
   deplacerCurseurXY(30, 10); write('   ZZZ');
   deplacerCurseurXY(32, 11); write('  ZZZ');
   deplacerCurseurXY(34, 12); write(' ZZZ');
-end;
-
-//Procedure qui affiche le journal du joueur
-procedure journal();
-begin
-  dessinerCadreXY(120, 1, 197, 37, simple, DarkGray, Black);
-  dessinerCadreXY(135, 3, 185, 3, double, DarkGray, Black);
-  couleurTexte(White);
-  deplacerCurseurXY(152, 3); write('Journal de Bords');
-  deplacerCurseurXY(110, 15); write('Date initiale : Jour ', getDatejour, ', Jour de la semaine : ', getDatesemaine, ', Mois ', getDatemois)
 end;
 
 
