@@ -56,12 +56,11 @@ implementation
 
     estAchetable := not equipementPossede(idEquipement);
     
-    if estAchetable then
-    begin
-      if      listeEquipement[idEquipement].materiau = 'Cuivre'  then estAchetable := getinvent(cuivre)  >= listeEquipement[idEquipement].prix
-      else if listeEquipement[idEquipement].materiau = 'Fer'     then estAchetable := getinvent(fer)     >= listeEquipement[idEquipement].prix
-      else if listeEquipement[idEquipement].materiau = 'Mythril' then estAchetable := getinvent(mythril) >= listeEquipement[idEquipement].prix;
-    end;
+    if      estAchetable and (listeEquipement[idEquipement].materiau = 'Cuivre')  then estAchetable := getinvent(cuivre)  >= listeEquipement[idEquipement].prix
+    else if estAchetable and (listeEquipement[idEquipement].materiau = 'Fer')     then estAchetable := getinvent(fer)     >= listeEquipement[idEquipement].prix
+    else if estAchetable and (listeEquipement[idEquipement].materiau = 'Mythril') then estAchetable := getinvent(mythril) >= listeEquipement[idEquipement].prix;
+
+    if estAchetable then estAchetable := getinvent(monnaie) >= listeEquipement[idEquipement].prixOr;
 
     // Sortie
     equipementAchetable := estAchetable;
@@ -92,12 +91,17 @@ implementation
     choix: integer; // Choix dans la forge parmi les équipements et quitter
 
   begin
+    forgeMessage();
     forgeIHM();
 
-    repeat
-      choix := choixForgeIHM();
+    choix := choixForgeIHM();
+
+    while choix <> 0 do
+    begin
       acheter(choix);
-    until (choix = 0);
+      forgeIHM();
+      choix := choixForgeIHM();
+    end;
 
     afficherInterface();
   end;
