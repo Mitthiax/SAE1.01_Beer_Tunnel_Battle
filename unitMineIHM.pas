@@ -83,7 +83,7 @@ implementation
     effacerEcran();
     dessinerCadreXY(1, 0, 198, 39, simple, White, Black);
     deplacerCurseurXY(20, 29); write('?/ Attaquer un ennemie');
-    deplacerCurseurXY(20, 32); write('4/ Retourner au hall');
+    deplacerCurseurXY(20, 32); write('0/ Retourner au hall');
 
     afficherEnnemies(listeEnnemies);
 
