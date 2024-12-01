@@ -71,9 +71,9 @@ Ce jeu ne collecte aucune donnée personnelle. Toutes les informations généré
 
 ### Contact
 Pour toute question ou demande d'autorisation, veuillez contacter les auteurs aux adresses suivantes :
--adriana.charles@iut-dijon.u-bourgogne.fr
--matthieu.boisson@iut-dijon.u-bourgogne.fr
--lucas.bambi-monot@iut-dijon.u-bourgogne.fr
+- adriana.charles@iut-dijon.u-bourgogne.fr
+- matthieu.boisson@iut-dijon.u-bourgogne.fr
+- lucas.bambi-monot@iut-dijon.u-bourgogne.fr
 
 ---
 
