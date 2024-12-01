@@ -49,7 +49,7 @@ begin
 end;
 function getDatejour():integer;
 begin
-  getDatejour:=DateCourante.Jour
+  getDatejour:=DateCourante.Jour;
 end;
 function getDatemois():TMois;
 begin

@@ -29,7 +29,7 @@ procedure AvancerDate();
 
 // Fonction pour accéder à la date actuelle (pour les tests)
 function ObtenirDateActuelle: TDateJeu;
-
+//function GetDatejour():integer;
 implementation
 
 uses
@@ -86,7 +86,12 @@ end;
 // Fonction pour accéder à la date actuelle (pour les tests)
 function ObtenirDateActuelle: TDateJeu;
 begin
-  Result := DateActuelle;
+  ObtenirDateActuelle := DateActuelle;
 end;
+
+{function GetDatejour():integer;
+begin
+  GetDatejour:=DateActuelle.Jour;
+end;}
 
 end.
