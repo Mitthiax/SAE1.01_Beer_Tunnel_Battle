@@ -6,6 +6,8 @@ unit unitForgeLogic;
 interface
   {
     Fonction qui retourne si un équipement est possédé
+    Parametre:
+      idEquipement: integer; Identifiant de l'équipement
     Sortie:
       boolean; True si l'équipement n'est pas déjà possédé, sinon false
   }
@@ -13,6 +15,8 @@ interface
 
   {
     Fonction qui retourne si un équipement est achetable
+    Parametre:
+      idEquipement: integer; Identifiant de l'équipement
     Sortie:
       boolean; True si l'équipement n'est pas déjà possédé et achetable, sinon false
   }
@@ -33,6 +37,8 @@ implementation
 
   {
     Fonction qui retourne si un équipement est possédé
+    Parametre:
+      idEquipement: integer; Identifiant de l'équipement
     Sortie:
       boolean; True si l'équipement n'est pas déjà possédé, sinon false
   }
@@ -43,6 +49,8 @@ implementation
 
   {
     Fonction qui retourne si un équipement est achetable
+    Parametre:
+      idEquipement: integer; Identifiant de l'équipement
     Sortie:
       boolean; True si l'équipement n'est pas déjà possédé et achetable, sinon false
   }

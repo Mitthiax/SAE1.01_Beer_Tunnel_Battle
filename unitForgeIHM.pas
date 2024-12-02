@@ -27,17 +27,19 @@ implementation
     COULEUR_POSSEDE       = White;
     COULEUR_ACHETABLE     = LightGreen;
     COULEUR_NON_ACHETABLE = Red;
-  
 
-  //Procedure qui affiche la liste des armes
+  {
+    Procedure qui affiche la liste des armes
+  }
   procedure afficherArmesForge();
   const
     X = 10; Y = 5; // Coordonnées de l'affichage
+
   var
     i: integer; // Variable de boucle
+
   begin
     deplacerCurseurXY(X, Y); write('--- Les armes ---');
-
     for i := 1 to 6 do
     begin
       // Si déjà possédé, on affiche le nom et 'Déjà possédé'
@@ -51,7 +53,7 @@ implementation
       // Sinon, on choisi la couleur et affiche le nom et le prix
       else
       begin
-        // Choix de la couleur des équipement achetable et non achetable
+        // Choix de la couleur des équipements achetables et non achetables
         if equipementAchetable(i) then couleurTexte(COULEUR_ACHETABLE)
         else couleurTexte(COULEUR_NON_ACHETABLE);
         
@@ -100,29 +102,40 @@ implementation
     end;
   end;
 
+  //Procedure qui affiche le choix des actions
+  procedure afficherOptionsForge();
+    begin
+      dessinerCadreXY(3, 25, 60, 36, double, LightGreen, Black);
+      couleurTexte(White);
+      deplacerCurseurXY(7, 27); Write('Que souhaitez-vous faire ?');
+
+      deplacerCurseurXY(9, 30); Write('?/ Choisir un équipement à acheter');
+      deplacerCurseurXY(9, 32); Write('0/ Quitter la forge');
+    end;
+
   {
     IHM de la forge
   }
   procedure forgeIHM();
   begin
     effacerEcran(); 
-    //En-tete
+
+    // Entête
     dessinerCadreXY(0, 0, 199, 39, simple, LightGreen, Black);
     dessinerCadreXY(39, 1, 80, 1, double, Green, Black);
     couleurTexte(White);
 
-    //Affiche le titre
+    // Affiche le titre
     deplacerCurseurXY(55, 1); write(' La Forge ');
 
     // Afficher la liste de armes et armures
     afficherArmesForge();
     afficherArmuresForge();
+    
+    // Afficher les option de la forge
+    afficherOptionsForge();
 
-    //Afficher les choix
-    couleurTexte(White);
-    deplacerCurseurXY(9, 31); Write('?/ Choisir un équipement à acheter');
-    deplacerCurseurXY(9, 32); write('0/ Quitter la forge');
-
+    // Affichager le journal du joueur
     journal();
   end;
 
@@ -137,8 +150,8 @@ implementation
   begin
     // On redemande jusqu'a ce que le choix soit valide
     repeat
-        dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
-        deplacerCurseurXY(105, 33); readln(choix);
+      dessinerCadreXY(40, 32, 50, 34, double, Red, Black);
+      deplacerCurseurXY(45, 33); readln(choix);
     until (0 <= choix) and (choix <= 18);
     couleurTexte(White);
 

@@ -20,44 +20,60 @@ interface
   {
     Procedure qui équipe ou déséquipe un equipement au joueur
     Parametre:
-      numero: integer; Numero de l'équipement à équiper
+      idEquipement: integer; Identifiant de l'équipement à équiper
   }
-  procedure equiper(numero: integer);
-
-  function estDisponibleEquipement(numero: integer): boolean;
+  procedure equiper(idEquipement: integer);
 
   {
-    Fonction qui retourne le numero de l'arme équipée
+    Fonction qui retourne si un equipement est débloqué ou non
+    Parametres:
+      idEquipement: integer; Identifiant de l'équipement
     Sortie:
-      integer: Numero de l'armure équipée
+      boolean; True si l'équipement est débloqué, sinon false
+  }
+  function estDisponibleEquipement(idEquipement: integer): boolean;
+
+  {
+    Fonction qui retourne si un equipement est équipé ou non
+    Parametres:
+      idEquipement: integer; Identifiant de l'équipement
+    Sortie:
+      boolean; True si l'équipement est équipé, sinon false
+  }
+  function estEquipe(idEquipement: integer):boolean;
+
+  {
+    Fonction qui retourne l'identifiant de l'arme équipée
+    Sortie:
+      integer: Identifiant de l'armure équipée
   }
   function getArmeEquipee(): integer;
 
   {
-    Fonction qui retourne le numero du casque équipé
+    Fonction qui retourne l'identifiant du casque équipé
     Sortie:
-      integer: Numero du casque équipé
+      integer: Identifiant du casque équipé
   }
   function getCasqueEquipe(): integer;
 
   {
-    Fonction qui retourne le numero du plastron équipé
+    Fonction qui retourne l'identifiant du plastron équipé
     Sortie:
-      integer: Numero du plastron équipé
+      integer: Identifiant du plastron équipé
   }
   function getPlastronEquipe(): integer;
 
   {
-    Fonction qui retourne le numero des jambières équipées
+    Fonction qui retourne l'identifiant des jambières équipées
     Sortie:
-      integer: Numero des jambières équipées
+      integer: Identifiant des jambières équipées
   }
-  function getjambieresEquipees(): integer;
+  function getJambieresEquipees(): integer;
 
   {
-    Fonction qui retourne le numero des bottes équipées
+    Fonction qui retourne l'identifiant des bottes équipées
     Sortie:
-      integer: Numero des bottes équipées
+      integer: Identifiant des bottes équipées
   }
   function getBottesEquipees(): integer;
 
@@ -79,9 +95,9 @@ interface
   {
     Procedure qui débloque un équipement
     Parametres:
-      numero: integer; Numero de l'équipement
+      idEquipement: integer; Identifiant de l'équipement
   }
-  procedure debloquer(numero: integer);
+  procedure debloquer(idEquipement: integer);
 
 
 
@@ -94,17 +110,17 @@ implementation
     armeEquipe: integer; // Arme actuellement équipée
     casqueEquipe: integer; // Casque actuellement équipée
     plastronEquipe: integer; // Plastron actuellement équipée
-    jambieresEquipe: integer; // Jambieres actuellement équipée
-    bottesEquipe: integer; // Bottes actuellement équipée
+    jambieresEquipees: integer; // Jambieres actuellement équipée
+    bottesEquipees: integer; // Bottes actuellement équipée
 
   {
     Procedure qui débloque un équipement
     Parametres:
-      numero: integer; Numero de l'équipement
+      idEquipement: integer; Identifiant de l'équipement
   }
-  procedure debloquer(numero: integer);
+  procedure debloquer(idEquipement: integer);
   begin
-    estDisponible[numero] := true;
+    estDisponible[idEquipement] := true;
   end;
   
   {
@@ -122,48 +138,48 @@ implementation
     armeEquipe := 0;
     casqueEquipe := 0;
     plastronEquipe := 0;
-    jambieresEquipe := 0;
-    bottesEquipe := 0;
+    jambieresEquipees := 0;
+    bottesEquipees := 0;
   end;
 
   {
     Procedure qui équipe ou déséquipe un equipement au joueur
     Parametre:
-      numero: integer; Numero de l'équipement à équiper
+      idEquipement: integer; Identifiant de l'équipement à équiper
   }
-  procedure equiper(numero: integer);
+  procedure equiper(idEquipement: integer);
   begin
-    if estDisponible[numero] then
+    if estDisponible[idEquipement] then
     begin
-      case numero of
+      case idEquipement of
         1..6:
         begin
-          if armeEquipe = numero then armeEquipe := -1 // Code arme non équipée
-          else armeEquipe := numero;
+          if armeEquipe = idEquipement then armeEquipe := -1 // Code arme non équipée
+          else armeEquipe := idEquipement;
         end;
         
         7..9:
         begin
-          if casqueEquipe = numero then casqueEquipe := 0 // Code armure non équipée
-          else casqueEquipe := numero;
+          if casqueEquipe = idEquipement then casqueEquipe := 0 // Code armure non équipée
+          else casqueEquipe := idEquipement;
         end;
         
         10..12:
         begin
-          if plastronEquipe = numero then plastronEquipe := 0 // Code armure non équipée
-          else plastronEquipe := numero;
+          if plastronEquipe = idEquipement then plastronEquipe := 0 // Code armure non équipée
+          else plastronEquipe := idEquipement;
         end;
         
         13..15:
         begin
-          if jambieresEquipe = numero then jambieresEquipe := 0 // Code armure non équipée
-          else jambieresEquipe := numero;
+          if jambieresEquipees = idEquipement then jambieresEquipees := 0 // Code armure non équipée
+          else jambieresEquipees := idEquipement;
         end;
         
         16..18:
         begin
-          if bottesEquipe = numero then bottesEquipe := 0 // Code armure non équipée
-          else bottesEquipe := numero;
+          if bottesEquipees = idEquipement then bottesEquipees := 0 // Code armure non équipée
+          else bottesEquipees := idEquipement;
         end;
       end;
     end;
@@ -188,15 +204,38 @@ implementation
     afficherInterface();
   end;
 
-  function estDisponibleEquipement(numero: integer): boolean;
+  {
+    Fonction qui retourne si un equipement est débloqué ou non
+    Parametres:
+      idEquipement: integer; Identifiant de l'équipement
+    Sortie:
+      boolean; True si l'équipement est débloqué, sinon false
+  }
+  function estDisponibleEquipement(idEquipement: integer): boolean;
   begin
-    estDisponibleEquipement := estDisponible[numero];
+    estDisponibleEquipement := estDisponible[idEquipement];
   end;
 
   {
-    Fonction qui retourne le numero de l'arme équipée
+    Fonction qui retourne si un equipement est équipé ou non
+    Parametres:
+      idEquipement: integer; Identifiant de l'équipement
     Sortie:
-      integer: Numero de l'armure équipée
+      boolean; True si l'équipement est équipé, sinon false
+  }
+  function estEquipe(idEquipement: integer):boolean;
+  begin
+    estEquipe := (idEquipement = armeEquipe) or
+                 (idEquipement = casqueEquipe) or
+                 (idEquipement = plastronEquipe) or
+                 (idEquipement = jambieresEquipees) or
+                 (idEquipement = bottesEquipees)
+  end;
+
+  {
+    Fonction qui retourne l'identifiant de l'arme équipée
+    Sortie:
+      integer: Identifiant de l'armure équipée
   }
   function getArmeEquipee(): integer;
   begin
@@ -204,9 +243,9 @@ implementation
   end;
 
   {
-    Fonction qui retourne le numero du casque équipé
+    Fonction qui retourne l'identifiant du casque équipé
     Sortie:
-      integer: Numero du casque équipé
+      integer: Identifiant du casque équipé
   }
   function getCasqueEquipe(): integer;
   begin
@@ -214,9 +253,9 @@ implementation
   end;
 
   {
-    Fonction qui retourne le numero du plastron équipé
+    Fonction qui retourne l'identifiant du plastron équipé
     Sortie:
-      integer: Numero du plastron équipé
+      integer: Identifiant du plastron équipé
   }
   function getPlastronEquipe(): integer;
   begin
@@ -224,23 +263,23 @@ implementation
   end;
 
   {
-    Fonction qui retourne le numero des jambières équipées
+    Fonction qui retourne l'identifiant des jambières équipées
     Sortie:
-      integer: Numero des jambières équipées
+      integer: Identifiant des jambières équipées
   }
-  function getjambieresEquipees(): integer;
+  function getJambieresEquipees(): integer;
   begin
-    getjambieresEquipees := jambieresEquipe;
+    getJambieresEquipees := jambieresEquipees;
   end;
 
   {
-    Fonction qui retourne le numero des bottes équipées
+    Fonction qui retourne l'identifiant des bottes équipées
     Sortie:
-      integer: Numero des bottes équipées
+      integer: Identifiant des bottes équipées
   }
   function getBottesEquipees(): integer;
   begin
-    getBottesEquipees := bottesEquipe;
+    getBottesEquipees := bottesEquipees;
   end;
 
   {
@@ -262,8 +301,8 @@ implementation
   begin
     getDefenceJoueur := listeEquipement[casqueEquipe].points
                       + listeEquipement[plastronEquipe].points
-                      + listeEquipement[jambieresEquipe].points
-                      + listeEquipement[bottesEquipe].points;
+                      + listeEquipement[jambieresEquipees].points
+                      + listeEquipement[bottesEquipees].points;
   end;
   
 end.
