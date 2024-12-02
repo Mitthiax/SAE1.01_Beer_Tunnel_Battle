@@ -5,7 +5,7 @@ unit unitDormir;
 
 interface
 uses
-  SysUtils, Classes, unitDate, GestionPerso, unitDormirIhm, unitChambreIhm;
+  SysUtils, Classes, unitDate, GestionPerso, unitDormirIhm, unitChambreIhm, marchand, gestionbuff;
 
 // Permet d'arrêter de dormir 
 procedure gererChoixDormir();
@@ -24,6 +24,8 @@ begin
   pvrestore:=getSantemax();
   soignerJoueur(pvrestore); 
   AvancerDate(); // Avancer la date d'un jour
+  Initstockboutique(); //Initialise le stock de la boutique pour la journée
+  resetBuffs(); //Initialise les buffs a 0 apres avoir dormi
 end;
 
 // Procedure qui affiche le journal du joueur avec toutes les informations sur son personnage
