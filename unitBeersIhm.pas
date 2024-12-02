@@ -49,6 +49,7 @@ begin
   deplacerCurseurXY(9, 32); Write('3/ Se rendre à la forge');
   deplacerCurseurXY(9, 33); Write('4/ Se rendre aux mines');
   deplacerCurseurXY(9, 34); Write('5/ Se rendre à la taverne');
+  deplacerCurseurXY(9, 35); write('6/ Menu Principal pour crée une nouvelle partie ou quittez');
   dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
   deplacerCurseurXY(105, 33);
 end;
@@ -68,6 +69,6 @@ begin
   repeat
     readln(choix);
     gererChoix(choix);
-  until (choix < 1) or (choix > 5);
+  until (choix < 1) or (choix > 6);
 end;
 end.
