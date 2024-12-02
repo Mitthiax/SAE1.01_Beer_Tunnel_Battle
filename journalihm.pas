@@ -45,8 +45,8 @@ procedure journaldate();
 begin
   deplacerCurseurXY(170,31);write('Date');
   deplacerCurseurXY(150, 33); write('Numéro du Jour     : ', getDatejour);
-  deplacerCurseurXY(150, 33); write('Jour de la semaine : ', getDatesemaine);
-  deplacerCurseurXY(150, 34); write('Mois               : ', getDatemois);
+  deplacerCurseurXY(150, 34); write('Jour de la semaine : ', getDatesemaine);
+  deplacerCurseurXY(150, 35); write('Mois               : ', getDatemois);
 end;
 procedure JournalBuff();
 begin
