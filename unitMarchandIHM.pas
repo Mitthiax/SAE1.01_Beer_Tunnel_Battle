@@ -21,7 +21,7 @@ begin
   dessinerCadreXY(1, 1, 199, 39, simple, LightGreen, Black);
   dessinerCadreXY(39, 1, 80, 1, double, Green, Black);
   couleurTexte(White);
-  deplacerCurseurXY(46, 1); write(' Le Marchand ');
+  deplacerCurseurXY(54, 1); write(' Le Marchand ');
 
   //Texte du hall
   couleurTexte(White);
