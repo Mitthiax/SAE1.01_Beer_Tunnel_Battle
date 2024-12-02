@@ -32,9 +32,12 @@ implementation
     newTestsSeries('Test de l''initialisation du coffre');
     newTest('Test de l''initialisation du coffre', 'Test des équipement bloqués');
 
-    // On verifie si tous les autres équipements sont bien bloqués
     while (i <= 18) and testEquipementsBloquesValide do
     begin
+      // On verrifie si l'épée et le casque en cuivre sont bien débloqués
+      if (i = epeeCuivre) or (i = casqueCuivre) then testEquipementsBloquesValide := estDisponibleEquipement(i);
+
+      // On verifie si tous les autres équipements sont bien bloqués
       testEquipementsBloquesValide := not estDisponibleEquipement(i);
       i += 1;
     end;

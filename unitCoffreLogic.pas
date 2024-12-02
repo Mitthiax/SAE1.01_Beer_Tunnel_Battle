@@ -115,6 +115,9 @@ implementation
     i: integer; // Variable de boucle
   begin
     for i := 1 to 18 do estDisponible[i] := false;
+    
+    debloquer(epeeCuivre);
+    debloquer(casqueCuivre);
 
     armeEquipe := 0;
     casqueEquipe := 0;
