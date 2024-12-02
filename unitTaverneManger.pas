@@ -18,8 +18,16 @@ uses
 procedure gererChoixTaverneManger(choix : Integer);
 begin
 case choix of 
-  1 : setbuffResistanceMax();
-  2 : setBuffSanteeMax();
+  1 : if getinvent(monnaie)>= 18 then
+  begin
+    setbuffResistanceMax();
+    setinvent(monnaie,getinvent(monnaie)-18);
+  end; 
+  2 : if getinvent(monnaie)>= 25 then
+  begin
+    setBuffSanteeMax();
+    setinvent(monnaie,getinvent(monnaie)-25);
+  end;
   3 : afficherInterfaceTaverne();
 end;
 end;

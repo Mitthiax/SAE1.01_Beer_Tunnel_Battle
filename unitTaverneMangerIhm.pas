@@ -28,9 +28,9 @@ begin
   couleurTexte(Yellow);
   deplacerCurseurXY(47,6); write('**************************');
   couleurTexte(white);
-  deplacerCurseurXY(25,10); Write('Plats                                         Bonus');
-  deplacerCurseurXY(25,15); write('1/Brochette de viandes de Ragondin            Résistance');
-  deplacerCurseurXY(25,20); write('2/Ragôut de Cerf                              Santé');
+  deplacerCurseurXY(25,10); Write('Plats                                         Bonus        Prix : ');
+  deplacerCurseurXY(25,15); write('1/Brochette de viandes de Ragondin            Résistance    18    ');
+  deplacerCurseurXY(25,20); write('2/Ragôut de Cerf                              Santé         25    ');
 end;
 
 
