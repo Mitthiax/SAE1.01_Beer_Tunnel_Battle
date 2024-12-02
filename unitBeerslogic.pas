@@ -16,11 +16,13 @@ procedure allerForge();
 procedure allerTaverne();
 //Permet d'aller dans la mine
 procedure allerMine();
+//Permet d'aller au menu principal pour crée une noivelle partie ou quittez
+procedure allezMenu();
   
   
 implementation
   uses
-  SysUtils, Classes, unitBeersIhm, unitTaverneIHM, unitTaverne, unitMineLogic, unitCoffreLogic, unitMarchandIHM, unitForgeLogic, unitChambreIhm;
+  SysUtils, Classes, unitBeersIhm, unitTaverneIHM, unitTaverne, unitMineLogic, unitCoffreLogic, unitMarchandIHM, unitForgeLogic, unitChambreIhm, unitMenuPrincipalLogic, unitInterfaceForgeIHM;
 
 //Procedure qui gere les choix fait par le joueur
 procedure gererChoix(choix : Integer);
@@ -31,6 +33,7 @@ begin
     3 : allerForge();
     4 : allerMine();
     5 : afficherInterfaceTaverne();
+    6 : menu();
   end;
 end;
 
@@ -49,8 +52,8 @@ end;
 
 procedure AllerForge;
 begin
-  // Logique spécifique à la forge
-  ouvrirForge();
+  // Procédure qui affiche toute l'interface de la forge
+  afficherInterfaceForge();
 end;
 
 procedure AllerTaverne;
@@ -63,4 +66,11 @@ begin
   // Logique spécifique aux mines
   ouvrirMine();
 end;
+
+procedure allezMenu();
+begin
+  //Permet de crée une nouvelle partie ou de quittez le jeux
+  menu();
+end;
+
 end.
