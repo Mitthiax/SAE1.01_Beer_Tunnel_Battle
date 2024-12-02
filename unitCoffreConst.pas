@@ -26,27 +26,27 @@ interface
       (nom: 'Epee en mythril';     materiau: 'Mythril'; points: 14; prix: 20;  prixOr: 500),
       
       // Haches
-      (nom: 'Hache en cuivre';     materiau: 'Cuivre';  points: 6;  prix: 150; prixOr: 500),
+      (nom: 'Hache en cuivre';     materiau: 'Cuivre';  points: 6;  prix: 100; prixOr: 500),
       (nom: 'Hache en fer';        materiau: 'Fer';     points: 10; prix: 75;  prixOr: 500),
       (nom: 'Hache en mythril';    materiau: 'Mythril'; points: 18; prix: 25;  prixOr: 500),
       
       // Casques
-      (nom: 'Casque en cuivre';    materiau: 'Cuivre';  points: 5;  prix: 0;   prixOr: 0),
+      (nom: 'Casque en cuivre';    materiau: 'Cuivre';  points: 5;  prix: 100;   prixOr: 250),
       (nom: 'Casque en fer';       materiau: 'Fer';     points: 10; prix: 50;  prixOr: 250),
       (nom: 'Casque en mythril';   materiau: 'Mythril'; points: 15; prix: 20;  prixOr: 250),
       
       // Plastrons
-      (nom: 'Plastron en cuivre';  materiau: 'Cuivre';  points: 10; prix: 0;   prixOr: 0),
+      (nom: 'Plastron en cuivre';  materiau: 'Cuivre';  points: 10; prix: 100;   prixOr: 250),
       (nom: 'Plastron en fer';     materiau: 'Fer';     points: 15; prix: 75;  prixOr: 250),
       (nom: 'Plastron en mythril'; materiau: 'Mythril'; points: 20; prix: 25;  prixOr: 250),
       
       // Jambières
-      (nom: 'Jambiere en cuivre';  materiau: 'Cuivre';  points: 10; prix: 0;   prixOr: 0),
+      (nom: 'Jambiere en cuivre';  materiau: 'Cuivre';  points: 10; prix: 100;   prixOr: 250),
       (nom: 'Jambiere en fer';     materiau: 'Fer';     points: 15; prix: 75;  prixOr: 250),
       (nom: 'Jambiere en mythril'; materiau: 'Mythril'; points: 20; prix: 25;  prixOr: 250),
       
       // Bottes
-      (nom: 'Bottes en cuivre';    materiau: 'Cuivre';  points: 5;  prix: 0;   prixOr: 0),
+      (nom: 'Bottes en cuivre';    materiau: 'Cuivre';  points: 5;  prix: 100;   prixOr: 250),
       (nom: 'Bottes en fer';       materiau: 'Fer';     points: 10; prix: 50;  prixOr: 250),
       (nom: 'Bottes en mythril';   materiau: 'Mythril'; points: 15; prix: 20;  prixOr: 250)
     );
