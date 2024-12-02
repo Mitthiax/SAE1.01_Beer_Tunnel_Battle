@@ -10,7 +10,7 @@ procedure afficherInterfaceChambre();
 
 implementation
 uses
-  SysUtils, Classes, unitChambre, GestionEcran, unitDormirIhm, unitCoffreIHM, unitBeersIhm,journalihm;
+  SysUtils, Classes, unitChambre, GestionEcran, unitDormirIhm, unitCoffreLogic, unitBeersIhm,journalihm;
   
 
 //Affichague du titre et du texte pincipal de la Chambre
@@ -60,7 +60,7 @@ begin
   // Capture et traitement du choix de l'utilisateur
   readln(choix);
   if (choix = 1) then afficherInterfaceDormir() // Allez dormir
-  else if (choix = 2) then coffreIHM()// Allez voir le coffre
+  else if (choix = 2) then ouvrirCoffre()// Allez voir le coffre
   else if (choix = 3) then afficherInterface(); // Retours dans le hall
 
 end;
