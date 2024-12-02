@@ -32,7 +32,7 @@ Le marchand vous permet d'acheter des objets essentiels pour votre aventure. Vou
 
 ## La Taverne
 
-La taverne est un lieu de détente où vous pouvez boire une bière, manger, ou écouter des anecdotes. C'est un endroit idéal pour se reposer et se ressourcer avant de repartir à l'aventure. Notez que les personnes nommées "Alexian" sont bannies de la taverne et ne peuvent pas y entrer. Profitez de ces moments de détente pour recharger vos batteries et préparer votre prochaine expédition.
+La taverne est un lieu de détente où vous pouvez boire une bière, manger, ou écouter des anecdotes. C'est un endroit idéal pour se reposer et se ressourcer avant de repartir à l'aventure. Profitez de ces moments de détente pour recharger vos batteries et préparer votre prochaine expédition.
 
 ## Les Mines
 
