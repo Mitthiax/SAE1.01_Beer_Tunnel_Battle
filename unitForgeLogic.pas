@@ -29,7 +29,7 @@ interface
 
 implementation
   uses
-    SysUtils, Classes, unitForgeIHM, Inventaire, unitCoffreLogic, unitCoffreConst, unitBeersIhm;
+    SysUtils, Classes, unitForgeIHM, Inventaire, unitCoffreLogic, unitCoffreConst, unitBeersIhm, unitInterfaceForgeIHM;
 
   {
     Fonction qui retourne si un équipement est possédé
@@ -91,7 +91,6 @@ implementation
     choix: integer; // Choix dans la forge parmi les équipements et quitter
 
   begin
-    forgeMessage();
     forgeIHM();
 
     choix := choixForgeIHM();
@@ -103,6 +102,6 @@ implementation
       choix := choixForgeIHM();
     end;
 
-    afficherInterface();
+    afficherInterfaceForge();
   end;
 end.
