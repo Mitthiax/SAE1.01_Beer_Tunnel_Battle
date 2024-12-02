@@ -1,5 +1,6 @@
 unit unitInterfaceForgeIHM;
 
+{$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface
