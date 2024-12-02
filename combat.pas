@@ -20,7 +20,7 @@ interface
 
 implementation
   uses
-    SysUtils, Classes, GestionPerso, unitCoffreLogic, unitCombatIHM, libRandom, gestionbuff, Inventaire, unitBeersIhm;
+    SysUtils, Classes, GestionPerso, unitCoffreLogic, unitCombatIHM, libRandom, gestionbuff, Inventaire, unitBeersIhm, unitContratsLogic;
 
     
   //fonction qui calcule les dégats infliger à l'ennemie 
@@ -175,41 +175,6 @@ implementation
   end;
 
   {
-    Procedure qui donnne au joueur ce qu'il a gagné en gagnant le combat
-    Parametres:
-      ennemie: TEnnemie; Ennemie tué
-  }
-  procedure gagneCombat(var ennemie: TEnnemie);
-  var
-    cuivreGagne    : integer; // Cuivre gagné par le joueur
-    ferGagne       : integer; // Fer gagné par le joueur
-    mythrilGagne   : integer; // Mythril gagné par le joueur
-    monnaieGagne   : integer; // Monnaie gagnée par le joueur
-    experienceGagne: integer; // Experience gagnée par le joueur
-
-  begin
-    cuivreGagne     := randomInteger(7, 26);
-    ferGagne        := randomInteger(5, 16);
-    mythrilGagne    := randomInteger(0, 6);
-    monnaieGagne    := round(ennemie.gold * randomReal(0.75, 1.25));
-    experienceGagne := round(ennemie.XP   * randomReal(0.75, 1.25));
-
-    setinvent(cuivre, (getinvent(cuivre)  + cuivreGagne));
-    setinvent(fer,    (getinvent(fer)     + ferGagne));
-    setinvent(mythril,(getinvent(mythril) + mythrilGagne));
-    setinvent(monnaie,(getinvent(monnaie) + monnaieGagne));
-    Experience(experienceGagne);
-    
-    afficherRecompensesCombat(
-      cuivreGagne,
-      ferGagne,
-      mythrilGagne,
-      monnaieGagne,
-      experienceGagne
-    );
-  end;
-
-  {
     Procedure qui comme un combat contre un ennemie aléatoire
     Parametres:
       ennemie: TEnnemie; Ennemie lors du combat
@@ -221,9 +186,13 @@ implementation
   begin
     estTermine := false;
 
+    // Modification des points de vie et dégats, pour des valeur plus aléatoires
+    ennemie.PV := round(ennemie.PV * randomReal(0.75, 1.25));
+    ennemie.degats := round(ennemie.degats * randomReal(0.75, 1.25));
+
     while (not estTermine) do estTermine := tourCombat(ennemie);
     
-    if ennemie.PV <= 0 then gagneCombat(ennemie);
+    if ennemie.PV <= 0 then incrementeVictoire();
     afficherInterface();
   end;
 

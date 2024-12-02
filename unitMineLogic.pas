@@ -7,9 +7,6 @@ interface
   uses
     unitCombatConst;
 
-  type
-    TListeEnnemies = array[1..3] of TEnnemie;
-
   {
     Procedure qui ouvre la mine
   }
@@ -21,23 +18,21 @@ interface
 
 implementation
   uses
-    SysUtils, Classes, libRandom,  combat, unitMineIHM, unitBeersIhm;
+    SysUtils, Classes, libRandom, unitMineIHM, unitBeersIhm, unitContratsLogic, Inventaire, GestionPerso;
 
   {
-    Fonction qui créer un ennemie avec des caractéristiques aléatoire (± 25%)
-    Parametres:
-      ennemie: TEnnemie; Ennemie de base
-    Sortie:
-      TEnnemie; Ennemie avec des caractéristiques aléatoire (± 25%)
+    Procedure qui gère un contrat accompli
   }
-  function creerEnnemie(ennemie: TEnnemie): TEnnemie;
+  procedure recompensesContrat();
   begin
-    // Modification des points de vie et dégats
-    ennemie.PV := round(ennemie.PV * randomReal(0.75, 1.25));
-    ennemie.degats := round(ennemie.degats * randomReal(0.75, 1.25));
-
-    // Sortie
-    creerEnnemie := ennemie;
+    setinvent(cuivre, (getinvent(cuivre)  + getContratEnCours().quantiteCuivre));
+    setinvent(fer,    (getinvent(fer)     + getContratEnCours().quantiteFer));
+    setinvent(mythril,(getinvent(mythril) + getContratEnCours().quantiteMythril));
+    setinvent(monnaie,(getinvent(monnaie) + getContratEnCours().quantiteOr));
+    Experience(getContratEnCours().quantiteXP);
+  
+    afficherRecompenses(getContratEnCours());
+    arreterContrat();
   end;
   
   {
@@ -46,17 +41,14 @@ implementation
   procedure ouvrirMine();
   var
     choix: integer; // Choix dans la mine parmi les ennemies et quitter
-    listeEnnemies: TListeEnnemies; // Listes des ennemies proposés dans la mine
 
   begin
-    listeEnnemies[1] := creerEnnemie(GOBLIN);
-    listeEnnemies[2] := creerEnnemie(TROLL);
-    listeEnnemies[3] := creerEnnemie(ORQUE);
+    if contratAccompli() then recompensesContrat();
 
-    mineIHM(listeEnnemies);
+    mineIHM();
     choix := choixMineIHM();
 
-    if choix <> 0 then commencerCombat(listeEnnemies[choix]);
+    if choix <> 0 then accepterContrat(choix);
 
     afficherInterface(); // Retour au hall
   end;

@@ -5,7 +5,12 @@ unit unitMineIHM;
 
 interface
   uses
-    unitMineLogic;
+    unitMineLogic, unitContratsLogic;
+
+  {
+    Procedure qui affiche le tableau des récompenes gagnés pour un contrat accompli
+  }
+  procedure afficherRecompenses(contrat: TContrat);
   
   {
     Fonction qui permet au joueur de choisir entre combattre un ennemie ou quitter la mine
@@ -16,10 +21,8 @@ interface
   
   {
     IHM de la mine
-    Parametres:
-      listeEnnemies: TListeEnnemies; Liste des ennemies proposés dans la mine
   }
-  procedure mineIHM(listeEnnemies: TListeEnnemies);
+  procedure mineIHM();
 
 
 
@@ -31,26 +34,51 @@ implementation
 
   {
     Procedure qui affiche les ennemies
-    Parametres:
-      listeEnnemies: TListeEnnemies; Liste des ennemies proposés dans la mine
   }
-  procedure afficherEnnemies(listeEnnemies: TListeEnnemies);
+  procedure afficherEnnemies();
   const
     X = 50; Y = 5; // Coordonnées de l'affichage
     
   var
+    listeContrats: TListeContrats; // Liste des contrats proposés
     i: integer; // Variable de boucle
     
   begin
-    for i := low(listeEnnemies) to high(listeEnnemies) do
+    // Initialisation des variables
+    listeContrats := getListeContrats;
+  
+    for i := low(listeContrats) to high(listeContrats) do
     begin
       deplacerCurseurXY(X-3, Y+1 +7*(i-1)); write(i);
       dessinerCadreXY(X, Y +7*(i-1), X+21, Y+5 +7*(i-1), simple, White, Black);
       dessinerCadreXY(X+5, Y+1 +7*(i-1), X+16, Y+1 +7*(i-1), double, White, Black);
-      deplacerCurseurXY(X+11 - length(listeEnnemies[i].nom) div 2, Y+1 +7*(i-1)); write(listeEnnemies[i].nom);
-      deplacerCurseurXY(X+2, Y+3 +7*(i-1)); write('PV :     ', listeEnnemies[i].PV);
-      deplacerCurseurXY(X+2, Y+4 +7*(i-1)); write('Dégats : ', listeEnnemies[i].degats);
+      deplacerCurseurXY(X+11 - length(listeContrats[i].typeEnnemie.nom) div 2, Y+1 +7*(i-1)); write(listeContrats[i].typeEnnemie.nom);
+      deplacerCurseurXY(X+2, Y+3 +7*(i-1)); write('Ennemies tués : ', listeContrats[i].nbEnnemiesTues, '/', listeContrats[i].nbEnnemies);
     end;
+  end;
+
+  {
+    Procedure qui affiche le tableau des récompenes gagnés pour un contrat accompli
+  }
+  procedure afficherRecompenses(contrat: TContrat);
+  begin
+    effacerEcran();
+    
+    journal();
+
+    dessinerCadreXY(35, 5, 109, 35, double, White, Black);
+
+    // Entete
+    dessinerCadreXY(50, 6, 94, 6, double, White, Black);
+    deplacerCurseurXY(67, 6); write('Recompenses');
+
+    // Liste des récompenses
+    attendre(50); deplacerCurseurXY(54, 15); write('Cuivre :..........................', contrat.quantiteCuivre);
+    attendre(50); deplacerCurseurXY(54, 18); write('Fer :.............................', contrat.quantiteFer);
+    attendre(50); deplacerCurseurXY(54, 21); write('Mythril :.........................', contrat.quantiteMythril);
+    attendre(50); deplacerCurseurXY(54, 24); write('Pieces d''or :.....................', contrat.quantiteOr);
+    attendre(50); deplacerCurseurXY(54, 27); write('Experience :......................', contrat.quantiteXP);
+    readln;
   end;
   
   {
@@ -75,10 +103,8 @@ implementation
 
   {
     IHM de la mine
-    Parametres:
-      listeEnnemies: TListeEnnemies; Liste des ennemies proposés dans la mine
   }
-  procedure mineIHM(listeEnnemies: TListeEnnemies);
+  procedure mineIHM();
   begin
     effacerEcran();
     //En-tete
@@ -90,10 +116,10 @@ implementation
     deplacerCurseurXY(55, 1); write(' La Mine ');
 
     //Affiche les choix
-    deplacerCurseurXY(20, 29); write('?/ Attaquer un ennemie');
+    deplacerCurseurXY(20, 29); write('?/ Combattre');
     deplacerCurseurXY(20, 32); write('0/ Retourner au hall');
 
-    afficherEnnemies(listeEnnemies);
+    afficherEnnemies();
 
     journal(); // Afficher le journal du joueur
   end;
