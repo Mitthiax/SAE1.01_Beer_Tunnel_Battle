@@ -11,7 +11,7 @@ procedure afficherInterfaceTaverne();
 implementation
 
 uses
-  SysUtils, Classes, GestionEcran, unitTaverne,journalihm,GestionPerso,unitBeersIhm;
+  SysUtils, Classes, GestionEcran, unitTaverne,journalihm,GestionPerso,unitBeersIhm, unitTaverneAnecdoteIHM, unitTaverneMangerIhm;
 
 //Affichague du titre et du texte pincipal de la taverne
 procedure afficherTextePrincipalTaverne();
@@ -24,17 +24,15 @@ begin
 
   //Texte du hall
   couleurTexte(White);
-  deplacerCurseurXY(7,4); write('Vous entrez dans la taverne, des que vous pousser la porte vous pouvez sentir la douce odeur d''alcool qui s''en ');
-  deplacerCurseurXY(5, 5); Write('émane, vous entendez des rires et bruit de chop qui se pose sur les tables de la taverne.');
-  deplacerCurseurXY(5, 8); write('Vous vous diriger vers le comptoir, vous constater que le border collie du tavernier est allongé devant la cheminer');
-  deplacerCurseurXY(7, 9); Write('sur son collier on peut lire falladar.');
+  deplacerCurseurXY(7,4); write('Vous entrez dans la taverne, des que vous pousser la porte vous pouvez sentir la douce odeur d''alcool qui');
+  deplacerCurseurXY(5, 5); Write('s''en émane, vous entendez des rires et bruit de chop qui se pose sur les tables de la taverne.');
+  deplacerCurseurXY(5, 8); write('Vous vous diriger vers le comptoir, vous constater que le border collie du tavernier est allongé devant la');
+  deplacerCurseurXY(7, 9); Write('cheminer sur son collier on peut lire falladar.');
   couleurTexte(LightMagenta);
-  deplacerCurseurXY(7, 12); write('Bonjour mon Gaillard ! Bienvenue à la Patte de Cochon, mon nom est Jimmy, ici on a de la bière pour les assoiffés');
-  deplacerCurseurXY(5, 13); Write('et de la nourriture pour les affamés HaHa.');
+  deplacerCurseurXY(7, 12); write('Bonjour mon Gaillard ! Bienvenue à la Patte de Cochon, mon nom est Jimmy, ici on a de la bière pour les');
+  deplacerCurseurXY(5, 13); Write('assoiffés et de la nourriture pour les affamés HaHa.');
   deplacerCurseurXY(7, 16); write('Que puis-je pour vous mon brave ?');
 end;
-
-
 
 
 //Procedure qui affiche le choix des actions
@@ -57,52 +55,15 @@ procedure afficherInterfaceTaverne();
 var
   choix: Integer;
 begin
-  //Empêche les gens du nom d'alexian de rentrer dans la taverne(fallait pas manger tout les pancakes)
-  if getnom()<>'Alexian' then
-  begin
-    changerTailleConsole(200,40);
-    afficherTextePrincipalTaverne();
-    journal();
-    afficherOptionsTaverne();
-
-    // Capture et traitement du choix de l'utilisateur
-    repeat
-      readln(choix);
-      gererChoixTaverne(choix);
-    until (choix = 3); // Quitter la taverne et revenir au hall
-  end
-  
-  else
-  begin
-    couleurTexte(White);
-    deplacerCurseurXY(9,35);Write('Vous êtes banni de la taverne vous ne pouvez pas y rentrer');
-    readln;
-    afficherInterface();
-  end;
-end;
-
-procedure mangerihm();
-begin
-
-  manger();
-   //En-tete
-  dessinerCadreXY(1, 1, 199, 39, simple, LightGreen, Black);
-  dessinerCadreXY(39, 1, 80, 1, double, Green, Black);
-  couleurTexte(White);
-
-  //Affiche le titre
-  deplacerCurseurXY(46, 1); write(' La Taverne Patte de Cochon ');
-
-  //Afficher la phrase basic 
-  deplacerCurseurXY(7,5); write('Voila votre nourriture.');
-
-  dessinerCadreXY(3, 25, 115, 36, double, LightGreen, Black);
-  couleurTexte(White);
-  deplacerCurseurXY(9, 31); Write('1/ Ragouts de Ragondin(déffense amiliorer)');
-  deplacerCurseurXY(9,32);  Write('2/ Patte de Cochon(Santé amilioré)');
-  dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
-  deplacerCurseurXY(105, 33);
+  changerTailleConsole(200,40);
+  afficherTextePrincipalTaverne();
   journal();
-end;
+  afficherOptionsTaverne();
 
+  // Capture et traitement du choix de l'utilisateur
+  readln(choix);
+  if (choix = 1) then afficherInterfaceBiere()
+  else if (choix = 2) then afficherInterfaceManger()
+  else if (choix = 3) then afficherInterface();
+end;
 end.
