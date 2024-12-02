@@ -57,12 +57,11 @@ begin
   journal();
   afficherOptionsChambre();
 
-  // Capture du choix de l'utilisateur
-  repeat
-    readln(choix);
-  until ((1 <= choix) and (choix <= 3));
-  
-  gererChoixChambre(choix);
+  // Capture et traitement du choix de l'utilisateur
+  readln(choix);
+  if (choix = 1) then afficherInterfaceDormir() // Allez dormir
+  else if (choix = 2) then coffreIHM()// Allez voir le coffre
+  else if (choix = 3) then afficherInterface(); // Retours dans le hall
 
 end;
 end.
