@@ -4,15 +4,9 @@ unit unitForgeIHM;
 {$mode objfpc}{$H+}
 
 interface
-  {
-    IHM de la forge
-  }
+  
+  //IHM de la forge
   procedure forgeIHM();
-
-  {
-    Pocedure qui affiche le message d'entrée dans la forge
-  }
-  procedure forgeMessage();
 
   {
     Fonction qui affiche la case pour le choix du joueur et retourne sont choix
@@ -79,6 +73,7 @@ implementation
     i: integer; // Variable de boucle
 
   begin
+    couleurTexte(White);
     deplacerCurseurXY(X, Y); write('--- Les pièces d''armure ---');
 
     for i := 7 to 18 do
@@ -106,18 +101,6 @@ implementation
   end;
 
   {
-    Pocedure qui affiche le message d'entrée dans la forge
-  }
-  procedure forgeMessage();
-  begin
-    effacerEcran();
-
-    // Message d'entrée dans la forge
-
-    readln;
-  end;
-
-  {
     IHM de la forge
   }
   procedure forgeIHM();
@@ -129,7 +112,7 @@ implementation
     couleurTexte(White);
 
     //Affiche le titre
-    deplacerCurseurXY(46, 1); write(' La Forge ');
+    deplacerCurseurXY(55, 1); write(' La Forge ');
 
     // Afficher la liste de armes et armures
     afficherArmesForge();
