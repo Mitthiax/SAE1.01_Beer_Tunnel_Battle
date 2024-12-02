@@ -81,7 +81,15 @@ implementation
   procedure mineIHM(listeEnnemies: TListeEnnemies);
   begin
     effacerEcran();
-    dessinerCadreXY(1, 0, 198, 39, simple, White, Black);
+    //En-tete
+    dessinerCadreXY(1, 1, 199, 39, simple, LightGreen, Black);
+    dessinerCadreXY(39, 1, 80, 1, double, Green, Black);
+    couleurTexte(White);
+
+    //Affiche le titre
+    deplacerCurseurXY(55, 1); write(' La Mine ');
+
+    //Affiche les choix
     deplacerCurseurXY(20, 29); write('?/ Attaquer un ennemie');
     deplacerCurseurXY(20, 32); write('0/ Retourner au hall');
 
