@@ -24,7 +24,7 @@ interface
   
 implementation
   uses
-    GestionEcran, unitCoffreConst, unitCoffreLogic, journalihm;
+    GestionEcran, unitCoffreConst, unitCoffreLogic, journalihm, unitChambreIhm;
 
   {
     Procedure qui affiche la liste des armes
@@ -118,25 +118,35 @@ implementation
     end;
   end;
 
+//Procedure qui affiche le choix des actions
+procedure afficherOptionsCoffre();
+  begin
+    dessinerCadreXY(3, 25, 60, 36, double, LightGreen, Black);
+    couleurTexte(White);
+    deplacerCurseurXY(7, 27); Write('Que souhaitez-vous faire ?');
+
+    deplacerCurseurXY(9, 30); Write('?/ Choisir un équipement à équiper ou déséquiper');
+    deplacerCurseurXY(9, 32); Write('0/ Quittez le Coffre');
+    dessinerCadreXY(40, 32, 50, 34, double, Red, Black);
+  end;
+
   {
     IHM du coffre
   }
   procedure coffreIHM();
   begin
     effacerEcran();
+    //En-tete
+    dessinerCadreXY(1, 1, 199, 39, simple, LightGreen, Black);
+    dessinerCadreXY(39, 1, 80, 1, double, Green, Black);
+    couleurTexte(White);
+    deplacerCurseurXY(53, 1); write(' Votre Coffre ');
 
-    // Entête
-    dessinerCadreXY(1, 0, 198, 39, simple, White, Black);
-    dessinerCadreXY(80, 0, 120, 2, simple, White, Black);
-    dessinerCadreXY(90, 1, 110, 3, simple, White, Black);
-    deplacerCurseurXY(93, 2); write('Coffre');
-
-    deplacerCurseurXY(35, 35); write('Choisir un équipement à équiper ou déséquiper');
-    deplacerCurseurXY(35, 36); write('0 - Quitter le coffre');
-
+    afficherOptionsCoffre();
     afficherArmes();
     afficherArmures();
     journal();
+    coffreChoixEquipementIHM();
   end;
 
   {
@@ -149,12 +159,13 @@ implementation
     choix: integer; // Choix du joueur dans le coffre
   begin
     // On redemande jusqu'a ce que le choix soit valide
-    repeat
-        dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
-        deplacerCurseurXY(105, 33); readln(choix);
-    until (0 <= choix) and (choix <= 18);
-    couleurTexte(White);
-    
+    deplacerCurseurXY(45, 33);
+    readln(choix);
+    if (1 <= choix) and (choix <= 18) then
+    couleurTexte(White)
+    else if  (0 = choix) then
+    afficherInterfaceChambre();
+
     coffreChoixEquipementIHM := choix
   end;
   
