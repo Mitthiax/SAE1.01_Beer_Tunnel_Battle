@@ -1,5 +1,5 @@
 unit unitInterfaceForgeIHM;
-{Role: Permet d'afficher l'interface de la forge qui permet de forger des objets pour un prix et un certain nombre de matériaux définie.}
+{Role: Permet d'afficher l'interface de la forge qui permet de forger des objets ou de quittez la forge.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
