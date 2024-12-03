@@ -23,33 +23,33 @@ interface
       nom:        'Goblin';
       PV:         100;
       degats:     5;
-      cuivreMax:  15;
-      ferMax:     10;
+      cuivreMax:  20;
+      ferMax:     15;
       mythrilMax: 5;
-      orMax:      25;
-      XPMax:      15;
+      orMax:      50;
+      XPMax:      30;
     );
     TROLL: TEnnemie =
     (
       nom:        'Troll';
       PV:         200;
       degats:     22;
-      cuivreMax:  25;
-      ferMax:     15;
-      mythrilMax: 7;
-      orMax:      50;
-      XPMax:      35;
+      cuivreMax:  35;
+      ferMax:     25;
+      mythrilMax: 9;
+      orMax:      100;
+      XPMax:      75;
     );
     ORQUE: TEnnemie =
     (
       nom:        'Orque';
       PV:         300;
       degats:     35;
-      cuivreMax:  40;
-      ferMax:     25;
-      mythrilMax: 10;
-      orMax:      75;
-      XPMax:      70;
+      cuivreMax:  50;
+      ferMax:     40;
+      mythrilMax: 15;
+      orMax:      130;
+      XPMax:      120;
     );
   
 implementation
