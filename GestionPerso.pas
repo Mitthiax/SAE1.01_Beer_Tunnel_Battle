@@ -1,9 +1,10 @@
 unit GestionPerso;
-
+{Role: Permet la gestion du personnage.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface
+
 procedure InitialisationPersonnage(nomPersonnage:string; taillePersonnage:integer; genrePersonnage:string);
 procedure InitialisationPersonnage();
 procedure Experience(expadd:integer);
