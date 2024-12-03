@@ -6,7 +6,7 @@ unit unitTaverneManger;
 interface
 
 //Permet de gerer les choix entre manger un plat et retouner au hall de la taverne
-function gererChoixTaverneManger(choix : Integer):Integer;
+procedure gererChoixTaverneManger(choix : Integer);
 
 
 implementation
@@ -15,7 +15,7 @@ uses
   SysUtils, Classes, unitTaverneIHM,Inventaire,gestionBuff, unitTaverneMangerIhm, journalihm;
 
 //Permet de gerer les choix entre manger un plat et retouner au hall de la taverne
-function gererChoixTaverneManger(choix : Integer):Integer;
+procedure gererChoixTaverneManger(choix : Integer);
 begin
 case choix of
   //Permet un gain de resistance qui passe au maximum pour cela le joueur doit avoir 18 pièce d'or au minimum 

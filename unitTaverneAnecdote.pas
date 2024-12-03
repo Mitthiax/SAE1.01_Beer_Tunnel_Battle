@@ -6,7 +6,7 @@ unit unitTaverneAnecdote;
 interface
 
 //Procedure qui permet de finir sa biere et de retouner au hall de la taverne
-function gererChoixTaverneBiere(choix : Integer):Integer;
+procedure gererChoixTaverneBiere(choix : Integer);
 
   
 implementation
@@ -15,7 +15,7 @@ uses
   SysUtils, Classes, unitTaverneIHM;
 
 //Procedure qui permet de finir sa biere et de retouner au hall de la taverne
-function gererChoixTaverneBiere(choix : Integer):Integer;
+procedure gererChoixTaverneBiere(choix : Integer);
 begin
   if (choix = 1 ) then
     afficherInterfaceTaverne();
