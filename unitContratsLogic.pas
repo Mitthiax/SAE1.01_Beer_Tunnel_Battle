@@ -102,7 +102,7 @@ implementation
     // Initialisation de chaque attibuts du contrats
     contrat.typeEnnemi     := ennemi;
     contrat.statut          := Disponibles;
-    contrat.nbEnnemis      := randomInteger(1, 1);
+    contrat.nbEnnemis      := randomInteger(1, 6);
     contrat.nbEnnemisTues  := 0;
 
     contrat.quantiteCuivre  := 0;
