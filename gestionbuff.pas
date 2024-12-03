@@ -39,7 +39,7 @@ calcSantemax:integer;
 begin
   if buff[BuffSanteeMax]=true then
   begin
-    calcSantemax:=(getSantemax()+30);
+    calcSantemax:=((200+15*(getlevel-1))+30);
   end
   else
   begin

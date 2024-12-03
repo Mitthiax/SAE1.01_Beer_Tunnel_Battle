@@ -21,11 +21,13 @@ begin
   gererChoixTaverneManger(1);
   testIsEqual(indicationBuffResistanceMax());
   testIsEqual(getBuffResistanceMax(),20);
+  testIsEqual(getinvent(monnaie),200-18);
 
   newTest('Test getBuff','Vérification get Santée');
   gererChoixTaverneManger(2);
   testIsEqual(indicationBuffSanteeMax());
   testIsEqual(getSantemax(),230);
+  testIsEqual(getinvent(monnaie),(200-18)-25);
 
   newTest('Test getBuff','Vérification reset buff');
   gererChoixDormir();

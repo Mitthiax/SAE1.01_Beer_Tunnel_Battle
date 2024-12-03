@@ -49,12 +49,12 @@ implementation
     choix := choixMineIHM();
 
     
-    while (1 <= choix) and (choix <= 3) or () do
+    {while (1 <= choix) and (choix <= 3) or () do
     begin
       accepterContrat(choix);
       mineIHM();
       choix := choixMineIHM();
-    end;
+    end;}
 
     if choix = 4 then commencerCombat(getContratEnCours().typeEnnemie);
 
