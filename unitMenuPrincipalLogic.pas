@@ -1,5 +1,5 @@
 unit unitMenuPrincipalLogic;
-
+{Role: Menu principal du jeu qui permet de lancer une partie ou de quitter le jeu}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
