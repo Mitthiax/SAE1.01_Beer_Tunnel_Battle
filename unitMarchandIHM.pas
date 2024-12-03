@@ -1,12 +1,14 @@
 unit unitMarchandIHM;
-
+{Role: Permet d'afficher l'interface du marchand, qui permet d'acheter des bombes et potions avec un stock différent chaque jour.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface
-//Procèdure que affiche l'interface du marchand
+//Permet d'affiche l'interface du marchand
 procedure afficherInterfaceMarchand(); 
+//Expulse le joueur de la boutique si il tente d'acheter sans avoir suffisament d'argent
 procedure Argentmanquant();
+//Affiche qu'il n'y a plus de cet objet dans le stock de la boutique et laisse le joueur faire un autre choix
 procedure objectmanquant(nom:string);
 
 implementation
@@ -80,7 +82,7 @@ begin
   if (choix = 1) OR (choix = 2) then 
   begin
     achat(choix); //Appel de la procedure d'achat
-    afficherInterfaceMarchand();
+    afficherInterfaceMarchand(); //Permet d'afficher l'interface de la boutique afin de pouvoir acheter autre chose
   end
   else if (choix = 3) then afficherInterface(); // Retours dans le hall
 
