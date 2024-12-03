@@ -9,9 +9,6 @@ begin
   changerTailleConsole(200,40);
   randomize;
   //menu();
-  //testgestionperso();
-  //testbeer();
-  // testsbuffs();
   testsunitaireTous();
 
 end.
