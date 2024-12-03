@@ -1,5 +1,5 @@
 unit unitCombatConst;
-
+{Role: Constante des combat.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
