@@ -40,7 +40,11 @@ Les mines sont dangereuses mais riches en ressources. Vous pouvez y combattre de
 
 ## Combat
 
-Le combat se déroule en tours. Vous pouvez attaquer, lancer une bombe, boire une potion, ou tenter de fuir. Chaque action a ses propres avantages et inconvénients. Par exemple, lancer une bombe inflige des dégâts importants à l'ennemi, mais vous devez avoir des bombes dans votre inventaire. Boire une potion vous permet de récupérer tous vos points de vie, mais vous devez avoir des potions disponibles. Les combats sont dynamiques et imprévisibles, avec des éléments de hasard qui peuvent influencer l'issue de chaque tour. Soyez stratégique dans vos choix et anticipez les mouvements de vos ennemis pour maximiser vos chances de victoire. Une défaite lors d'un combat signe la fin d'une aventure, mais chaque échec est une leçon précieuse qui vous rapproche de la victoire ultime.
+Le combat se déroule en tours. Vous pouvez attaquer, lancer une bombe, boire une potion, ou tenter de fuir. Chaque action a ses propres avantages et inconvénients. Par exemple, lancer une bombe inflige des dégâts importants à l'ennemi, mais vous devez avoir des bombes dans votre inventaire. Boire une potion vous permet de récupérer tous vos points de vie, mais vous devez avoir des potions disponibles. Les combats sont dynamiques et imprévisibles, avec des éléments de hasard qui peuvent influencer l'issue de chaque tour. Une défaite lors d'un combat signe la fin d'une aventure, mais chaque échec est une leçon précieuse qui vous rapproche de la victoire ultime.
+
+## Contrats
+
+Dans Beer Tunnels Battles, les contrats sont essentiels pour progresser et survivre. Ils vous permettent d'éliminer des ennemis spécifiques pour obtenir des récompenses précieuses. Chaque jour, 3 contrats vous sont proposés, chaque contrat vous demande d'éliminer un certain nombre d'ennemis. En les accomplissant, vous recevrez des récompenses sous forme de cuivre, fer, mythril, or et expérience. Les contrats sont générés aléatoirement et varient en termes de difficulté et de récompenses. Ils sont le seul accès aux combats et sont cruciaux pour votre progression dans le jeu.
 
 ## Inventaire et Équipement
 
