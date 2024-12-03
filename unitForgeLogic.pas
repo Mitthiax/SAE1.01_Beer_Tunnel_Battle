@@ -1,5 +1,5 @@
 unit unitForgeLogic;
-
+{Role: Permet de forger des objets pour un prix et pour un certain nombres de matériaux définie.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -22,13 +22,9 @@ interface
   }
   function equipementAchetable(idEquipement: integer): boolean;
 
-  {
-    Procedure qui ouvre la forge
-  }
+  //Procedure qui ouvre la forge
   procedure ouvrirForge();
   
-
-
 
 
 implementation
@@ -91,9 +87,7 @@ implementation
     end;
   end;
   
-  {
-    Procedure qui ouvre la forge
-  }
+  //Procedure qui ouvre la forge
   procedure ouvrirForge();
   var
     choix: integer; // Choix dans la forge parmi les équipements et quitter
