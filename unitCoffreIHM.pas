@@ -31,7 +31,7 @@ implementation
     COULEUR_EQUIPE      = LightGreen;
     COULEUR_NON_POSSEDE = Red;
 
-  //Procedure qui affiche la liste des armes
+  //Procédure qui affiche la liste des armes
   procedure afficherArmes();
   const
     X = 10; Y = 5; // Coordonnées de l'affichage
@@ -54,7 +54,7 @@ implementation
     end;
   end;
 
-  //Procedure qui affiche la liste des pièces d'armure
+  //Procédure qui affiche la liste des pièces d'armure
   procedure afficherArmures();
   const
     X = 75; Y = 5; // Coordonnées de l'affichage

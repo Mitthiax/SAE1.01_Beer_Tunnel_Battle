@@ -25,7 +25,7 @@ implementation
     COULEUR_ACHETABLE     = LightGreen;
     COULEUR_NON_ACHETABLE = Red;
 
-  //Procedure qui affiche la liste des armes
+  //Procédure qui affiche la liste des armes
   procedure afficherArmesForge();
   const
     X = 10; Y = 5; // Coordonnées de l'affichage
@@ -59,7 +59,7 @@ implementation
     end;
   end;
 
-  //Procedure qui affiche la liste des armures
+  //Procédure qui affiche la liste des armures
   procedure afficherArmuresForge();
   const
     X = 75; Y = 5; // Coordonnées de l'affichage

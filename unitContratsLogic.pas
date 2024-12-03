@@ -1,5 +1,5 @@
 unit unitContratsLogic;
-{Role: Partie logic des contrat.}
+{Role: Partie métier des contrat.}
 {$mode objfpc}{$H+}
 
 interface
@@ -23,26 +23,26 @@ interface
 
     TListeContrats = array[1..3] of TContrat;
 
-  //Procedure qui initialise les contrats disponibles
+  //Procédure qui initialise les contrats disponibles
   procedure initialiserContrats();
 
-  //Procedure qui arrête le contrat on cours
+  //Procédure qui arrête le contrat on cours
   procedure arreterContrat();
 
-  //Procedure qui permet d'accomplir le contrat on cours
+  //Procédure qui permet d'accomplir le contrat on cours
   procedure accomplirContrat();
 
-  //Procedure qui fait écchouer le contrat en courd
+  //Procédure qui fait écchouer le contrat en courd
   procedure echouerContrat();
 
   {
-    Procedure qui permet d'accepter un contrat
+    Procédure qui permet d'accepter un contrat
     Parametres:
       numero: integer; Numero du contrat
   }
   procedure accepterContrat(numero: integer);
 
-  //Procedure qui incrémente le nombre d'ennemi tués pour contrat en cours
+  //Procédure qui incrémente le nombre d'ennemi tués du contrat en cours
   procedure incrementeVictoire();
 
   {
@@ -125,7 +125,7 @@ implementation
     creerContrat := contrat;
   end;
 
-  //Procedure qui initialise les contrats disponibles
+  //Procédure qui initialise les contrats disponibles
   procedure initialiserContrats();
   begin
     contratEnCours := 0; // Code pour aucun contrat accepter
@@ -134,7 +134,7 @@ implementation
     listeContrats[3] := creerContrat(ORQUE);
   end;
 
-  //Procedure qui arrête le contrat on cours
+  //Procédure qui arrête le contrat on cours
   procedure arreterContrat();
   begin
     if contratEnCours <> 0 then
@@ -144,7 +144,7 @@ implementation
     end;
   end;
 
-  //Procedure qui permet d'accomplir le contrat on cours
+  //Procédure qui permet d'accomplir le contrat on cours
   procedure accomplirContrat();
   begin
     if contratEnCours <> 0 then
@@ -154,7 +154,7 @@ implementation
     end;
   end;
 
-  //Procedure qui fait écchouer le contrat en courd
+  //Procédure qui fait écchouer le contrat en courd
   procedure echouerContrat();
   begin
     if contratEnCours <> 0 then
@@ -165,7 +165,7 @@ implementation
   end;
 
   {
-    Procedure qui permet d'accepter un contrat
+    Procédure qui permet d'accepter un contrat
     Parametres:
       numero: integer; Numero du contrat
   }
@@ -180,9 +180,7 @@ implementation
     else if listeContrats[numero].statut = Accepte then arreterContrat();
   end;
 
-  {
-    Procedure qui incrémente le nombre d'ennemie tués du contrat en cours
-  }
+  //Procédure qui incrémente le nombre d'ennemi tués du contrat en cours
   procedure incrementeVictoire();
   begin
     listeContrats[contratEnCours].nbEnnemisTues += 1;

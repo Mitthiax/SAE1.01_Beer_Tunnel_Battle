@@ -12,7 +12,7 @@ implementation
   uses
     SysUtils, Classes, testunitaire, unitCoffreLogic, unitCoffreConst;
   
-  //Procedure qui réalises un test unitaire sur l'initialisation du coffre
+  //Procédure qui réalises un test unitaire sur l'initialisation du coffre
   procedure testInitialisation();
   var
     i: integer; // Variable de boucle, numéro des équipements
@@ -41,7 +41,7 @@ implementation
     testIsEqual(testEquipementsBloquesValide);
   end;
 
-  //Procedure qui réalise un test unitaire sur l'équipement d'équipements
+  //Procédure qui réalise un test unitaire sur l'équipement d'équipements
   procedure testsEquipementEquipements();
   begin
     initialisationEquipement();

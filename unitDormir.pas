@@ -9,8 +9,6 @@ uses
 
 // Permet d'arrêter de dormir 
 procedure gererChoixDormir();
-// Affichage du journal du joueur avec toutes les informations sur son personnage
-procedure afficherJournal();
 //Appel des dates
 function getDatejour():integer;
 function getDatesemaine():TJourSemaine;

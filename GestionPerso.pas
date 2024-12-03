@@ -120,7 +120,7 @@ begin
 end;
 
 {
-  Procedure qui redonne tous ses points de vie au joueur
+  Procédure qui redonne tous ses points de vie au joueur
 }
 procedure soignerJoueur();
 begin

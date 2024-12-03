@@ -22,7 +22,7 @@ interface
   }
   function equipementAchetable(idEquipement: integer): boolean;
 
-  //Procedure qui ouvre la forge
+  //Procédure qui ouvre la forge
   procedure ouvrirForge();
   
 
@@ -71,7 +71,7 @@ implementation
   end;
 
   {
-    Procedure qui achete un équipement si cela est possible
+    Procédure qui achete un équipement si cela est possible
     Parametre:
       idEquipement: integer; Identifiant de l'équipement
   }
@@ -87,7 +87,7 @@ implementation
     end;
   end;
   
-  //Procedure qui ouvre la forge
+  //Procédure qui ouvre la forge
   procedure ouvrirForge();
   var
     choix: integer; // Choix dans la forge parmi les équipements et quitter

@@ -1,5 +1,5 @@
 unit unitCoffreLogic;
-{Role: Logic de fonctionnement du coffre.}
+{Role: Partie métier de fonctionnement du coffre.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -7,14 +7,14 @@ interface
   type
     TListeEquipement = array[1..18] of boolean;
   
-  //Procedure qui initialise tous les equipements
+  //Procédure qui initialise tous les equipements
   procedure initialisationEquipement();
   
-  //Procedure qui ouvre le coffre
+  //Procédure qui ouvre le coffre
   procedure ouvrirCoffre();
 
   {
-    Procedure qui équipe ou déséquipe un equipement au joueur
+    Procédure qui équipe ou déséquipe un equipement au joueur
     Parametre:
       idEquipement: integer; Identifiant de l'équipement à équiper
   }
@@ -89,7 +89,7 @@ interface
   function getDefenceJoueur(): integer;
 
   {
-    Procedure qui débloque un équipement
+    Procédure qui débloque un équipement
     Parametres:
       idEquipement: integer; Identifiant de l'équipement
   }
@@ -110,7 +110,7 @@ implementation
     bottesEquipees: integer; // Bottes actuellement équipée
 
   {
-    Procedure qui débloque un équipement
+    Procédure qui débloque un équipement
     Parametres:
       idEquipement: integer; Identifiant de l'équipement
   }
@@ -119,7 +119,7 @@ implementation
     estDisponible[idEquipement] := true;
   end;
   
-  //Procedure qui initialise tous les equipements
+  //Procédure qui initialise tous les equipements
   procedure initialisationEquipement();
   var
     i: integer; // Variable de boucle
@@ -137,7 +137,7 @@ implementation
   end;
 
   {
-    Procedure qui équipe ou déséquipe un equipement au joueur
+    Procédure qui équipe ou déséquipe un equipement au joueur
     Parametre:
       idEquipement: integer; Identifiant de l'équipement à équiper
   }
@@ -179,7 +179,7 @@ implementation
     end;
   end;
   
-  //Procedure qui ouvre le coffre
+  //Procédure qui ouvre le coffre
   procedure ouvrirCoffre();
   var
     choix: integer; // Choix du joueur dans le coffre

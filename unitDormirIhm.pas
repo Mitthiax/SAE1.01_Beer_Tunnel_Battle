@@ -73,7 +73,7 @@ begin
     readln(choix);
   until (choix = 1);
   
-  gererChoixDormir(); //Procedure qui permet d'arrêter de dormir
+  gererChoixDormir(); //Procédure qui permet d'arrêter de dormir
   resetBuffs(); //Remet a zero les buffs apres avoir dormir
   afficherInterfaceChambre(); // Revenir à la chambre après avoir fini de dormir
   end;

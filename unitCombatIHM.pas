@@ -13,7 +13,7 @@ interface
   function combatIHM(ennemi: TEnnemi): integer;
 
   {
-    Procedure qui affiche le message d'attaque
+    Procédure qui affiche le message d'attaque
     Parametres:
       degats: integer; Dégats infligées à l'ennemi
       nomEnnemi: integer; Nom de l'ennemi
@@ -21,7 +21,7 @@ interface
   procedure afficherAttaque(degats: integer; nomEnnemi: string);
 
   {
-    Procedure qui affiche le message d'attaque de l'ennemi
+    Procédure qui affiche le message d'attaque de l'ennemi
     Parametres:
       degats: integer; Dégats subits
       nomEnnemi: integer; Nom de l'ennemi
@@ -30,27 +30,27 @@ interface
 
 
   {
-    Procedure qui affiche le message de lancer de bombe
+    Procédure qui affiche le message de lancer de bombe
     Parametres:
       degats: integer; Dégats infligées à l'ennemi
       nomEnnemi: integer; Nom de l'ennemi
   }
   procedure afficherBombe(degats: integer; nomEnnemi: string);
 
-  //Procedure qui affiche le message quand le joueur n'as plus de bombe
+  //Procédure qui affiche le message quand le joueur n'as plus de bombe
   procedure afficherBombeVide();
 
-  //Procedure qui affiche le message de boire une potion
+  //Procédure qui affiche le message de boire une potion
   procedure afficherPotion();
 
-  //Procedure qui affiche le message quand le joueur n'as plus de potion
+  //Procédure qui affiche le message quand le joueur n'as plus de potion
   procedure afficherPotionVide();
 
-  //Procedure qui affiche le message de fuite réussi
+  //Procédure qui affiche le message de fuite réussi
   procedure afficherFuite();
 
   {
-    Procedure qui affiche le message de fuite ratée
+    Procédure qui affiche le message de fuite ratée
     Parametres:
       nomEnnemi: integer; Nom de l'ennemi
   }
@@ -65,7 +65,7 @@ implementation
     SysUtils, Classes, GestionEcran,journalihm;
 
   {
-    Procedure qui affiche l'ennemi
+    Procédure qui affiche l'ennemi
     Parametres:
       ennemi: TEnnemi; Ennemi du combat
   }
@@ -80,7 +80,7 @@ implementation
 
   end;
 
-  //Procedure qui affiche l'action qui vient de se dérouler
+  //Procédure qui affiche l'action qui vient de se dérouler
   procedure afficherMessageCombat(message: string);
   begin
     // Effacer le cadre de choix et la ligne
@@ -93,7 +93,7 @@ implementation
   end;
 
   {
-    Procedure qui affiche le message d'attaque
+    Procédure qui affiche le message d'attaque
     Parametres:
       degats: integer; Dégats infligées à l'ennemi
       nomEnnemi: integer; Nom de l'ennemi
@@ -105,7 +105,7 @@ implementation
   end;
 
   {
-    Procedure qui affiche le message d'attaque de l'ennemi
+    Procédure qui affiche le message d'attaque de l'ennemi
     Parametres:
       degats: integer; Dégats subits
       nomEnnemi: integer; Nom de l'ennemi
@@ -121,7 +121,7 @@ implementation
   end;
 
   {
-    Procedure qui affiche le message de lancer de bombe
+    Procédure qui affiche le message de lancer de bombe
     Parametres:
       degats: integer; Dégats infligées à l'ennemi
       nomEnnemi: integer; Nom de l'ennemi
@@ -131,33 +131,33 @@ implementation
     afficherMessageCombat('Vous lancez une bombe sur ' + nomEnnemi + ' et lui infligez ' + intToStr(degats) + ' points de dégats.');
   end;
 
-  //Procedure qui affiche le message quand le joueur n'as plus de bombe
+  //Procédure qui affiche le message quand le joueur n'as plus de bombe
   procedure afficherBombeVide();
   begin
     afficherMessageCombat('Vous voulez lancez une bombe mais vous n''en plus.');
   end;
 
-  //Procedure qui affiche le message de boire une potion
+  //Procédure qui affiche le message de boire une potion
   procedure afficherPotion();
   begin
     afficherMessageCombat('Vous buvez une potion qui vous fait regagner tous vos points de vie.');
     journal();
   end;
 
-  //Procedure qui affiche le message quand le joueur n'as plus de potion
+  //Procédure qui affiche le message quand le joueur n'as plus de potion
   procedure afficherPotionVide();
   begin
     afficherMessageCombat('Vous voulez lancer une bombe mais vous n''en avez plus.');
   end;
 
-  //Procedure qui affiche le message de fuite réussi
+  //Procédure qui affiche le message de fuite réussi
   procedure afficherFuite();
   begin
     afficherMessageCombat('Vous parvenez à vous enfuire et rejoingnez le hall.');
   end;
 
   {
-    Procedure qui affiche le message de fuite ratée
+    Procédure qui affiche le message de fuite ratée
     Parametres:
       nomEnnemi: integer; Nom de l'ennemi
   }
