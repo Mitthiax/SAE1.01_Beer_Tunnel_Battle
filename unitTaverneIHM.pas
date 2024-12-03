@@ -45,6 +45,11 @@ begin
   deplacerCurseurXY(9, 30); Write('1/ Boire une Biere Fraiche');
   deplacerCurseurXY(9, 31); Write('2/ Casser la croute');
   deplacerCurseurXY(9, 32); Write('3/ Quittez la Taverne (Ps : Reviens vite !!)');
+end;
+
+// Procedure qui affiche le cadre de choix
+procedure afficherCadreChoix();
+begin
   dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
   deplacerCurseurXY(105, 33);
 end;
@@ -55,13 +60,16 @@ procedure afficherInterfaceTaverne();
 var
   choix: Integer;
 begin
-  changerTailleConsole(200,40);
   afficherTextePrincipalTaverne();
   journal();
   afficherOptionsTaverne();
 
   // Capture et traitement du choix de l'utilisateur
-  readln(choix);
+  repeat
+    afficherCadreChoix();
+    readln(choix);
+  until (1 <= choix) and (choix <= 3);
+
   if (choix = 1) then afficherInterfaceBiere()
   else if (choix = 2) then afficherInterfaceManger()
   else if (choix = 3) then afficherInterface();

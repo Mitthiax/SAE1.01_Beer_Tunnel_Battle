@@ -60,7 +60,6 @@ procedure afficherInterface();
 var
   choix: Integer;
 begin
-  changerTailleConsole(200, 40);
   afficherTextePrincipal();
   journal();
   afficherOptions();
@@ -69,6 +68,6 @@ begin
   repeat
     readln(choix);
     gererChoix(choix);
-  until (choix < 1) or (choix > 6);
+  until (1 <= choix) and (choix <= 6);
 end;
 end.

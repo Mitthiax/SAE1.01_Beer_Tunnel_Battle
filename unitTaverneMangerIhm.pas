@@ -43,6 +43,11 @@ begin
 
   deplacerCurseurXY(9, 30); Write('?/ Commander un Plat (entrez sont numero)');
   deplacerCurseurXY(9, 31); Write('3/ En faite sa va j''ai plus très fin !!');
+end;
+
+// Procedure qui affiche le cadre de choix
+procedure afficherCadreChoix();
+begin
   dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
   deplacerCurseurXY(105, 33);
 end;
@@ -53,17 +58,20 @@ procedure afficherInterfaceManger();
 var
   choix: Integer;
 begin
-  changerTailleConsole(200,40);
   afficherTextePrincipalManger();
   journal();
   afficherOptionsManger();
 
   // Capture et traitement du choix de l'utilisateur
-readln(choix);
+  repeat
+    afficherCadreChoix();
+    readln(choix);
+  until (1 <= choix) and (choix <= 3);
+  
   if (choix = 1) OR (choix = 2) then 
   begin
-  gererChoixTaverneManger(choix); //Appel de la procedure manger
-  afficherInterfaceTaverne();
+    gererChoixTaverneManger(choix); //Appel de la procedure manger
+    afficherInterfaceTaverne();
   end
   else if (choix = 3) then afficherInterfaceTaverne(); // Retours dans la Taverne
 

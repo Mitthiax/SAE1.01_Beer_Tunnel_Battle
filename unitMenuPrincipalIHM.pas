@@ -204,7 +204,6 @@ end;
 
   begin
     effacerEtColorierEcran(Black);
-    changerTailleConsole(200,40);
     dessinerCadreXY(101, 15, 139, 25, double, White, Black);
     deplacerCurseurXY(108, 18); write('##########################');
     deplacerCurseurXY(108, 19); write('#                        #');

@@ -51,6 +51,11 @@ begin
   deplacerCurseurXY(9, 30); Write('1/ Acheter une Bombe --> 30 pièces d''OR               stock : ',getstockbombe(),'/',getmaxstockbombe());
   deplacerCurseurXY(9, 31); Write('2/ Acheter une postion de Soin --> 50 pièces d''OR     stock : ',getstockpotion(),'/',getmaxstockpotion());
   deplacerCurseurXY(9, 32); Write('3/ Quittez la Boutique');
+end;
+
+// Procedure qui affiche le cadre de choix
+procedure afficherCadreChoix();
+begin
   dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
   deplacerCurseurXY(105, 33);
 end;
@@ -67,11 +72,15 @@ begin
   afficherOptionsMarchand();
 
   // Capture et traitement du choix de l'utilisateur
-readln(choix);
+  repeat
+    afficherCadreChoix();
+    readln(choix);
+  until (1 <= choix) and (choix <= 3);
+
   if (choix = 1) OR (choix = 2) then 
   begin
-  achat(choix); //Appel de la procedure d'achat
-  afficherInterfaceMarchand();
+    achat(choix); //Appel de la procedure d'achat
+    afficherInterfaceMarchand();
   end
   else if (choix = 3) then afficherInterface(); // Retours dans le hall
 

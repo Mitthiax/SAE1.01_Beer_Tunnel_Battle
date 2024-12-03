@@ -103,6 +103,11 @@ begin
   dessinerCadreXY(3, 25, 115, 36, double, LightGreen, Black);
   couleurTexte(White);
   deplacerCurseurXY(9, 31); Write('1/ Finir sa Biere');
+end;
+
+// Procedure qui affiche le cadre de choix
+procedure afficherCadreChoix();
+begin
   dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
   deplacerCurseurXY(105, 33);
 end;
@@ -114,15 +119,17 @@ procedure afficherInterfaceBiere();
 var
   choix: Integer;
 begin
-  changerTailleConsole(200,40);
   afficherTextePrincipalBiere();
   journal();
   afficherOptionsBiere();
 
   // Capture et traitement du choix de l'utilisateur
-  readln(choix);
-  if (choix = 1) then
-    afficherInterfaceTaverne(); // Revenir à la taverne après avoir fini la bière
+  repeat
+    afficherCadreChoix();
+    readln(choix);
+  until (choix = 1);
+
+  afficherInterfaceTaverne(); // Revenir à la taverne après avoir fini la bière
   end;
   
 end.

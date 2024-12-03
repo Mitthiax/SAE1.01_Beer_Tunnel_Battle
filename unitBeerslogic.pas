@@ -33,7 +33,6 @@ begin
     3 : allerForge();
     4 : allerMine();
     5 : afficherInterfaceTaverne();
-    6 : menu();
   end;
 end;
 

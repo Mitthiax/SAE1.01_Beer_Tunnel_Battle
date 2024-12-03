@@ -31,8 +31,7 @@ begin
   deplacerCurseurXY(5, 12); write('vos armes et armure.');
 end;
 
-
-//Procedure qui affiche le choix des actions
+// Procedure qui affiche le choix des actions
 procedure afficherOptionsChambre;
 begin
   dessinerCadreXY(3, 25, 115, 36, double, LightGreen, Black);
@@ -42,6 +41,11 @@ begin
   deplacerCurseurXY(9, 30); Write('1/ Allez Dormir z z z');
   deplacerCurseurXY(9, 31); Write('2/ Regarder votre coffre');
   deplacerCurseurXY(9, 32); Write('3/ Quittez votre chambre');
+end;
+
+// Procedure qui affiche le cadre de choix
+procedure afficherCadreChoix();
+begin
   dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
   deplacerCurseurXY(105, 33);
 end;
@@ -58,10 +62,13 @@ begin
   afficherOptionsChambre();
 
   // Capture et traitement du choix de l'utilisateur
-  readln(choix);
+  repeat
+    afficherCadreChoix();
+    readln(choix);
+  until (1 <= choix) and (choix <= 3);
+
   if (choix = 1) then afficherInterfaceDormir() // Allez dormir
   else if (choix = 2) then ouvrirCoffre()// Allez voir le coffre
   else if (choix = 3) then afficherInterface(); // Retours dans le hall
-
 end;
 end.

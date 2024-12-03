@@ -45,6 +45,11 @@ begin
 
   deplacerCurseurXY(9, 30); Write('1/ Demander un équipement au forgeront');
   deplacerCurseurXY(9, 31); Write('2/ Quittez la Forge');
+end;
+
+// Procedure qui affiche le cadre de choix
+procedure afficherCadreChoix();
+begin
   dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
   deplacerCurseurXY(105, 33);
 end;
@@ -62,8 +67,10 @@ begin
 
   // Capture et traitement du choix de l'utilisateur
     repeat
+      afficherCadreChoix();
       readln(choix);
+    until (1 <= choix) and (choix <= 3); // Quitter la forge et revenir au hall
+    
       gererChoixForge(choix);
-    until (choix = 3); // Quitter la forge et revenir au hall
 end;
 end.

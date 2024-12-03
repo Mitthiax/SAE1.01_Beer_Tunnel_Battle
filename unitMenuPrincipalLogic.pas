@@ -24,7 +24,11 @@ implementation
 
   begin
     choix := menuIHM();
-    if choix = 1 then creerPartie()
-    else quitter();
+    while (choix <> 2) do
+    begin
+      if choix = 1 then creerPartie();
+      choix := menuIHM();
+    end;
+    quitter();
   end;
 end.
