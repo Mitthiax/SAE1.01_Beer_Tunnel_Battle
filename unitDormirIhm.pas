@@ -1,10 +1,11 @@
 unit unitDormirIhm;
-
+{Role: Permet d'afficher la chambre et de dormir.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface
-  
+
+//Affiche l'interface de la chambre pour dormir
 procedure afficherInterfaceDormir();
   
 implementation
@@ -72,8 +73,8 @@ begin
     readln(choix);
   until (choix = 1);
   
-  gererChoixDormir();
-  resetBuffs();
+  gererChoixDormir(); 
+  resetBuffs(); //Remet a zero les buffs apres avoir dormir
   afficherInterfaceChambre(); // Revenir à la chambre après avoir fini de dormir
   end;
   
