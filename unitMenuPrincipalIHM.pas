@@ -23,14 +23,8 @@ implementation
     GestionEcran;
 
   {
-    Procedure qui dessine une chope de bière aux coordonnées x, y
-    Parametres:
-      x, y: integer; Coordonnées
+    Procedure qui dessine une chope de bière
   }
-
-
-
-
 procedure dessinerChope();
 begin
   deplacerCurseurXY(35,5); couleurFond(Yellow); write('        '); 
@@ -192,13 +186,7 @@ end;
   }
   procedure quitterIHM();
   begin
-    effacerEtColorierEcran(Black);
-    dessinerCadreXY(80, 15, 120, 25, double, White, Black);
-    deplacerCurseurXY(87, 18); write('##########################');
-    deplacerCurseurXY(87, 19); write('#                        #');
-    deplacerCurseurXY(87, 20); write('#  Beer Tunnels Battles  #');
-    deplacerCurseurXY(87, 21); write('#                        #');
-    deplacerCurseurXY(87, 22); write('##########################');
+    effacerEcran();
     dessinerChope();
     attendre(250);
   end;
