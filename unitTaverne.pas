@@ -1,19 +1,17 @@
 unit unitTaverne;
-
+{Role: Logic du hall de la Taverne qui propose de boire une bière ou de manger.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface
 //Permet de savoir quel choix est fait
-procedure gererChoixTaverne(choix : Integer);
-//Affichage du journal du joueur avec tout les informations sur sont personnage
-procedure afficherJournal(); 
+function gererChoixTaverne(choix : Integer):Integer;
 //Permet d'aller boire une biere
-procedure boireBiere();
+function boireBiere():Integer;
 //Permet d'aller manger
-procedure manger();
+function manger():Integer;
 //Permet de quittez la taverne
-procedure quittez();
+function quittez():Integer;
 
 implementation
 uses
@@ -21,34 +19,27 @@ uses
 
 
 //Procedure qui gere les choix fait par le joueur a la taverne
-procedure gererChoixTaverne(choix : Integer);
+function gererChoixTaverne(choix : Integer):Integer;
 begin
   case choix of 
-    1 : boireBiere();
+    1 : boireBiere(); 
     2 : manger();
     3 : quittez();
   end;
 end;
 
-procedure boireBiere();
+function boireBiere():Integer;
 begin
   afficherInterfaceBiere(); // Appel de l'interface de consommation biere
 end;
 
-procedure manger();
+function manger():Integer;
 begin
   afficherInterfaceManger(); //Appel de l'interface de consommation de nourriture
 end;
 
-procedure quittez();
+function quittez():Integer;
 begin
   afficherInterface(); // Appel de l'interface du hall pour revenir au hall
 end;
-
-//Procedure qui affiche le journal du joueur avec tout les informations sur sont personnage
-procedure afficherJournal();
-begin
-  //afficherJournalIHM();
-end;
-  
 end.

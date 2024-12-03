@@ -1,5 +1,5 @@
 unit unitTaverneIHM;
-
+{Role: Permet d'afficher le hall de la Taverne qui propose de boire une bière ou de manger.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -17,10 +17,10 @@ uses
 procedure afficherTextePrincipalTaverne();
 begin
   //En-tete
-  dessinerCadreXY(1, 1, 199, 39, simple, LightGreen, Black);
-  dessinerCadreXY(39, 1, 80, 1, double, Green, Black);
+  dessinerCadreXY(1, 0, 198, 39, simple, LightGreen, Black);
+  dessinerCadreXY(39, 0, 80, 0, double, Green, Black);
   couleurTexte(White);
-  deplacerCurseurXY(46, 1); write(' La Taverne Patte de Cochon ');
+  deplacerCurseurXY(46, 0); write(' La Taverne Patte de Cochon ');
 
   //Texte du hall
   couleurTexte(White);
@@ -70,8 +70,8 @@ begin
     readln(choix);
   until (1 <= choix) and (choix <= 3);
 
-  if (choix = 1) then afficherInterfaceBiere()
-  else if (choix = 2) then afficherInterfaceManger()
-  else if (choix = 3) then afficherInterface();
+  if (choix = 1) then afficherInterfaceBiere() //Permet d'allez boire une bière
+  else if (choix = 2) then afficherInterfaceManger() //Permet d'allez manger
+  else if (choix = 3) then afficherInterface(); //Quitte la Taverne et retour au Hall
 end;
 end.

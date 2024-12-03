@@ -16,7 +16,7 @@ uses
 procedure afficherTextePrincipalDormir();
 begin
   //En-tete
-  dessinerCadreXY(1, 1, 199, 39, simple, LightGreen, Black);
+  dessinerCadreXY(1, 0, 198, 39, simple, LightGreen, Black);
   dessinerCadreXY(39, 1, 80, 1, double, Green, Black);
   couleurTexte(White);
 
@@ -47,6 +47,13 @@ begin
   deplacerCurseurXY(105, 33);
 end;
 
+// Procedure qui affiche le cadre de choix
+procedure afficherCadreChoix();
+begin
+  dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
+  deplacerCurseurXY(105, 33);
+end;
+
 
 
 //Procèdure que affiche l'interface de la chambre
@@ -60,13 +67,14 @@ begin
   afficherOptionsDormir();
 
   // Capture et traitement du choix de l'utilisateur
-  readln(choix);
-  if (choix = 1) then
-    begin
-    gererChoixDormir();
-    resetBuffs();
-    afficherInterfaceChambre(); // Revenir à la chambre après avoir fini de dormir
-    end;
+  repeat
+    afficherCadreChoix();
+    readln(choix);
+  until (choix = 1);
+  
+  gererChoixDormir();
+  resetBuffs();
+  afficherInterfaceChambre(); // Revenir à la chambre après avoir fini de dormir
   end;
   
   

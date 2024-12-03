@@ -1,5 +1,5 @@
 unit unitMineLogic;
-
+{Role: Permet d'acceder au contrat ou au combat}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -7,22 +7,16 @@ interface
   uses
     unitCombatConst;
 
-  {
-    Procedure qui ouvre la mine
-  }
+  //Procedure qui ouvre la mine
   procedure ouvrirMine();
   
-
-
 
 
 implementation
   uses
     SysUtils, Classes, libRandom, unitMineIHM, unitBeersIhm, unitContratsLogic, Inventaire, GestionPerso, combat;
 
-  {
-    Procedure qui gère un contrat accompli
-  }
+  //Procedure qui gère un contrat accompli
   procedure recompensesContrat();
   begin
     setinvent(cuivre, (getinvent(cuivre)  + getContratEnCours().quantiteCuivre));
@@ -32,12 +26,10 @@ implementation
     Experience(getContratEnCours().quantiteXP);
   
     afficherRecompenses(getContratEnCours());
-    arreterContrat();
+    accomplirContrat();
   end;
   
-  {
-    Procedure qui ouvre la mine
-  }
+ //Procedure qui ouvre la mine
   procedure ouvrirMine();
   var
     choix: integer; // Choix dans la mine parmi les ennemies et quitter
@@ -48,13 +40,13 @@ implementation
     mineIHM();
     choix := choixMineIHM();
 
-    
-    {while (1 <= choix) and (choix <= 3) or () do
+    // On réaffiche quand le choix est un contrat, ou combattre sans contrat accepté
+    while (1 <= choix) and (choix <= 3) or ((choix = 4) and not contratAccepte()) do
     begin
-      accepterContrat(choix);
+      if (1 <= choix) and (choix <= 3) then accepterContrat(choix);
       mineIHM();
       choix := choixMineIHM();
-    end;}
+    end;
 
     if choix = 4 then commencerCombat(getContratEnCours().typeEnnemie);
 

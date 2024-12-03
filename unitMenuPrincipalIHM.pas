@@ -1,12 +1,10 @@
 unit unitMenuPrincipalIHM;
-
+{Role: Permet d'afficher le Menu principal du jeu qui permet de lancer une partie ou de quitter le jeu.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface
-  {
-    IHM de l'écran de fermeture du jeu
-  }
+  //IHM de l'écran de fermeture du jeu
   procedure quitterIHM();
 
   {
@@ -22,9 +20,7 @@ implementation
   uses
     GestionEcran;
 
-  {
-    Procedure qui dessine une chope de bière
-  }
+//Procedure qui dessine une chope de bière
 procedure dessinerChope();
 begin
   deplacerCurseurXY(35,5); couleurFond(Yellow); write('        '); 
@@ -176,14 +172,10 @@ begin
   deplacerCurseurXY(27,33); couleurFond(white); write('          ');
   deplacerCurseurXY(44,33); couleurFond(white); write('          ');
 
-  deplacerCurseurXY(30,34); couleurFond(white); write('                     ');
-
-  
+  deplacerCurseurXY(30,34); couleurFond(white); write('                     '); 
 end;
 
-  {
-    IHM de l'écran de fermeture du jeu
-  }
+  //IHM de l'écran de fermeture du jeu
   procedure quitterIHM();
   begin
     effacerEcran();

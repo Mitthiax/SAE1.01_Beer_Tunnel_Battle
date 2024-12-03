@@ -34,6 +34,11 @@ interface
   procedure arreterContrat();
 
   {
+    Procedure qui permet d'accomplir le contrat on cours
+  }
+  procedure accomplirContrat();
+
+  {
     Procedure qui fait écchouer le contrat en courd
   }
   procedure echouerContrat();
@@ -63,6 +68,13 @@ interface
       boolean; True si le contrat en cours est accompli, sinon false
   }
   function contratAccompli(): boolean;
+
+  {
+    Fonction qui retourne si un contrat est actuellement accepté
+    Sortie:
+      boolean; True si un contrat est accepté, sinon false
+  }
+  function contratAccepte(): boolean;
 
 
   {
@@ -100,7 +112,7 @@ implementation
     // Initialisation de chaque attibuts du contrats
     contrat.typeEnnemie     := ennemie;
     contrat.statut          := Disponibles;
-    contrat.nbEnnemies      := randomInteger(1, 6);
+    contrat.nbEnnemies      := randomInteger(1, 1);
     contrat.nbEnnemiesTues  := 0;
 
     contrat.quantiteCuivre  := 0;
@@ -142,6 +154,18 @@ implementation
     if contratEnCours <> 0 then
     begin
       listeContrats[contratEnCours].statut := Disponibles;
+      contratEnCours := 0;
+    end;
+  end;
+
+  {
+    Procedure qui permet d'accomplir le contrat on cours
+  }
+  procedure accomplirContrat();
+  begin
+    if contratEnCours <> 0 then
+    begin
+      listeContrats[contratEnCours].statut := Accompli;
       contratEnCours := 0;
     end;
   end;
@@ -204,6 +228,16 @@ implementation
   function contratAccompli(): boolean;
   begin
     contratAccompli := (contratEnCours <> 0) and (listeContrats[contratEnCours].statut = Accompli);
+  end;
+
+  {
+    Fonction qui retourne si un contrat est actuellement accepté
+    Sortie:
+      boolean; True si un contrat est accepté, sinon false
+  }
+  function contratAccepte(): boolean;
+  begin
+    contratAccepte := contratEnCours <> 0;
   end;
 
   {

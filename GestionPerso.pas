@@ -96,9 +96,10 @@ end;
 //Fait mourrir le personnage
  procedure mourrir();
   begin
+    effacerEcran();
     dessinerCadreXY(3, 25, 115, 36, double, LightGreen, White);
     couleurTexte(Black);
-    deplacerCurseurXY(5, 27); Write('Vous ressentez une vive douleur, vous voyez le monde s’assombrir, les hurlements de vos ennemis s''éloignent ');
+    deplacerCurseurXY(5, 27); Write('Vous ressentez une vive douleur, vous voyez le monde s''assombrir, les hurlements de vos ennemis s''éloignent ');
     deplacerCurseurXY(5, 28); Write('peu à peu pour laisser place à un lourd silence sombre.');
     deplacerCurseurXY(5, 29); Write('Il est temps pour vous de rejoindre vos ancêtres au valhnanain, vous êtes mort');
     journal();
