@@ -31,11 +31,12 @@ implementation
 
     while (i <= 18) and testEquipementsBloquesValide do
     begin
+    writeln(estDisponibleEquipement(i));
       // On verrifie si l'épée et le casque en cuivre sont bien débloqués
-      if (i = epeeCuivre) or (i = casqueCuivre) then testEquipementsBloquesValide := estDisponibleEquipement(i);
+      if (i = epeeCuivre) or (i = casqueCuivre) then testEquipementsBloquesValide := estDisponibleEquipement(i)
 
       // On verifie si tous les autres équipements sont bien bloqués
-      testEquipementsBloquesValide := not estDisponibleEquipement(i);
+      else testEquipementsBloquesValide := not estDisponibleEquipement(i);
       i += 1;
     end;
     testIsEqual(testEquipementsBloquesValide);
@@ -63,6 +64,7 @@ implementation
 
     // Test de changement d'équipement
     newTest('Tests équipement d''équipements', 'Test de changement d''équipement');
+    debloquer(hacheCuivre);
     equiper(hacheCuivre);
     testIsEqual(getArmeEquipee(), hacheCuivre);
   end;

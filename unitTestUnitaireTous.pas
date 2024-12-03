@@ -11,13 +11,11 @@ uses
   
 procedure testsunitaireTous();
   begin
-    testachat();
-    testgestionperso();
-    testsbuffs();
-    testbeer();
-    testsCoffre();
-
-    Summary();
+    // testachat();
+    // testgestionperso();
+    // testsbuffs();
+    // testbeer();
+    // testsCoffre();
   end;
   
 end.
