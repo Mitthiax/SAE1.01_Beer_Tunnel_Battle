@@ -1,5 +1,5 @@
 unit unitMineIHM;
-
+{Role: Permet d'acceder au contrat ou au combat}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -7,34 +7,24 @@ interface
   uses
     unitMineLogic, unitContratsLogic;
 
-  {
-    Procedure qui affiche le tableau des récompenes gagnés pour un contrat accompli
-  }
+ //Procedure qui affiche le tableau des récompenes gagnés pour un contrat accompli
   procedure afficherRecompenses(contrat: TContrat);
   
-  {
-    Fonction qui permet au joueur de choisir entre combattre un ennemie ou quitter la mine
-    Sortie:
-      integer; Choix du joueur dans la mine
-  }
+
+{ Fonction qui permet au joueur de choisir entre combattre un ennemie ou quitter la mine
+   Sortie:
+     integer; Choix du joueur dans la mine }
   function choixMineIHM(): integer;
   
-  {
-    IHM de la mine
-  }
+//IHM de la mine
   procedure mineIHM();
-
-
-
 
   
 implementation
   uses
     SysUtils, Classes, GestionEcran, journalihm;
 
-  {
-    Procedure qui affiche les ennemies
-  }
+//Procedure qui affiche les ennemies
   procedure afficherEnnemies();
   const
     X = 48; Y = 5; // Coordonnées de l'affichage
@@ -72,9 +62,7 @@ implementation
     couleurTexte(White);
   end;
 
-  {
-    Procedure qui affiche le tableau des récompenes gagnés pour un contrat accompli
-  }
+//Procedure qui affiche le tableau des récompenes gagnés pour un contrat accompli
   procedure afficherRecompenses(contrat: TContrat);
   begin
     effacerEcran();
@@ -117,9 +105,7 @@ implementation
     choixMineIHM := choix;
   end;
 
-  {
-    IHM de la mine
-  }
+//IHM de la mine
   procedure mineIHM();
   begin
     effacerEcran();
