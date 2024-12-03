@@ -93,6 +93,7 @@ implementation
     attendre(50); deplacerCurseurXY(54, 21); write('Mythril :.........................', contrat.quantiteMythril);
     attendre(50); deplacerCurseurXY(54, 24); write('Pieces d''or :.....................', contrat.quantiteOr);
     attendre(50); deplacerCurseurXY(54, 27); write('Experience :......................', contrat.quantiteXP);
+    attendre(50); deplacerCurseurXY(54, 30); write('Appuyez sur Entrer pour fermer');
     readln;
   end;
   
@@ -123,12 +124,12 @@ implementation
   begin
     effacerEcran();
     //En-tete
-    dessinerCadreXY(1, 1, 199, 39, simple, LightGreen, Black);
-    dessinerCadreXY(39, 1, 80, 1, double, Green, Black);
+    dessinerCadreXY(1, 0, 198, 39, simple, LightGreen, Black);
+    dessinerCadreXY(39, 0, 80, 0, double, Green, Black);
     couleurTexte(White);
 
     //Affiche le titre
-    deplacerCurseurXY(55, 1); write(' La Mine ');
+    deplacerCurseurXY(55, 0); write(' La Mine ');
 
     //Affiche les choix
     deplacerCurseurXY(20, 29); write('?/ Accepter un contrat');

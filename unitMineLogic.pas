@@ -32,7 +32,7 @@ implementation
     Experience(getContratEnCours().quantiteXP);
   
     afficherRecompenses(getContratEnCours());
-    arreterContrat();
+    accomplirContrat();
   end;
   
   {
@@ -48,13 +48,13 @@ implementation
     mineIHM();
     choix := choixMineIHM();
 
-    
-    {while (1 <= choix) and (choix <= 3) or () do
+    // On réaffiche quand le choix est un contrat, ou combattre sans contrat accepté
+    while (1 <= choix) and (choix <= 3) or ((choix = 4) and not contratAccepte()) do
     begin
-      accepterContrat(choix);
+      if (1 <= choix) and (choix <= 3) then accepterContrat(choix);
       mineIHM();
       choix := choixMineIHM();
-    end;}
+    end;
 
     if choix = 4 then commencerCombat(getContratEnCours().typeEnnemie);
 
