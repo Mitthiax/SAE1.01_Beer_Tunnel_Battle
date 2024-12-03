@@ -17,7 +17,7 @@ uses
 procedure afficherTextePrincipalTaverne();
 begin
   //En-tete
-  dessinerCadreXY(1, 1, 199, 39, simple, LightGreen, Black);
+  dessinerCadreXY(1, 0, 198, 39, simple, LightGreen, Black);
   dessinerCadreXY(39, 1, 80, 1, double, Green, Black);
   couleurTexte(White);
   deplacerCurseurXY(46, 1); write(' La Taverne Patte de Cochon ');
