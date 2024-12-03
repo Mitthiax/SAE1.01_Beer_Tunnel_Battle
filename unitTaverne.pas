@@ -5,13 +5,13 @@ unit unitTaverne;
 
 interface
 //Permet de savoir quel choix est fait
-function gererChoixTaverne(choix : Integer):Integer;
+procedure gererChoixTaverne(choix : Integer);
 //Permet d'aller boire une biere
-function boireBiere():Integer;
+procedure boireBiere();
 //Permet d'aller manger
-function manger():Integer;
+procedure manger();
 //Permet de quittez la taverne
-function quittez():Integer;
+procedure quitter();
 
 implementation
 uses
@@ -19,26 +19,26 @@ uses
 
 
 //Procedure qui gere les choix fait par le joueur a la taverne
-function gererChoixTaverne(choix : Integer):Integer;
+procedure gererChoixTaverne(choix : Integer);
 begin
   case choix of 
-    1 : boireBiere(); 
+    1 : boireBiere();
     2 : manger();
-    3 : quittez();
+    3 : quitter();
   end;
 end;
 
-function boireBiere():Integer;
+procedure boireBiere();
 begin
   afficherInterfaceBiere(); // Appel de l'interface de consommation biere
 end;
 
-function manger():Integer;
+procedure manger();
 begin
   afficherInterfaceManger(); //Appel de l'interface de consommation de nourriture
 end;
 
-function quittez():Integer;
+procedure quitter();
 begin
   afficherInterface(); // Appel de l'interface du hall pour revenir au hall
 end;
