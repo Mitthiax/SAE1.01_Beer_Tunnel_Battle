@@ -1,5 +1,5 @@
 unit unitTaverneIHM;
-
+{Role: Permet d'afficher le hall de la Taverne qui propose de boire une bière ou de manger.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -70,8 +70,8 @@ begin
     readln(choix);
   until (1 <= choix) and (choix <= 3);
 
-  if (choix = 1) then afficherInterfaceBiere()
-  else if (choix = 2) then afficherInterfaceManger()
-  else if (choix = 3) then afficherInterface();
+  if (choix = 1) then afficherInterfaceBiere() //Permet d'allez boire une bière
+  else if (choix = 2) then afficherInterfaceManger() //Permet d'allez manger
+  else if (choix = 3) then afficherInterface(); //Quitte la Taverne et retour au Hall
 end;
 end.
