@@ -1,5 +1,5 @@
 unit unitCreerPartieLogic;
-
+{Role: Permet de lancer une partie et de rentrer les informations demander.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
