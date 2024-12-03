@@ -1,15 +1,19 @@
 unit marchand;
-
+{Role: Permet d'acheter des bombes et des potions.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface
+//Initialise le stock de la boutique pour la journée
 procedure Initstockboutique();
+//achat d'un objet dans la boutique
 procedure achat(objet:integer);
+//fonction get de l'unité pour récupéré les variable piur l'ihm
 function getmaxstockbombe():integer;
 function getmaxstockpotion():integer;
 function getstockbombe():integer;
 function getstockpotion():integer;
+procedure StockboutiqueArtificiel();
 implementation
 uses
   SysUtils, Classes,Inventaire,GestionEcran,unitMarchandIHM;
@@ -29,6 +33,14 @@ begin
   maxstockpotion:=stockpotion;//maximum du stock du jour
 end;
 
+//Pour les test unitaire
+procedure StockboutiqueArtificiel();
+begin
+  stockbombe:=5;//donne 5 bombe artificiellement au stock
+  maxstockbombe:=stockbombe; //maximum du stock du jour 
+  stockpotion:=10;//donne 10 potion artificiellement au stock
+  maxstockpotion:=stockpotion;//maximum du stock du jour
+end;
 
 //achat d'un objet dans la boutique
 procedure achat(objet:integer);

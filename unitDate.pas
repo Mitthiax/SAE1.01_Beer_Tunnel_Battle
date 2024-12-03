@@ -1,5 +1,5 @@
 unit unitDate;
-
+{Role: Gestion de la date.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -33,6 +33,7 @@ function ObtenirDateActuelle: TDateJeu;
 //procédures qui initalise la date à une époque précise pour des test unitaires
 procedure InitialiserDateTest();
 procedure InitialiserDateTest2();
+
 implementation
 
 uses

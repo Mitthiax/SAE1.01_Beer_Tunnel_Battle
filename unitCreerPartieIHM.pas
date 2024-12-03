@@ -1,5 +1,5 @@
 unit unitCreerPartieIHM;
-
+{Role: Permet d'afficher le lancement d'une partie et de rentrer les informations demander.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 

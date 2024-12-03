@@ -53,12 +53,29 @@ begin
 
 end;
 
+procedure testunitairegestionPV();
+begin
+  //Test sur la gestion de la santé
+  newTestsSeries('Gestion de la santé');
+  newTest('Gestion de la santé','Enlever PV');
+  InitialisationPersonnage();
+  gestionSante(125);
+  testIsEqual(getSante(),75);
 
+  newTest('Gestion de la santé','Rajouté PV');
+  soignerJoueur(100);
+  testIsEqual(getSante(),175);
+
+  newTest('Gestion de la santé','Pv Max');
+  soignerJoueur();
+  testIsEqual(getSante(),200);
+end;
 
 procedure testgestionperso();
 begin
   testunitaireExperience();
   testunitaireMonterdeSante();
+  testunitairegestionPV();
   Summary();
   readln;
 end;

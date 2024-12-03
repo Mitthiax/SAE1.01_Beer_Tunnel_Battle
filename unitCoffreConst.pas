@@ -1,5 +1,5 @@
 unit unitCoffreConst;
-
+{Role: Constante du Coffre.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 

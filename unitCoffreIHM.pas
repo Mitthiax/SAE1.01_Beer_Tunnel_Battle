@@ -1,5 +1,5 @@
 unit unitCoffreIHM;
-
+{Role: Permet d'afficher le coffre.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -31,9 +31,7 @@ implementation
     COULEUR_EQUIPE      = LightGreen;
     COULEUR_NON_POSSEDE = Red;
 
-  {
-    Procedure qui affiche la liste des armes
-  }
+  //Procedure qui affiche la liste des armes
   procedure afficherArmes();
   const
     X = 10; Y = 5; // Coordonnées de l'affichage
@@ -56,9 +54,7 @@ implementation
     end;
   end;
 
-  {
-    Procedure qui affiche la liste des pièces d'armure
-  }
+  //Procedure qui affiche la liste des pièces d'armure
   procedure afficherArmures();
   const
     X = 75; Y = 5; // Coordonnées de l'affichage
@@ -94,9 +90,7 @@ implementation
       deplacerCurseurXY(9, 32); Write('0/ Quitter le Coffre');
     end;
 
-  {
-    IHM du coffre
-  }
+  //IHM du coffre
   procedure coffreIHM();
   begin
     effacerEcran();

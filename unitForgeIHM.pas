@@ -1,5 +1,5 @@
 unit unitForgeIHM;
-
+{Role: Permet d'afficher le forgeront qui permet de forger des objets pour un prix et un certain nombres de matériaux définie.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -16,9 +16,6 @@ interface
   function choixForgeIHM(): integer;
 
 
-
-
-
 implementation
   uses
     SysUtils, Classes, unitForgeLogic, unitCoffreConst, journalihm, GestionEcran;
@@ -28,9 +25,7 @@ implementation
     COULEUR_ACHETABLE     = LightGreen;
     COULEUR_NON_ACHETABLE = Red;
 
-  {
-    Procedure qui affiche la liste des armes
-  }
+  //Procedure qui affiche la liste des armes
   procedure afficherArmesForge();
   const
     X = 10; Y = 5; // Coordonnées de l'affichage
@@ -64,9 +59,7 @@ implementation
     end;
   end;
 
-  {
-    Procedure qui affiche la liste des armures
-  }
+  //Procedure qui affiche la liste des armures
   procedure afficherArmuresForge();
   const
     X = 75; Y = 5; // Coordonnées de l'affichage
@@ -113,9 +106,7 @@ implementation
       deplacerCurseurXY(9, 32); Write('0/ Quitter la forge');
     end;
 
-  {
-    IHM de la forge
-  }
+  //IHM de la forge
   procedure forgeIHM();
   begin
     effacerEcran(); 

@@ -1,5 +1,5 @@
 unit unitBeersIhm;
-
+{Role: Permet d'afficher le hall avec les different choix de chose possible de faire.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 

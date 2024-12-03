@@ -1,5 +1,5 @@
 unit journalihm;
-
+{Role: Permet d'afficher le journal.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -31,7 +31,6 @@ end;
 //Affiche les informations sur l'inventaire du joueur
 procedure journalivent();
 begin
-
   
   deplacerCurseurXY(166,15);write('Inventaire');
 
@@ -48,6 +47,7 @@ begin
   deplacerCurseurXY(150,29);write('Mythril     : ',getinvent(mythril));
 end;
 
+//Permet de donner la date
 procedure journaldate();
 begin
   deplacerCurseurXY(170,31);write('Date');
@@ -55,6 +55,8 @@ begin
   deplacerCurseurXY(150, 34); write('Jour de la semaine : ', getDatesemaine);
   deplacerCurseurXY(150, 35); write('Mois               : ', getDatemois);
 end;
+
+//Permet l'affichage des buffs
 procedure JournalBuff();
 begin
   deplacerCurseurXY(170,10);write('Buff');
@@ -76,6 +78,7 @@ begin
     deplacerCurseurXY(150, 13); write('Vous n''avez pas de Buff de Résistance');
   end;
 end;
+
 //Procédure qui affiche le journal du joueur
 procedure journal();
 begin
@@ -85,8 +88,8 @@ begin
   deplacerCurseurXY(163, 3); write('Journal de Bords');
   journalperso();//appelle la fonction qui affiche les info du joueur
   journalivent();//appelle la fonction qui affiche les info de l'inventaire
-  journaldate();
-  JournalBuff();
+  journaldate(); //Appel de la fonction qui affiche la date
+  JournalBuff(); //Appel de la fonction qui affiche les buffs
 end;
 
   

@@ -1,5 +1,5 @@
 unit unitBeerslogic;
-
+{Role: Permet d'afficher le hall avec les different choix de chose possible de faire.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -57,7 +57,8 @@ end;
 
 procedure AllerTaverne;
 begin
-  afficherInterfaceTaverne(); //Appel l'interface de la Taverne pour aller dans la taverne
+  //Appel l'interface de la Taverne pour aller dans la taverne
+  afficherInterfaceTaverne(); 
 end;
 
 procedure AllerMine;

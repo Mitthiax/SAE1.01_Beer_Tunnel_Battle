@@ -16,9 +16,15 @@ begin
   newTestsSeries('Test incrementation de l''inventaire');
   newTest('Test incrementation de l''inventaire','Achat d''une bombe');
   InventaireInit();
+  StockboutiqueArtificiel();
   achat(1);
-  testIsEqual(getinventinvent[bombe],1);//vérifie l'ajout de 1bombe
-  testIsEqual(getinvent[monnaie],170);//vérifie le debit des 30pièces
+  testIsEqual(getinvent(bombe),1);//vérifie l'ajout de 1bombe
+  testIsEqual(getinvent(monnaie),170);//vérifie le debit des 30pièces
+
+  newTest('Test incrementation de l''inventaire','Achat d''une potion');
+  achat(2);
+  testIsEqual(getinvent(potion),1);//vérifie l'ajout de 1 potion
+  testIsEqual(getinvent(monnaie),120);//vérifie le debit des 50pièces(80 au total)
 end;
 
 //rassemble les test unitaire sous une seule et même procedure pour cette unité

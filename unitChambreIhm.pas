@@ -1,5 +1,5 @@
 unit unitChambreIhm;
-
+{Role: Permet d'afficher la chambre avec la possibiliter de dormir ou de regarder sont coffre.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 

@@ -1,5 +1,5 @@
 unit unitTaverneAnecdote;
-
+{Role: Permet de finir sa bière et de retourner au hall de la taverne.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 

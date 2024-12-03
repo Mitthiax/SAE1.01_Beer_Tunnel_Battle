@@ -1,9 +1,5 @@
-{
-  Bibliotèque proposant différentes fonctions d'aléatoires
-}
-
 unit libRandom;
-
+{Role: Bibliotèque proposant différentes fonctions d'aléatoires}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 

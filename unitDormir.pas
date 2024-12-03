@@ -1,5 +1,5 @@
 unit unitDormir;
-
+{Role: Permet de dormir et de remettre a zero avec le sommeil les buffs, et les nombres d'objet vendue par le marchand.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -11,9 +11,11 @@ uses
 procedure gererChoixDormir();
 // Affichage du journal du joueur avec toutes les informations sur son personnage
 procedure afficherJournal();
+//Appel des dates
 function getDatejour():integer;
 function getDatesemaine():TJourSemaine;
 function getDatemois():TMois;
+
 implementation
 
 // Procédure qui permet d'arrêter de dormir
@@ -29,11 +31,7 @@ begin
   initialiserContrats();
 end;
 
-// Procédure qui affiche le journal du joueur avec toutes les informations sur son personnage
-procedure afficherJournal();
-begin
-  //afficherJournalIHM();
-end;
+
 function getDatejour():integer;
 begin
   getDatejour:=ObtenirDateActuelle().Jour;
