@@ -15,7 +15,7 @@ uses
 //Affichague du titre et du texte pincipal de la taverne
 procedure afficherTextePrincipalDormir();
 begin
-  //En-tete
+  //Entête
   dessinerCadreXY(1, 0, 198, 39, simple, LightGreen, Black);
   dessinerCadreXY(39, 1, 80, 1, double, Green, Black);
   couleurTexte(White);
@@ -37,7 +37,7 @@ begin
 end;
 
 
-//Procedure qui affiche le choix des actions
+//Procédure qui affiche le choix des actions
 procedure afficherOptionsDormir();
 begin
   dessinerCadreXY(3, 25, 115, 36, double, LightGreen, Black);
@@ -47,7 +47,7 @@ begin
   deplacerCurseurXY(105, 33);
 end;
 
-// Procedure qui affiche le cadre de choix
+// Procédure qui affiche le cadre de choix
 procedure afficherCadreChoix();
 begin
   dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
@@ -56,7 +56,7 @@ end;
 
 
 
-//Procèdure que affiche l'interface de la chambre
+//Procédure que affiche l'interface de la chambre
 procedure afficherInterfaceDormir(); 
 var
   choix: Integer;

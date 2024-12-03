@@ -1,11 +1,11 @@
 unit unitTaverneManger;
-{Role: Partie logic de la consommation de nourriture de la Taverne, le joueur peux ainsi manger deux plat qui lui accorde differents buffs.}
+{Role: Partie métier de la consommation de nourriture de la Taverne, le joueur peut ainsi manger deux plat qui lui accorde differents buffs.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface
 
-//Permet de gerer les choix entre manger un plat et retouner au hall de la taverne
+//Permet de gerer les choix entre manger un plat et retouner dans le hall de la taverne
 procedure gererChoixTaverneManger(choix : Integer);
 
 
@@ -14,7 +14,7 @@ implementation
 uses
   SysUtils, Classes, unitTaverneIHM,Inventaire,gestionBuff, unitTaverneMangerIhm, journalihm;
 
-//Permet de gerer les choix entre manger un plat et retouner au hall de la taverne
+//Permet de gerer les choix entre manger un plat et retouner dans le hall de la taverne
 procedure gererChoixTaverneManger(choix : Integer);
 begin
 case choix of
@@ -30,7 +30,7 @@ case choix of
     setBuffSanteeMax();
     setinvent(monnaie,getinvent(monnaie)-25);
   end;
-  //Permet de quittez en retournant au hall de la taverne
+  //Permet de quitter en retournant dans le hall de la taverne
   3 : afficherInterfaceTaverne();
 end;
 end;

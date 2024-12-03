@@ -65,7 +65,7 @@ begin
   end
   else if indicationBuffSanteeMax=false then
   begin
-    deplacerCurseurXY(150, 12); write('Vous n''avez pas un Buff de Santé maximum');
+    deplacerCurseurXY(150, 12); write('Vous n''avez pas de Buff de Santé maximum');
   end;
    if indicationBuffResistanceMax=true then
   begin
@@ -73,10 +73,10 @@ begin
   end
   else if indicationBuffResistanceMax=false then
   begin
-    deplacerCurseurXY(150, 13); write('Vous n''avez pas un Buff de Résistance');
+    deplacerCurseurXY(150, 13); write('Vous n''avez pas de Buff de Résistance');
   end;
 end;
-//Procedure qui affiche le journal du joueur
+//Procédure qui affiche le journal du joueur
 procedure journal();
 begin
   dessinerCadreXY(145, 1, 195, 37, simple, DarkGray, Black);

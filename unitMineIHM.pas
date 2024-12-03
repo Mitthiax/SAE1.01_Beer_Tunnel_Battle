@@ -1,5 +1,5 @@
 unit unitMineIHM;
-{Role: Permet d'acceder au contrat ou au combat}
+{Role: Permet d'accéder aux contrats ou au combat}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -7,11 +7,11 @@ interface
   uses
     unitMineLogic, unitContratsLogic;
 
- //Procedure qui affiche le tableau des récompenes gagnés pour un contrat accompli
+ //Procédure qui affiche le tableau des récompences gagnées pour un contrat accompli
   procedure afficherRecompenses(contrat: TContrat);
   
 
-{ Fonction qui permet au joueur de choisir entre combattre un ennemie ou quitter la mine
+{ Fonction qui permet au joueur de choisir entre combattre un ennemi ou quitter la mine
    Sortie:
      integer; Choix du joueur dans la mine }
   function choixMineIHM(): integer;
@@ -24,8 +24,8 @@ implementation
   uses
     SysUtils, Classes, GestionEcran, journalihm;
 
-//Procedure qui affiche les ennemies
-  procedure afficherEnnemies();
+//Procédure qui affiche les ennemis
+  procedure afficherEnnemis();
   const
     X = 48; Y = 5; // Coordonnées de l'affichage
     COULEUR_ACCOMPLI = Green;
@@ -54,15 +54,15 @@ implementation
       dessinerCadreXY(X+5, Y+1 +7*(i-1), X+16, Y+1 +7*(i-1), double, couleur, Black);
 
       deplacerCurseurXY(X-3, Y+1 +7*(i-1)); write(i);
-      deplacerCurseurXY(X+11 - length(listeContrats[i].typeEnnemie.nom) div 2, Y+1 +7*(i-1)); write(listeContrats[i].typeEnnemie.nom);
+      deplacerCurseurXY(X+11 - length(listeContrats[i].typeEnnemi.nom) div 2, Y+1 +7*(i-1)); write(listeContrats[i].typeEnnemi.nom);
       deplacerCurseurXY(X+2, Y+3 +7*(i-1)); write('Statut : ', listeContrats[i].statut);
-      deplacerCurseurXY(X+2, Y+4 +7*(i-1)); write('Ennemies tués : ', listeContrats[i].nbEnnemiesTues, '/', listeContrats[i].nbEnnemies);
+      deplacerCurseurXY(X+2, Y+4 +7*(i-1)); write('Ennemis tués : ', listeContrats[i].nbEnnemisTues, '/', listeContrats[i].nbEnnemis);
 
     end;
     couleurTexte(White);
   end;
 
-//Procedure qui affiche le tableau des récompenes gagnés pour un contrat accompli
+//Procédure qui affiche le tableau des récompences gagnées pour un contrat accompli
   procedure afficherRecompenses(contrat: TContrat);
   begin
     effacerEcran();
@@ -71,9 +71,9 @@ implementation
 
     dessinerCadreXY(35, 5, 109, 35, double, White, Black);
 
-    // Entete
+    // Entête
     dessinerCadreXY(50, 6, 94, 6, double, White, Black);
-    deplacerCurseurXY(67, 6); write('Recompenses');
+    deplacerCurseurXY(67, 6); write('Récompenses');
 
     // Liste des récompenses
     attendre(50); deplacerCurseurXY(54, 15); write('Cuivre :..........................', contrat.quantiteCuivre);
@@ -81,12 +81,12 @@ implementation
     attendre(50); deplacerCurseurXY(54, 21); write('Mythril :.........................', contrat.quantiteMythril);
     attendre(50); deplacerCurseurXY(54, 24); write('Pieces d''or :.....................', contrat.quantiteOr);
     attendre(50); deplacerCurseurXY(54, 27); write('Experience :......................', contrat.quantiteXP);
-    attendre(50); deplacerCurseurXY(54, 30); write('Appuyez sur Entrer pour fermer');
+    attendre(50); deplacerCurseurXY(54, 30); write('Appuyer sur Entrer pour fermer');
     readln;
   end;
   
   {
-    Fonction qui permet au joueur de choisir entre combattre un ennemie ou quitter la mine
+    Fonction qui permet au joueur de choisir entre combattre un ennemi ou quitter la mine
     Sortie:
       integer; Choix du joueur dans la mine
   }
@@ -109,7 +109,7 @@ implementation
   procedure mineIHM();
   begin
     effacerEcran();
-    //En-tete
+    //Entête
     dessinerCadreXY(1, 0, 198, 39, simple, LightGreen, Black);
     dessinerCadreXY(39, 0, 80, 0, double, Green, Black);
     couleurTexte(White);
@@ -120,9 +120,9 @@ implementation
     //Affiche les choix
     deplacerCurseurXY(20, 29); write('?/ Accepter un contrat');
     deplacerCurseurXY(20, 31); write('4/ Combattre');
-    deplacerCurseurXY(20, 33); write('0/ Retourner au hall');
+    deplacerCurseurXY(20, 33); write('0/ Retourner dans le hall');
 
-    afficherEnnemies();
+    afficherEnnemis();
 
     journal(); // Afficher le journal du joueur
   end;

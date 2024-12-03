@@ -19,7 +19,7 @@ uses
 //Affichague du titre et du texte pincipal de la taverne
 procedure afficherTextePrincipalMarchand();
 begin
-  //En-tete
+  //Entête
   dessinerCadreXY(1, 0, 198, 39, simple, LightGreen, Black);
   dessinerCadreXY(39, 1, 80, 1, double, Green, Black);
   couleurTexte(White);
@@ -27,23 +27,23 @@ begin
 
   //Texte du hall
   couleurTexte(White);
-  deplacerCurseurXY(7,4); write('Vous poussez la porte du marchand, une odeur de plante et d''arôme s''échappe.');
-  deplacerCurseurXY(5, 5); Write('Sur les étagères sont disposés toutes sortes d''objet, arme exotique, potion ou des objet plus intrigant que d''autre.');
-  deplacerCurseurXY(5,6); write('Les deux marchands se retournent :');
+  deplacerCurseurXY(7,4);   write('Vous poussez la porte du marchand, une odeur de plante et d''arôme s''échappe.');
+  deplacerCurseurXY(5, 5);  write('Sur les étagères sont disposés toutes sortes d''objet, arme exotique, potion ou des objets plus intrigants que d''autres.');
+  deplacerCurseurXY(5,6);   write('Les deux marchands se retournent :');
   couleurTexte(Magenta);
-  deplacerCurseurXY(7, 9); write('Edla " Bonjour Bonjour "');
+  deplacerCurseurXY(7, 9);  write('Edla " Bonjour Bonjour "');
   couleurTexte(LightMagenta);
   deplacerCurseurXY(7, 12); Write('Thalnir "Oui ! Bonjour ! Que cherchez-vous ? " ');
   couleurTexte(Magenta);
   deplacerCurseurXY(7, 15); write('Edla "Ne réfléchissez plus, nous l''avons déjà !  "');
   couleurTexte(LightMagenta);
-  deplacerCurseurXY(7, 18); Write('Thalnir " Vous trouverez tout ce qu''il vous faut pour vos contrats ici aventurier ! "');
+  deplacerCurseurXY(7, 18); Write('Thalnir " Vous trouverez tout ce qu''il vous faut pour vos contrats ici, aventurier ! "');
 end;
 
 
 
 
-//Procedure qui affiche le choix des actions
+//Procédure qui affiche le choix des actions
 procedure afficherOptionsMarchand;
 begin
   dessinerCadreXY(3, 25, 115, 36, double, LightGreen, Black);
@@ -51,11 +51,11 @@ begin
   deplacerCurseurXY(7, 27); Write('Que souhaitez-vous faire ?');
 
   deplacerCurseurXY(9, 30); Write('1/ Acheter une Bombe --> 30 pièces d''OR               stock : ',getstockbombe(),'/',getmaxstockbombe());
-  deplacerCurseurXY(9, 31); Write('2/ Acheter une postion de Soin --> 50 pièces d''OR     stock : ',getstockpotion(),'/',getmaxstockpotion());
-  deplacerCurseurXY(9, 32); Write('3/ Quittez la Boutique');
+  deplacerCurseurXY(9, 31); Write('2/ Acheter une potion de soin --> 50 pièces d''OR      stock : ',getstockpotion(),'/',getmaxstockpotion());
+  deplacerCurseurXY(9, 32); Write('3/ Quitter la Boutique');
 end;
 
-// Procedure qui affiche le cadre de choix
+// Procédure qui affiche le cadre de choix
 procedure afficherCadreChoix();
 begin
   dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
@@ -84,15 +84,15 @@ begin
     achat(choix); //Appel de la procedure d'achat
     afficherInterfaceMarchand(); //Permet d'afficher l'interface de la boutique afin de pouvoir acheter autre chose
   end
-  else if (choix = 3) then afficherInterface(); // Retours dans le hall
+  else if (choix = 3) then afficherInterface(); // Retour dans le hall
 
 end;
 
-//procédure qui expulse le joueur de la boutique si il tente d'acheter sans avoir suffisament d'argent
+//procédure qui expulse le joueur de la boutique s'il tente d'acheter sans avoir suffisament d'argent
 procedure Argentmanquant();
 begin
   couleurTexte(White);
-  deplacerCurseurXY(9, 34); Write('Sort de ma boutique sale pieçard !');
+  deplacerCurseurXY(9, 34); Write('Sors de ma boutique sale piéçard !');
   readln;
   afficherInterface();
 end;

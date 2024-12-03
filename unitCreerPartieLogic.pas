@@ -4,14 +4,14 @@ unit unitCreerPartieLogic;
 {$mode objfpc}{$H+}
 
 interface
-  // Procedure qui lance une nouvelle partie
+  // Procédure qui lance une nouvelle partie
   procedure creerPartie();
   
 implementation
   uses
     unitCreerPartieIHM, GestionPerso, unitBeersIhm;
   
-  // Procedure qui lance une nouvelle partie
+  // Procédure qui lance une nouvelle partie
   procedure creerPartie();
   var
     nom: string; // Nom du joueur

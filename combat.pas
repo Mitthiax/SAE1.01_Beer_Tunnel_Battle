@@ -7,14 +7,14 @@ interface
   uses
     unitCombatConst;
   {
-    Procedure qui comme un combat contre un ennemie aléatoire
+    Procedure qui comme un combat contre un ennemi aléatoire
     Parametres:
-      ennemie: TEnnemie; Ennemie lors du combat
+      ennemi: TEnnemi; Ennemi lors du combat
   }
-  procedure commencerCombat(ennemie: TEnnemie);
+  procedure commencerCombat(ennemi: TEnnemi);
 
   {
-    Procedure qui comme un combat contre un ennemie aléatoire
+    Procedure qui comme un combat contre un ennemi aléatoire
   }
   procedure commencerCombat();
 
@@ -23,7 +23,7 @@ implementation
     SysUtils, Classes, GestionPerso, unitCoffreLogic, unitCombatIHM, libRandom, gestionbuff, Inventaire, unitBeersIhm, unitContratsLogic;
 
     
-  //fonction qui calcule les dégats infliger à l'ennemie 
+  //fonction qui calcule les dégats infliger à l'ennemi 
   function degatInfliger():integer;
   var
   degatmit:integer;
@@ -45,7 +45,7 @@ implementation
   begin
     if random(30-getlevel())<>0 then //on laisse une chance au joueur d'esquiver le coup(c'est petit un nain aussi, ça peut se baisser)
     begin
-      degatrecureal:=couprecu+random(11-getlevel());//Augmente les degats que l'ennemie inflige (bah oui pourquoi ça serais que dans 1 sens lui aussi il a le droit au coup critique)(baisse avec le niveau)
+      degatrecureal:=couprecu+random(11-getlevel());//Augmente les degats que l'ennemi inflige (bah oui pourquoi ça serais que dans 1 sens lui aussi il a le droit au coup critique)(baisse avec le niveau)
       degatrecureal:=degatrecureal-(degatrecureal*((getDefenceJoueur()+getBuffResistanceMax)/100));//calcul les degats reçu avec le bonus de protection (svp faites en sortes que la deffense depasse pas 100 sinon il risque de give des points de vie)
       if degatrecureal<0 then
       begin
@@ -60,49 +60,49 @@ implementation
   end;
 
   {
-    Procedure qui permet d'attaquer l'ennemie
+    Procedure qui permet d'attaquer l'ennemi
   }
-  procedure attaquer(var ennemie: TEnnemie);
+  procedure attaquer(var ennemi: TEnnemi);
   var
-    degats: integer; // Dégats infligées à l'ennemie
+    degats: integer; // Dégats infligées à l'ennemi
 
   begin
     degats := degatInfliger();
-    ennemie.PV -= degats;
-    afficherAttaque(degats, ennemie.nom);
+    ennemi.PV -= degats;
+    afficherAttaque(degats, ennemi.nom);
   end;
 
   {
-    Procedure qui permet à l'ennemie d'attaquer le joueur
+    Procedure qui permet à l'ennemi d'attaquer le joueur
     Parametres:
-      ennemie: TEnnemie; Ennemie du combat
+      ennemi: TEnnemi; Ennemi du combat
   }
-  procedure attaqueEnnemie(var ennemie: TEnnemie);
+  procedure attaqueEnnemi(var ennemi: TEnnemi);
   var
     degats: integer; // Dégats subits par le joueur
     
   begin
-    degats := subirdegats(ennemie.degats);
+    degats := subirdegats(ennemi.degats);
     gestionSante(degats);
-    afficherAttaqueEnnemie(degats, ennemie.nom);
+    afficherAttaqueEnnemi(degats, ennemi.nom);
   end;
 
   {
-    Procedure qui lance une bombe sur l'ennemie et lui inflige de dégats
+    Procedure qui lance une bombe sur l'ennemi et lui inflige de dégats
     Parametres:
-      ennemie: TEnnemie; Ennemie du combat
+      ennemi: TEnnemi; Ennemi du combat
   }
-  procedure lancerBombe(var ennemie: TEnnemie);
+  procedure lancerBombe(var ennemi: TEnnemi);
   var
-    degats: integer; // Dégats infligées à l'ennemie
+    degats: integer; // Dégats infligées à l'ennemi
     
   begin
     if getinvent(bombe) > 0 then
     begin
         setinvent(bombe, getinvent(bombe) - 1);
         degats := round(30 * randomReal(0.9, 1.1));
-        ennemie.PV -= degats;
-        afficherBombe(degats, ennemie.nom);
+        ennemi.PV -= degats;
+        afficherBombe(degats, ennemi.nom);
     end
     else afficherBombeVide();
   end;
@@ -125,7 +125,7 @@ implementation
     Sortie:
       boolean; True si la fuite est réussi, false sinon
   }
-  function tenterFuite(var ennemie: TEnnemie): boolean;
+  function tenterFuite(var ennemi: TEnnemi): boolean;
   var
     fuiteReussie: boolean; // True si une fuite à été réussi, false sinon
 
@@ -140,8 +140,8 @@ implementation
 
     else
     begin
-      afficherFuiteRatee(ennemie.nom);
-      attaqueEnnemie(ennemie);
+      afficherFuiteRatee(ennemi.nom);
+      attaqueEnnemi(ennemi);
     end;
 
     tenterFuite := fuiteReussie;
@@ -150,9 +150,9 @@ implementation
   {
     Fonction qui gère un tour de combat et retourne si le combat est terminé
     Parametres:
-      ennemie: TEnnemie; Ennemie du combat
+      ennemi: TEnnemi; Ennemi du combat
   }
-  function tourCombat(var ennemie: TEnnemie): boolean;
+  function tourCombat(var ennemi: TEnnemi): boolean;
   var
     choix: integer; // Choix du joueur lors du tour de combat
     estTermine: boolean; // True si le combat est terminer, false sinon
@@ -160,30 +160,30 @@ implementation
   begin
     estTermine := false;
 
-    choix := combatIHM(ennemie);
+    choix := combatIHM(ennemi);
 
     case choix of
-      1: attaquer(ennemie);
-      2: lancerBombe(ennemie);
+      1: attaquer(ennemi);
+      2: lancerBombe(ennemi);
       3: boirePotion();
-      4: estTermine := tenterFuite(ennemie);
+      4: estTermine := tenterFuite(ennemi);
     end;
 
-    // On termine le combat si l'ennemie est mort
-    if ennemie.PV <= 0 then estTermine := true;
+    // On termine le combat si l'ennemi est mort
+    if ennemi.PV <= 0 then estTermine := true;
 
-    // Si le combat n'est pas terminé, l'ennemie attaque
-    if not estTermine then attaqueEnnemie(ennemie);
+    // Si le combat n'est pas terminé, l'ennemi attaque
+    if not estTermine then attaqueEnnemi(ennemi);
 
     tourCombat := estTermine
   end;
 
   {
-    Procedure qui comme un combat contre un ennemie aléatoire
+    Procedure qui comme un combat contre un ennemi aléatoire
     Parametres:
-      ennemie: TEnnemie; Ennemie lors du combat
+      ennemi: TEnnemi; Ennemi lors du combat
   }
-  procedure commencerCombat(ennemie: TEnnemie);
+  procedure commencerCombat(ennemi: TEnnemi);
   var
     estTermine: boolean; // True si le joueur est mort, false sinon
 
@@ -191,32 +191,32 @@ implementation
     estTermine := false;
 
     // Modification des points de vie et dégats, pour des valeur plus aléatoires
-    ennemie.PV := round(ennemie.PV * randomReal(0.75, 1.25));
-    ennemie.degats := round(ennemie.degats * randomReal(0.75, 1.25));
+    ennemi.PV := round(ennemi.PV * randomReal(0.75, 1.25));
+    ennemi.degats := round(ennemi.degats * randomReal(0.75, 1.25));
 
-    while (not estTermine) do estTermine := tourCombat(ennemie);
+    while (not estTermine) do estTermine := tourCombat(ennemi);
     
-    if ennemie.PV <= 0 then incrementeVictoire();
+    if ennemi.PV <= 0 then incrementeVictoire();
     afficherInterface();
   end;
 
   {
-    Procedure qui comme un combat contre un ennemie aléatoire
+    Procedure qui comme un combat contre un ennemi aléatoire
   }
   procedure commencerCombat();
   var
-    choixEnnemie: integer; // Choix aléatoire d'un ennemie
-    ennemie: TEnnemie; // Ennemie lors du combat
+    choixEnnemi: integer; // Choix aléatoire d'un ennemi
+    ennemi: TEnnemi; // Ennemi lors du combat
 
   begin
-    // Choix de l'ennemie
-    choixEnnemie := randomInteger(1, 3);
-    case choixEnnemie of
-      1: ennemie := GOBLIN;
-      2: ennemie := TROLL;
-      3: ennemie := ORQUE;
+    // Choix de l'ennemi
+    choixEnnemi := randomInteger(1, 3);
+    case choixEnnemi of
+      1: ennemi := GOBLIN;
+      2: ennemi := TROLL;
+      3: ennemi := ORQUE;
     end;
 
-    commencerCombat(ennemie)
+    commencerCombat(ennemi)
   end;
 end.

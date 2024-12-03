@@ -16,7 +16,7 @@ function getDatesemaine():TJourSemaine;
 function getDatemois():TMois;
 implementation
 
-// Procedure qui permet d'arrêter de dormir
+// Procédure qui permet d'arrêter de dormir
 procedure gererChoixDormir();
 var
 pvrestore:integer;
@@ -29,7 +29,7 @@ begin
   initialiserContrats();
 end;
 
-// Procedure qui affiche le journal du joueur avec toutes les informations sur son personnage
+// Procédure qui affiche le journal du joueur avec toutes les informations sur son personnage
 procedure afficherJournal();
 begin
   //afficherJournalIHM();

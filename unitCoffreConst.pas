@@ -41,9 +41,9 @@ interface
       (nom: 'Plastron en mythril'; materiau: 'Mythril'; points: 20; prix: 25;  prixOr: 500),
       
       // Jambières
-      (nom: 'Jambiere en cuivre';  materiau: 'Cuivre';  points: 10; prix: 100; prixOr: 100),
-      (nom: 'Jambiere en fer';     materiau: 'Fer';     points: 15; prix: 75;  prixOr: 200),
-      (nom: 'Jambiere en mythril'; materiau: 'Mythril'; points: 20; prix: 25;  prixOr: 400),
+      (nom: 'Jambières en cuivre';  materiau: 'Cuivre';  points: 10; prix: 100; prixOr: 100),
+      (nom: 'Jambières en fer';     materiau: 'Fer';     points: 15; prix: 75;  prixOr: 200),
+      (nom: 'Jambières en mythril'; materiau: 'Mythril'; points: 20; prix: 25;  prixOr: 400),
       
       // Bottes
       (nom: 'Bottes en cuivre';    materiau: 'Cuivre';  points: 5;  prix: 100; prixOr: 75),

@@ -11,32 +11,32 @@ interface
   {
     IHM des combats
   }
-  function combatIHM(ennemie: TEnnemie): integer;
+  function combatIHM(ennemi: TEnnemi): integer;
 
   {
     Procedure qui affiche le message d'attaque
     Parametres:
-      degats: integer; Dégats infligées à l'ennemie
-      nomEnnemie: integer; Nom de l'ennemie
+      degats: integer; Dégats infligées à l'ennemi
+      nomEnnemi: integer; Nom de l'ennemi
   }
-  procedure afficherAttaque(degats: integer; nomEnnemie: string);
+  procedure afficherAttaque(degats: integer; nomEnnemi: string);
 
   {
-    Procedure qui affiche le message d'attaque de l'ennemie
+    Procedure qui affiche le message d'attaque de l'ennemi
     Parametres:
       degats: integer; Dégats subits
-      nomEnnemie: integer; Nom de l'ennemie
+      nomEnnemi: integer; Nom de l'ennemi
   }
-  procedure afficherAttaqueEnnemie(degats: integer; nomEnnemie: string);
+  procedure afficherAttaqueEnnemi(degats: integer; nomEnnemi: string);
 
 
   {
     Procedure qui affiche le message de lancer de bombe
     Parametres:
-      degats: integer; Dégats infligées à l'ennemie
-      nomEnnemie: integer; Nom de l'ennemie
+      degats: integer; Dégats infligées à l'ennemi
+      nomEnnemi: integer; Nom de l'ennemi
   }
-  procedure afficherBombe(degats: integer; nomEnnemie: string);
+  procedure afficherBombe(degats: integer; nomEnnemi: string);
 
   {
     Procedure qui affiche le message quand le joueur n'as plus de bombe
@@ -62,20 +62,9 @@ interface
   {
     Procedure qui affiche le message de fuite ratée
     Parametres:
-      nomEnnemie: integer; Nom de l'ennemie
+      nomEnnemi: integer; Nom de l'ennemi
   }
-  procedure afficherFuiteRatee(nomEnnemie: string);
-
-  {
-    Procedure qui affiche le tableau des récompenes gagnéss
-    Parametres:
-      cuivreGagne    : integer; Cuivre gagné par le joueur
-      ferGagne       : integer; Fer gagné par le joueur
-      mythrilGagne   : integer; Mythril gagné par le joueur
-      monnaieGagne   : integer; Monnaie gagnée par le joueur
-      experienceGagne: integer; Experience gagnée par le joueur
-  }
-  procedure afficherRecompensesCombat(cuivreGagne, ferGagne, mythrilGagne, monnaieGagne, experienceGagne: integer);
+  procedure afficherFuiteRatee(nomEnnemi: string);
   
 
 
@@ -86,18 +75,18 @@ implementation
     SysUtils, Classes, GestionEcran,journalihm;
 
   {
-    Procedure qui affiche l'ennemie
+    Procedure qui affiche l'ennemi
     Parametres:
-      ennemie: TEnnemie; Ennemie du combat
+      ennemi: TEnnemi; Ennemi du combat
   }
-  procedure afficherEnnemie(var ennemie: TEnnemie);
+  procedure afficherEnnemi(var ennemi: TEnnemi);
   const
     X = 50; Y = 5; // Coordonnées de l'affichage
   begin
     dessinerCadreXY(X, Y, X+21, Y+5, simple, White, Black);
     dessinerCadreXY(X+5, Y+1, X+16, Y+1, double, White, Black);
-    deplacerCurseurXY(X+11 - length(ennemie.nom) div 2, Y+1); write(ennemie.nom);
-    deplacerCurseurXY(X+2, Y+3); write('PV : ', ennemie.PV);
+    deplacerCurseurXY(X+11 - length(ennemi.nom) div 2, Y+1); write(ennemi.nom);
+    deplacerCurseurXY(X+2, Y+3); write('PV : ', ennemi.PV);
 
   end;
 
@@ -118,40 +107,40 @@ implementation
   {
     Procedure qui affiche le message d'attaque
     Parametres:
-      degats: integer; Dégats infligées à l'ennemie
-      nomEnnemie: integer; Nom de l'ennemie
+      degats: integer; Dégats infligées à l'ennemi
+      nomEnnemi: integer; Nom de l'ennemi
   }
-  procedure afficherAttaque(degats: integer; nomEnnemie: string);
+  procedure afficherAttaque(degats: integer; nomEnnemi: string);
   begin
-    if degats = 0 then afficherMessageCombat('Vous attaquez l''ennnemie mais il esquive votre attaque')
-    else afficherMessageCombat('Vous attaquez ' + nomEnnemie + ' et lui infligez ' + intToStr(degats) + ' points de dégats.');
+    if degats = 0 then afficherMessageCombat('Vous attaquez l''ennnemi mais il esquive votre attaque')
+    else afficherMessageCombat('Vous attaquez ' + nomEnnemi + ' et lui infligez ' + intToStr(degats) + ' points de dégats.');
   end;
 
   {
-    Procedure qui affiche le message d'attaque de l'ennemie
+    Procedure qui affiche le message d'attaque de l'ennemi
     Parametres:
       degats: integer; Dégats subits
-      nomEnnemie: integer; Nom de l'ennemie
+      nomEnnemi: integer; Nom de l'ennemi
   }
-  procedure afficherAttaqueEnnemie(degats: integer; nomEnnemie: string);
+  procedure afficherAttaqueEnnemi(degats: integer; nomEnnemi: string);
   begin
-    if degats = 0 then afficherMessageCombat(nomEnnemie + ' vous attaque mais vous réussissez à éviter l''attaque')
+    if degats = 0 then afficherMessageCombat(nomEnnemi + ' vous attaque mais vous réussissez à éviter l''attaque')
     else
     begin
       journal();
-      afficherMessageCombat(nomEnnemie + ' vous attaque et vous inflige ' + intToStr(degats) + ' points de dégats.');
+      afficherMessageCombat(nomEnnemi + ' vous attaque et vous inflige ' + intToStr(degats) + ' points de dégats.');
     end;
   end;
 
   {
     Procedure qui affiche le message de lancer de bombe
     Parametres:
-      degats: integer; Dégats infligées à l'ennemie
-      nomEnnemie: integer; Nom de l'ennemie
+      degats: integer; Dégats infligées à l'ennemi
+      nomEnnemi: integer; Nom de l'ennemi
   }
-  procedure afficherBombe(degats: integer; nomEnnemie: string);
+  procedure afficherBombe(degats: integer; nomEnnemi: string);
   begin
-    afficherMessageCombat('Vous lancez une bombe sur ' + nomEnnemie + ' et lui infligez ' + intToStr(degats) + ' points de dégats.');
+    afficherMessageCombat('Vous lancez une bombe sur ' + nomEnnemi + ' et lui infligez ' + intToStr(degats) + ' points de dégats.');
   end;
 
   {
@@ -176,7 +165,7 @@ implementation
   }
   procedure afficherPotionVide();
   begin
-    afficherMessageCombat('Vous voulez lancez une bombe mais vous n''en plus.');
+    afficherMessageCombat('Vous voulez lancer une bombe mais vous n''en avez plus.');
   end;
 
   {
@@ -190,41 +179,11 @@ implementation
   {
     Procedure qui affiche le message de fuite ratée
     Parametres:
-      nomEnnemie: integer; Nom de l'ennemie
+      nomEnnemi: integer; Nom de l'ennemi
   }
-  procedure afficherFuiteRatee(nomEnnemie: string);
+  procedure afficherFuiteRatee(nomEnnemi: string);
   begin
-    afficherMessageCombat('Vous tentez de fuire mais vous echouez, ' + nomEnnemie + ' vous attaque.');
-  end;
-
-  {
-    Procedure qui affiche le tableau des récompenes gagnéss
-    Parametres:
-      cuivreGagne    : integer; Cuivre gagné par le joueur
-      ferGagne       : integer; Fer gagné par le joueur
-      mythrilGagne   : integer; Mythril gagné par le joueur
-      monnaieGagne   : integer; Monnaie gagnée par le joueur
-      experienceGagne: integer; Experience gagnée par le joueur
-  }
-  procedure afficherRecompensesCombat(cuivreGagne, ferGagne, mythrilGagne, monnaieGagne, experienceGagne: integer);
-  begin
-    effacerEcran();
-    
-    journal();
-
-    dessinerCadreXY(35, 5, 109, 35, double, White, Black);
-
-    // Entete
-    dessinerCadreXY(50, 6, 94, 6, double, White, Black);
-    deplacerCurseurXY(67, 6); write('Recompenses');
-
-    // Liste des récompenses
-    attendre(50); deplacerCurseurXY(54, 15); write('Cuivre :..........................', cuivreGagne);
-    attendre(50); deplacerCurseurXY(54, 18); write('Fer :.............................', ferGagne);
-    attendre(50); deplacerCurseurXY(54, 21); write('Mythril :.........................', mythrilGagne);
-    attendre(50); deplacerCurseurXY(54, 24); write('Pieces d''or :.....................', monnaieGagne);
-    attendre(50); deplacerCurseurXY(54, 27); write('Experience :......................', experienceGagne);
-    readln;
+    afficherMessageCombat('Vous tentez de fuire mais vous échouez, ' + nomEnnemi + ' vous attaque.');
   end;
   
   {
@@ -248,7 +207,7 @@ implementation
   {
     IHM des combats
   }
-  function combatIHM(ennemie: TEnnemie): integer;
+  function combatIHM(ennemi: TEnnemi): integer;
   begin
     effacerEcran();
     dessinerCadreXY(1, 0, 198, 39, simple, White, Black);
@@ -257,7 +216,7 @@ implementation
     deplacerCurseurXY(20, 31); write('3 - Boire une potion');
     deplacerCurseurXY(20, 32); write('4 - Fuire');
 
-    afficherEnnemie(ennemie);
+    afficherEnnemi(ennemi);
     journal();
 
     combatIHM := choixCombatIHM();

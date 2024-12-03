@@ -102,7 +102,7 @@ implementation
     end;
   end;
 
-  //Procedure qui affiche le choix des actions
+  //Procédure qui affiche le choix des actions
   procedure afficherOptionsForge();
     begin
       dessinerCadreXY(3, 25, 60, 36, double, LightGreen, Black);

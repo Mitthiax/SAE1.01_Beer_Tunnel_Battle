@@ -10,20 +10,20 @@ procedure gererChoixForge(choix : Integer);
 procedure afficherJournal(); 
 //Permet d'aller forger
 procedure forger();
-//Permet de quittez la forge
-procedure quittez();
+//Permet de quitter la forge
+procedure quitter();
   
 implementation
 uses
   SysUtils, Classes, unitBeersIhm, unitForgeIHM, unitForgeLogic;
 
 
-//Procedure qui gere les choix fait par le joueur a la forge
+//Procédure qui gere les choix fait par le joueur a la forge
 procedure gererChoixForge(choix : Integer);
 begin
   case choix of 
     1 : forger();
-    2 : quittez();
+    2 : quitter();
   end;
 end;
 
@@ -33,12 +33,12 @@ begin
 end;
 
 
-procedure quittez();
+procedure quitter();
 begin
-  afficherInterface(); // Appel de l'interface du hall pour revenir au hall
+  afficherInterface(); // Appel de l'interface du hall pour revenir dans le hall
 end;
 
-//Procedure qui affiche le journal du joueur avec tout les informations sur sont personnage
+//Procédure qui affiche le journal du joueur avec tout les informations sur sont personnage
 procedure afficherJournal();
 begin
   //afficherJournalIHM();

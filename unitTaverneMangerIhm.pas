@@ -1,10 +1,10 @@
 unit unitTaverneMangerIhm;
-{Role: Permet d'afficher la nourriture de la Taverne, le joueur peux ainsi manger deux plat qui lui accorde differents buffs.}
+{Role: Permet d'afficher la nourriture de la Taverne, le joueur peut ainsi manger deux plat qui lui accorde differents buffs.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface
-//Procèdure que affiche l'interface consommation de nourriture
+//Procédure qui affiche l'interface de consommation de nourriture
 procedure afficherInterfaceManger(); 
   
   
@@ -13,36 +13,36 @@ implementation
 uses
   SysUtils, Classes, GestionEcran, unitTaverne, unitTaverneManger, unitBeersIhm, unitTaverneIHM, journalihm;
 
-//Affichague du titre et du texte pincipal de la nourriture de la taverne
+//Affichage du titre et du texte principal de la nourriture de la taverne
 procedure afficherTextePrincipalManger();
 begin
-  //En-tete
+  //Entête
   dessinerCadreXY(1, 0, 198, 39, simple, LightGreen, Black);
   dessinerCadreXY(39, 0, 80, 0, double, Green, Black);
   couleurTexte(White);
   deplacerCurseurXY(46, 0); write(' La Taverne Patte de Cochon ');
 
-  //Texte des plats proposer
+  //Texte des plats proposés
   couleurTexte(White);
-  deplacerCurseurXY(42,4); write('Aujourd''hui les plats proposer sont : ');
+  deplacerCurseurXY(42,4); write('Aujourd''hui les plats proposés sont :');
   couleurTexte(Yellow);
   deplacerCurseurXY(47,6); write('**************************');
   couleurTexte(white);
   deplacerCurseurXY(25,10); Write('Plats                                         Bonus         Prix : ');
-  deplacerCurseurXY(25,15); write('1/Brochette de viandes de Ragondin            Résistance    18 Pièce d''Or');
-  deplacerCurseurXY(25,20); write('2/Ragôut de Cerf                              Santé         25 Pièce d''Or');
+  deplacerCurseurXY(25,15); write('1/Brochette de viande de Ragondin             Résistance    18 Pièces d''Or');
+  deplacerCurseurXY(25,20); write('2/Ragôut de Cerf                              Santé         25 Pièces d''Or');
 end;
 
 
-//Procedure qui affiche le choix des actions
+//Procédure qui affiche le choix des actions
 procedure afficherOptionsManger;
 begin
   dessinerCadreXY(3, 25, 115, 36, double, LightGreen, Black);
   couleurTexte(White);
   deplacerCurseurXY(7, 27); Write('Que souhaitez-vous faire ?');
 
-  deplacerCurseurXY(9, 30); Write('?/ Commander un Plat (entrez sont numero)');
-  deplacerCurseurXY(9, 31); Write('3/ En faite sa va j''ai plus très fin !!');
+  deplacerCurseurXY(9, 30); Write('?/ Commander un Plat (entrer son numéro)');
+  deplacerCurseurXY(9, 31); Write('3/ En fait ça va je n''ai plus très faim !!');
 
   //Encadrement pour répondre
   dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
@@ -66,7 +66,7 @@ readln(choix);
   gererChoixTaverneManger(choix); 
   afficherInterfaceTaverne();
   end
-  else if (choix = 3) then afficherInterfaceTaverne(); // Retours dans la Taverne
+  else if (choix = 3) then afficherInterfaceTaverne(); // Retour dans la Taverne
 
 end;
 end.

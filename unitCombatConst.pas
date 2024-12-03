@@ -5,20 +5,20 @@ unit unitCombatConst;
 
 interface
   type
-    TEnnemie = record
-      nom:        string;  // Nom de l'ennemie
-      PV:         integer; // Nombre de points de vie de l'ennemie
-      degats:     integer; // Nombre de dégats infligés par l'ennemie sur le joueur
+    TEnnemi = record
+      nom:        string;  // Nom de l'ennemi
+      PV:         integer; // Nombre de points de vie de l'ennemi
+      degats:     integer; // Nombre de dégats infligés par l'ennemi sur le joueur
       // La quantité exacte de ressources données au joueur est déterminé dans les contrat
-      cuivreMax:  integer; // Quantité maximum de cuivre    pour un ennemie
-      ferMax:     integer; // Quantité maximum de fer       pour un ennemie
-      mythrilMax: integer; // Quantité maximum de mythrile  pour un ennemie
-      orMax:      integer; // Quantité maximum d'or         pour un ennemie
-      XPMax:      integer; // Quantité maximum d'experience pour un ennemie
+      cuivreMax:  integer; // Quantité maximum de cuivre    pour un ennemi
+      ferMax:     integer; // Quantité maximum de fer       pour un ennemi
+      mythrilMax: integer; // Quantité maximum de mythrile  pour un ennemi
+      orMax:      integer; // Quantité maximum d'or         pour un ennemi
+      XPMax:      integer; // Quantité maximum d'experience pour un ennemi
     end;
 
   const
-    GOBLIN: TEnnemie =
+    GOBLIN: TEnnemi =
     (
       nom:        'Goblin';
       PV:         100;
@@ -29,7 +29,7 @@ interface
       orMax:      50;
       XPMax:      30;
     );
-    TROLL: TEnnemie =
+    TROLL: TEnnemi =
     (
       nom:        'Troll';
       PV:         200;
@@ -40,7 +40,7 @@ interface
       orMax:      100;
       XPMax:      75;
     );
-    ORQUE: TEnnemie =
+    ORQUE: TEnnemi =
     (
       nom:        'Orque';
       PV:         300;

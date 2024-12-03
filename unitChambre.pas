@@ -12,21 +12,21 @@ procedure afficherJournal();
 procedure dormir();
 //Permet d'aller regarder ce que contient le coffre
 procedure regarderCoffre();
-//Permet de quittez la chambre
-procedure quittez();
+//Permet de quitter la chambre
+procedure quitter();
   
 implementation
 uses
   SysUtils, Classes, unitBeersIhm, unitCoffreLogic, unitDormirIhm;
 
 
-//Procedure qui gere les choix fait par le joueur dans la chambre
+//Procédure qui gere les choix fait par le joueur dans la chambre
 procedure gererChoixChambre(choix : Integer);
 begin
   case choix of 
     1 : dormir();
     2 : regarderCoffre();
-    3 : quittez();
+    3 : quitter();
   end;
 end;
 
@@ -40,12 +40,12 @@ begin
   ouvrirCoffre();
 end;
 
-procedure quittez();
+procedure quitter();
 begin
-  afficherInterface(); // Appel de l'interface du hall pour revenir au hall
+  afficherInterface(); // Appel de l'interface du hall pour revenir dans le hall
 end;
 
-//Procedure qui affiche le journal du joueur avec tout les informations sur sont personnage
+//Procédure qui affiche le journal du joueur avec tout les informations sur sont personnage
 procedure afficherJournal();
 begin
   //afficherJournalIHM();

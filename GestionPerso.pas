@@ -21,7 +21,7 @@ function getnom():string;
 function gettaille():integer;
 function getgenre():string;
 
-//procedure de set
+//Procédure de set
 procedure setSantemax();
 
 implementation

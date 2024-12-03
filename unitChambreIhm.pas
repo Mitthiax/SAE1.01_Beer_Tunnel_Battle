@@ -5,7 +5,7 @@ unit unitChambreIhm;
 
 interface
 
-//Procèdure que affiche l'interface de la chambre
+//Procédure que affiche l'interface de la chambre
 procedure afficherInterfaceChambre();
 
 implementation
@@ -16,7 +16,7 @@ uses
 //Affichague du titre et du texte pincipal de la Chambre
 procedure afficherTextePrincipalChambre();
 begin
-  //En-tete
+  //Entête
   dessinerCadreXY(1, 0, 198, 39, simple, LightGreen, Black);
   dessinerCadreXY(39, 1, 80, 1, double, Green, Black);
   couleurTexte(White);
@@ -31,19 +31,19 @@ begin
   deplacerCurseurXY(5, 12); write('vos armes et armure.');
 end;
 
-// Procedure qui affiche le choix des actions
+// Procédure qui affiche le choix des actions
 procedure afficherOptionsChambre;
 begin
   dessinerCadreXY(3, 25, 115, 36, double, LightGreen, Black);
   couleurTexte(White);
   deplacerCurseurXY(7, 27); Write('Que souhaitez-vous faire ?');
 
-  deplacerCurseurXY(9, 30); Write('1/ Allez Dormir z z z');
+  deplacerCurseurXY(9, 30); Write('1/ aller Dormir z z z');
   deplacerCurseurXY(9, 31); Write('2/ Regarder votre coffre');
-  deplacerCurseurXY(9, 32); Write('3/ Quittez votre chambre');
+  deplacerCurseurXY(9, 32); Write('3/ Quitter votre chambre');
 end;
 
-// Procedure qui affiche le cadre de choix
+// Procédure qui affiche le cadre de choix
 procedure afficherCadreChoix();
 begin
   dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
@@ -67,8 +67,8 @@ begin
     readln(choix);
   until (1 <= choix) and (choix <= 3);
 
-  if (choix = 1) then afficherInterfaceDormir() // Allez dormir
-  else if (choix = 2) then ouvrirCoffre()// Allez voir le coffre
-  else if (choix = 3) then afficherInterface(); // Retours dans le hall
+  if (choix = 1) then afficherInterfaceDormir() // aller dormir
+  else if (choix = 2) then ouvrirCoffre()// aller voir le coffre
+  else if (choix = 3) then afficherInterface(); // Retour dans le hall
 end;
 end.

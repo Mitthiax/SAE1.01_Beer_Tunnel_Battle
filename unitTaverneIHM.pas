@@ -4,7 +4,7 @@ unit unitTaverneIHM;
 {$mode objfpc}{$H+}
 
 interface
-//Procèdure que affiche l'interface de la taverne
+//Procédure que affiche l'interface de la taverne
 procedure afficherInterfaceTaverne(); 
   
   
@@ -13,10 +13,10 @@ implementation
 uses
   SysUtils, Classes, GestionEcran, unitTaverne,journalihm,GestionPerso,unitBeersIhm, unitTaverneAnecdoteIHM, unitTaverneMangerIhm;
 
-//Affichague du titre et du texte pincipal de la taverne
+//Affichage du titre et du texte pincipal de la taverne
 procedure afficherTextePrincipalTaverne();
 begin
-  //En-tete
+  //Entête
   dessinerCadreXY(1, 0, 198, 39, simple, LightGreen, Black);
   dessinerCadreXY(39, 0, 80, 0, double, Green, Black);
   couleurTexte(White);
@@ -24,10 +24,10 @@ begin
 
   //Texte du hall
   couleurTexte(White);
-  deplacerCurseurXY(7,4); write('Vous entrez dans la taverne, des que vous pousser la porte vous pouvez sentir la douce odeur d''alcool qui');
-  deplacerCurseurXY(5, 5); Write('s''en émane, vous entendez des rires et bruit de chop qui se pose sur les tables de la taverne.');
-  deplacerCurseurXY(5, 8); write('Vous vous diriger vers le comptoir, vous constater que le border collie du tavernier est allongé devant la');
-  deplacerCurseurXY(7, 9); Write('cheminer sur son collier on peut lire falladar.');
+  deplacerCurseurXY(7,4);  write('Vous entrez dans la taverne, dès que vous poussez la porte vous pouvez sentir la douce odeur d''alcool qui');
+  deplacerCurseurXY(5, 5); Write('en émane, vous entendez des rires et des bruits de chopes qui se posent sur les tables de la taverne.');
+  deplacerCurseurXY(5, 8); write('Vous vous dirigez vers le comptoir, vous constatez que le border collie du tavernier est allongé devant la');
+  deplacerCurseurXY(7, 9); Write('cheminée, sur son collier on peut lire Falladar.');
   couleurTexte(LightMagenta);
   deplacerCurseurXY(7, 12); write('Bonjour mon Gaillard ! Bienvenue à la Patte de Cochon, mon nom est Jimmy, ici on a de la bière pour les');
   deplacerCurseurXY(5, 13); Write('assoiffés et de la nourriture pour les affamés HaHa.');
@@ -35,19 +35,19 @@ begin
 end;
 
 
-//Procedure qui affiche le choix des actions
+//Procédure qui affiche le choix des actions
 procedure afficherOptionsTaverne;
 begin
   dessinerCadreXY(3, 25, 115, 36, double, LightGreen, Black);
   couleurTexte(White);
   deplacerCurseurXY(7, 27); Write('Que souhaitez-vous faire ?');
 
-  deplacerCurseurXY(9, 30); Write('1/ Boire une Biere Fraiche');
-  deplacerCurseurXY(9, 31); Write('2/ Casser la croute');
-  deplacerCurseurXY(9, 32); Write('3/ Quittez la Taverne (Ps : Reviens vite !!)');
+  deplacerCurseurXY(9, 30); Write('1/ Boire une bière fraiche');
+  deplacerCurseurXY(9, 31); Write('2/ Casser la croûte');
+  deplacerCurseurXY(9, 32); Write('3/ Quitter la Taverne (Ps : Revenez vite !!)');
 end;
 
-// Procedure qui affiche le cadre de choix
+// Procédure qui affiche le cadre de choix
 procedure afficherCadreChoix();
 begin
   dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
@@ -70,8 +70,8 @@ begin
     readln(choix);
   until (1 <= choix) and (choix <= 3);
 
-  if (choix = 1) then afficherInterfaceBiere() //Permet d'allez boire une bière
-  else if (choix = 2) then afficherInterfaceManger() //Permet d'allez manger
-  else if (choix = 3) then afficherInterface(); //Quitte la Taverne et retour au Hall
+  if (choix = 1) then afficherInterfaceBiere() //Permet d'aller boire une bière
+  else if (choix = 2) then afficherInterfaceManger() //Permet d'aller manger
+  else if (choix = 3) then afficherInterface(); //Quitte la Taverne et retour dans le hall
 end;
 end.

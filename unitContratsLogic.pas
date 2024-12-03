@@ -10,10 +10,10 @@ interface
     TStatut = (Disponibles, Accepte, Accompli, Echoue);
 
     TContrat = record
-      typeEnnemie:     TEnnemie; // Type d'ennemie à éliminer
+      typeEnnemi:     TEnnemi; // Type d'ennemi à éliminer
       statut:          TStatut;  // Statut du contrat
-      nbEnnemies:      integer;  // Nombre d'ennemies à tuer pour remplir le contrat
-      nbEnnemiesTues:  integer;  // Nombre d'ennemies déjà tués par le joueur
+      nbEnnemis:      integer;  // Nombre d'ennemis à tuer pour remplir le contrat
+      nbEnnemisTues:  integer;  // Nombre d'ennemis déjà tués par le joueur
       quantiteCuivre:  integer;  // Quantité de Cuivre  reçu après avoir remplie le contrat
       quantiteFer:     integer;  // Quantité de Fer     reçu après avoir remplie le contrat
       quantiteMythril: integer;  // Quantité de Mythril reçu après avoir remplie le contrat
@@ -51,7 +51,7 @@ interface
   procedure accepterContrat(numero: integer);
 
   {
-    Procedure qui incrémente le nombre d'ennemie tués du contrat en cours
+    Procedure qui incrémente le nombre d'ennemi tués du contrat en cours
   }
   procedure incrementeVictoire();
 
@@ -99,21 +99,21 @@ implementation
   {
     Fonction qui créer un contrat avec des caractéristiques aléatoire
     Parametres:
-      ennemie: TEnnemie; Ennemie du contrat
+      ennemi: TEnnemi; Ennemi du contrat
     Sortie:
       TContrat; contrat avec des caractéristiques aléatoire
   }
-  function creerContrat(ennemie: TEnnemie): TContrat;
+  function creerContrat(ennemi: TEnnemi): TContrat;
   var
     contrat: TContrat; // Contrat créé
     i: integer; // Variable de boucle
 
   begin
     // Initialisation de chaque attibuts du contrats
-    contrat.typeEnnemie     := ennemie;
+    contrat.typeEnnemi     := ennemi;
     contrat.statut          := Disponibles;
-    contrat.nbEnnemies      := randomInteger(1, 1);
-    contrat.nbEnnemiesTues  := 0;
+    contrat.nbEnnemis      := randomInteger(1, 1);
+    contrat.nbEnnemisTues  := 0;
 
     contrat.quantiteCuivre  := 0;
     contrat.quantiteFer     := 0;
@@ -121,14 +121,14 @@ implementation
     contrat.quantiteOr      := 0;
     contrat.quantiteXP      := 0;
 
-    // Les quantités dependent du nombre d'ennemies, mais on ne veut pas que ce soit un multiple
-    for i := 1 to contrat.nbEnnemies do
+    // Les quantités dependent du nombre d'ennemis, mais on ne veut pas que ce soit un multiple
+    for i := 1 to contrat.nbEnnemis do
     begin
-      contrat.quantiteCuivre  += randomInteger(0, ennemie.cuivreMax);
-      contrat.quantiteFer     += randomInteger(0, ennemie.ferMax);
-      contrat.quantiteMythril += randomInteger(0, ennemie.mythrilMax);
-      contrat.quantiteOr      += randomInteger(0, ennemie.orMax);
-      contrat.quantiteXP      += randomInteger(0, ennemie.XPMax);
+      contrat.quantiteCuivre  += randomInteger(0, ennemi.cuivreMax);
+      contrat.quantiteFer     += randomInteger(0, ennemi.ferMax);
+      contrat.quantiteMythril += randomInteger(0, ennemi.mythrilMax);
+      contrat.quantiteOr      += randomInteger(0, ennemi.orMax);
+      contrat.quantiteXP      += randomInteger(0, ennemi.XPMax);
     end;
 
     // Sortie
@@ -199,12 +199,12 @@ implementation
   end;
 
   {
-    Procedure qui incrémente le nombre d'ennemie tués du contrat en cours
+    Procedure qui incrémente le nombre d'ennemi tués du contrat en cours
   }
   procedure incrementeVictoire();
   begin
-    listeContrats[contratEnCours].nbEnnemiesTues += 1;
-    if listeContrats[contratEnCours].nbEnnemiesTues = listeContrats[contratEnCours].nbEnnemies then
+    listeContrats[contratEnCours].nbEnnemisTues += 1;
+    if listeContrats[contratEnCours].nbEnnemisTues = listeContrats[contratEnCours].nbEnnemis then
     begin
       listeContrats[contratEnCours].statut := Accompli;
     end;
