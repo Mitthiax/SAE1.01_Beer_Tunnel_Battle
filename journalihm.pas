@@ -18,7 +18,14 @@ begin
   deplacerCurseurXY(150,8);write('Genre : ',getgenre());
   deplacerCurseurXY(180,6);write('PV : ',getSante(),'/',getSantemax());
   deplacerCurseurXY(180,7);write('Niveau : ',getlevel(),'/10');//affiche le lever face au level max
-  deplacerCurseurXY(180,8);write('Exp : ',getexp(),'/',getlevel()*100);//affiche l'exp par rapport à l'exp nécessaire pour monter de niveau
+  deplacerCurseurXY(180,8); if getlevel() >=10 then
+                                      begin
+                                        write('Level Max') // permet de ne pas afficher 0/1000 en exp
+                                      end
+                                      else
+                                      begin
+                                        write('Exp : ',getexp(),'/',getlevel()*100);//affiche l'exp par rapport à l'exp nécessaire pour monter de niveau
+                                      end;
 end;
 
 //Affiche les informations sur l'inventaire du joueur
