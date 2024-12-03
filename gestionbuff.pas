@@ -9,7 +9,7 @@ type//tableau qui permet l'inventaire
   TabBuff= array[BuffSanteeMax..ResistanceMax] of boolean;
 procedure resetBuffs();
 function getBuffResistanceMax():integer;
-procedure getBuffSanteeMax();
+function getBuffSanteeMax():integer;
 procedure setbuffResistanceMax();
 procedure setBuffSanteeMax();
 function indicationBuffResistanceMax():boolean;
@@ -33,16 +33,19 @@ for i:= low(buff) to high (buff) do
 end;
 
 //définie la santee max en fonction du buff
-procedure getBuffSanteeMax();
+function getBuffSanteeMax():integer;
+var
+calcSantemax:integer;
 begin
   if buff[BuffSanteeMax]=true then
   begin
-    setSantemax(getSantemax()+30);
+    calcSantemax:=(getSantemax()+30);
   end
   else
   begin
-    setSantemax(getSantemax());
+    calcSantemax:=(200+15*(getlevel-1));
   end;
+  getBuffSanteeMax:=calcSantemax
 end;
 
 //donne la resistance en plus en fonction du buff

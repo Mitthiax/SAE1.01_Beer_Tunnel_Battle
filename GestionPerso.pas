@@ -72,7 +72,7 @@ end;
 function LevelSante(level:integer):integer;
 begin
   Santemax:=200+15*(level-1);//Calcul de la santé max de base on ne réutilise pas Santemax pour éviter les bugs si jamais le joueur à un buff
-  getBuffSanteeMax();//On redonne le buff au joueur
+  setSantemax(getBuffSanteeMax());//On redonne le buff au joueur
   Sante:=Santemax;
   LevelSante:=Santemax;
 end;
@@ -137,6 +137,11 @@ end;
 
 //Ici on délcare toute les fonctions get de l'unité
 
+procedure setSantemax();
+begin
+  Santemax:=Santemaxset;
+end;
+
 function getexp():integer;
 begin
   getexp:=exp;
@@ -173,9 +178,6 @@ begin
   getgenre:=genre;
 end;
 
-procedure setSantemax(Santemaxset:integer);
-begin
-  Santemax:=Santemaxset;
-end;
+
 
 end. 
