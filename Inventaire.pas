@@ -1,5 +1,5 @@
 unit inventaire;
-
+{Role: Permet la gestion de l'inventaire.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
