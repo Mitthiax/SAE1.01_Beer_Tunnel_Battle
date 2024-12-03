@@ -55,7 +55,6 @@ procedure afficherInterfaceManger();
 var
   choix: Integer;
 begin
-  changerTailleConsole(200,40);
   afficherTextePrincipalManger();
   journal();
   afficherOptionsManger();
