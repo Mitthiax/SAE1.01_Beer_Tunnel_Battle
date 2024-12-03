@@ -1,5 +1,5 @@
 unit unitTaverneAnecdoteIHM;
-
+{Role: Permet d'afficher les anecdotes quand le joueur boit une bière.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 

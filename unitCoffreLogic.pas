@@ -1,5 +1,5 @@
 unit unitCoffreLogic;
-
+{Role: Logic de fonctionnement du coffre.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -7,14 +7,10 @@ interface
   type
     TListeEquipement = array[1..18] of boolean;
   
-  {
-    Procedure qui initialise tous les equipements
-  }
+  //Procedure qui initialise tous les equipements
   procedure initialisationEquipement();
   
-  {
-    Procedure qui ouvre le coffre
-  }
+  //Procedure qui ouvre le coffre
   procedure ouvrirCoffre();
 
   {
@@ -123,9 +119,7 @@ implementation
     estDisponible[idEquipement] := true;
   end;
   
-  {
-    Procedure qui initialise tous les equipements
-  }
+  //Procedure qui initialise tous les equipements
   procedure initialisationEquipement();
   var
     i: integer; // Variable de boucle
@@ -185,9 +179,7 @@ implementation
     end;
   end;
   
-  {
-    Procedure qui ouvre le coffre
-  }
+  //Procedure qui ouvre le coffre
   procedure ouvrirCoffre();
   var
     choix: integer; // Choix du joueur dans le coffre

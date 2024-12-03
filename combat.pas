@@ -1,5 +1,5 @@
 unit combat;
-
+{Role: Permet au joueur de combattre.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -13,9 +13,7 @@ interface
   }
   procedure commencerCombat(ennemie: TEnnemie);
 
-  {
-    Procedure qui comme un combat contre un ennemie aléatoire
-  }
+  //Procedure qui comme un combat contre un ennemie aléatoire
   procedure commencerCombat();
 
 implementation
@@ -59,9 +57,7 @@ implementation
     subirdegats:=round(degatrecureal);
   end;
 
-  {
-    Procedure qui permet d'attaquer l'ennemie
-  }
+  //Procedure qui permet d'attaquer l'ennemie
   procedure attaquer(var ennemie: TEnnemie);
   var
     degats: integer; // Dégats infligées à l'ennemie
@@ -107,9 +103,7 @@ implementation
     else afficherBombeVide();
   end;
 
-  {
-    Procedure qui fait boire une potion qui soigne le joueur
-  }
+  //Procedure qui fait boire une potion qui soigne le joueur
   procedure boirePotion();
   begin
     if getinvent(potion) > 0 then
@@ -200,9 +194,7 @@ implementation
     afficherInterface();
   end;
 
-  {
-    Procedure qui comme un combat contre un ennemie aléatoire
-  }
+  //Procedure qui comme un combat contre un ennemie aléatoire
   procedure commencerCombat();
   var
     choixEnnemie: integer; // Choix aléatoire d'un ennemie

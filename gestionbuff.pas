@@ -1,5 +1,5 @@
 unit gestionBuff;
-
+{Role: Permet de gerer les buffs.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -48,7 +48,7 @@ begin
   getBuffSanteeMax:=calcSantemax
 end;
 
-//donne la resistance en plus en fonction du buff
+//Donne la resistance au maximum, utiliser dans la taverne
 function getBuffResistanceMax():integer;
 var
 resistanceadd:integer;
@@ -68,6 +68,7 @@ end;
     buff[ResistanceMax]:=true;
   end;
 
+//Donne de la santé au maximum, utiliser dans la taverne
   procedure setBuffSanteeMax();
   begin
     buff[BuffSanteeMax]:=true; 
@@ -86,6 +87,7 @@ begin
   end;
   indicationBuffSanteeMax:=indication;
 end;
+
 
 function indicationBuffResistanceMax():boolean;
 var

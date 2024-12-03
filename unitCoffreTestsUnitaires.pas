@@ -4,18 +4,15 @@ unit unitCoffreTestsUnitaires;
 {$mode objfpc}{$H+}
 
 interface
-  {
-    Pocedure qui réalise l'ensemble des tests unitaires sur le coffre
-  }
+  
+  //Pocedure qui réalise l'ensemble des tests unitaires sur le coffre
   procedure testsCoffre();
   
 implementation
   uses
     SysUtils, Classes, testunitaire, unitCoffreLogic, unitCoffreConst;
   
-  {
-    Procedure qui réalises un test unitaire sur l'initialisation du coffre
-  }
+  //Procedure qui réalises un test unitaire sur l'initialisation du coffre
   procedure testInitialisation();
   var
     i: integer; // Variable de boucle, numéro des équipements
@@ -44,9 +41,7 @@ implementation
     testIsEqual(testEquipementsBloquesValide);
   end;
 
-  {
-    Procedure qui réalise un test unitaire sur l'équipement d'équipements
-  }
+  //Procedure qui réalise un test unitaire sur l'équipement d'équipements
   procedure testsEquipementEquipements();
   begin
     initialisationEquipement();
@@ -72,9 +67,7 @@ implementation
     testIsEqual(getArmeEquipee(), hacheCuivre);
   end;
   
-  {
-    Pocedure qui réalise l'ensemble des tests unitaires sur le coffre
-  }
+  //Pocedure qui réalise l'ensemble des tests unitaires sur le coffre
   procedure testsCoffre();
   begin
     testInitialisation();

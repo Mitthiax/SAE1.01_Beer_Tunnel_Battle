@@ -1,13 +1,11 @@
 unit unitChambre;
-
+{Role: Chambre avec la possibiliter de dormir ou de regarder sont coffre.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
 interface
 //Permet de savoir quel choix est fait
 procedure gererChoixChambre(choix : Integer);
-//Affichage du journal du joueur avec tout les informations sur sont personnage
-procedure afficherJournal(); 
 //Permet d'aller dormir et donc de ce reposer et refaire le plein de santé
 procedure dormir();
 //Permet d'aller regarder ce que contient le coffre
@@ -37,18 +35,11 @@ end;
 
 procedure regarderCoffre();
 begin
-  ouvrirCoffre();
+  ouvrirCoffre(); //Permet de regarder sont coffre
 end;
 
 procedure quittez();
 begin
   afficherInterface(); // Appel de l'interface du hall pour revenir au hall
 end;
-
-//Procedure qui affiche le journal du joueur avec tout les informations sur sont personnage
-procedure afficherJournal();
-begin
-  //afficherJournalIHM();
-end;
-  
 end.
