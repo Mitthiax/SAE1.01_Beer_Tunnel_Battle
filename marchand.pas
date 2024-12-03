@@ -10,6 +10,7 @@ function getmaxstockbombe():integer;
 function getmaxstockpotion():integer;
 function getstockbombe():integer;
 function getstockpotion():integer;
+procedure StockboutiqueArtificiel();
 implementation
 uses
   SysUtils, Classes,Inventaire,GestionEcran,unitMarchandIHM;
@@ -29,6 +30,14 @@ begin
   maxstockpotion:=stockpotion;//maximum du stock du jour
 end;
 
+//Pour les test unitaire
+procedure StockboutiqueArtificiel();
+begin
+  stockbombe:=5;//donne 5 bombe artificiellement au stock
+  maxstockbombe:=stockbombe; //maximum du stock du jour 
+  stockpotion:=10;//donne 10 potion artificiellement au stock
+  maxstockpotion:=stockpotion;//maximum du stock du jour
+end;
 
 //achat d'un objet dans la boutique
 procedure achat(objet:integer);
