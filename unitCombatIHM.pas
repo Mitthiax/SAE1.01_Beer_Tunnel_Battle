@@ -1,5 +1,5 @@
 unit unitCombatIHM;
-
+{Role: Permet de combattre des ennemis.}
 {$codepage utf8}
 {$mode objfpc}{$H+}
 
@@ -8,9 +8,8 @@ unit unitCombatIHM;
 
 interface
   uses unitCombatConst;
-  {
-    IHM des combats
-  }
+  
+  //IHM des combats
   function combatIHM(ennemie: TEnnemie): integer;
 
   {
@@ -38,25 +37,16 @@ interface
   }
   procedure afficherBombe(degats: integer; nomEnnemie: string);
 
-  {
-    Procedure qui affiche le message quand le joueur n'as plus de bombe
-  }
+  //Procedure qui affiche le message quand le joueur n'as plus de bombe
   procedure afficherBombeVide();
 
-  {
-    Procedure qui affiche le message de boire une potion
-  }
+  //Procedure qui affiche le message de boire une potion
   procedure afficherPotion();
 
-  {
-    Procedure qui affiche le message quand le joueur n'as plus de potion
-  }
+  //Procedure qui affiche le message quand le joueur n'as plus de potion
   procedure afficherPotionVide();
 
-
-  {
-    Procedure qui affiche le message de fuite réussi
-  }
+  //Procedure qui affiche le message de fuite réussi
   procedure afficherFuite();
 
   {
@@ -101,9 +91,7 @@ implementation
 
   end;
 
-  {
-    Procedure qui affiche l'action qui vient de se dérouler
-  }
+  //Procedure qui affiche l'action qui vient de se dérouler
   procedure afficherMessageCombat(message: string);
   begin
     // Effacer le cadre de choix et la ligne
@@ -154,34 +142,26 @@ implementation
     afficherMessageCombat('Vous lancez une bombe sur ' + nomEnnemie + ' et lui infligez ' + intToStr(degats) + ' points de dégats.');
   end;
 
-  {
-    Procedure qui affiche le message quand le joueur n'as plus de bombe
-  }
+  //Procedure qui affiche le message quand le joueur n'as plus de bombe
   procedure afficherBombeVide();
   begin
     afficherMessageCombat('Vous voulez lancez une bombe mais vous n''en plus.');
   end;
 
-  {
-    Procedure qui affiche le message de boire une potion
-  }
+  //Procedure qui affiche le message de boire une potion
   procedure afficherPotion();
   begin
     afficherMessageCombat('Vous buvez une potion qui vous fait regagner tous vos points de vie.');
     journal();
   end;
 
-  {
-    Procedure qui affiche le message quand le joueur n'as plus de potion
-  }
+  //Procedure qui affiche le message quand le joueur n'as plus de potion
   procedure afficherPotionVide();
   begin
     afficherMessageCombat('Vous voulez lancez une bombe mais vous n''en plus.');
   end;
 
-  {
-    Procedure qui affiche le message de fuite réussi
-  }
+  //Procedure qui affiche le message de fuite réussi
   procedure afficherFuite();
   begin
     afficherMessageCombat('Vous parvenez à vous enfuire et rejoingnez le hall.');
@@ -245,9 +225,7 @@ implementation
     choixCombatIHM := choix;
   end;
 
-  {
-    IHM des combats
-  }
+  //IHM des combats
   function combatIHM(ennemie: TEnnemie): integer;
   begin
     effacerEcran();
