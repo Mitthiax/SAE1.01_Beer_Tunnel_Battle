@@ -37,10 +37,14 @@ implementation
   }
   procedure afficherEnnemies();
   const
-    X = 50; Y = 5; // Coordonnées de l'affichage
+    X = 48; Y = 5; // Coordonnées de l'affichage
+    COULEUR_ACCOMPLI = Green;
+    COULEUR_ACCEPTE  = LightGreen;
+    COULEUR_ECHOUE   = Red;
     
   var
     listeContrats: TListeContrats; // Liste des contrats proposés
+    couleur: integer; // Couleur d'affichage du contrat
     i: integer; // Variable de boucle
     
   begin
@@ -49,12 +53,23 @@ implementation
   
     for i := low(listeContrats) to high(listeContrats) do
     begin
+      // Choix de la couleur d'affichage du contrat
+      if listeContrats[i].statut = Accompli     then couleur := COULEUR_ACCOMPLI
+      else if listeContrats[i].statut = Echoue  then couleur := COULEUR_ECHOUE
+      else if listeContrats[i].statut = Accepte then couleur := COULEUR_ACCEPTE
+      else  couleur := White;
+
+      // On affiche le cadre
+      dessinerCadreXY(X, Y +7*(i-1), X+22, Y+5 +7*(i-1), simple, couleur, Black);
+      dessinerCadreXY(X+5, Y+1 +7*(i-1), X+16, Y+1 +7*(i-1), double, couleur, Black);
+
       deplacerCurseurXY(X-3, Y+1 +7*(i-1)); write(i);
-      dessinerCadreXY(X, Y +7*(i-1), X+21, Y+5 +7*(i-1), simple, White, Black);
-      dessinerCadreXY(X+5, Y+1 +7*(i-1), X+16, Y+1 +7*(i-1), double, White, Black);
       deplacerCurseurXY(X+11 - length(listeContrats[i].typeEnnemie.nom) div 2, Y+1 +7*(i-1)); write(listeContrats[i].typeEnnemie.nom);
-      deplacerCurseurXY(X+2, Y+3 +7*(i-1)); write('Ennemies tués : ', listeContrats[i].nbEnnemiesTues, '/', listeContrats[i].nbEnnemies);
+      deplacerCurseurXY(X+2, Y+3 +7*(i-1)); write('Statut : ', listeContrats[i].statut);
+      deplacerCurseurXY(X+2, Y+4 +7*(i-1)); write('Ennemies tués : ', listeContrats[i].nbEnnemiesTues, '/', listeContrats[i].nbEnnemies);
+
     end;
+    couleurTexte(White);
   end;
 
   {
@@ -94,7 +109,7 @@ implementation
     repeat
       dessinerCadreXY(100, 32, 110, 34, double, Red, Black);
       deplacerCurseurXY(105, 33); readln(choix);
-    until ((0 <= choix) and (choix <= 3));
+    until ((0 <= choix) and (choix <= 4));
     couleurTexte(White);
 
     // Sortie
@@ -116,8 +131,9 @@ implementation
     deplacerCurseurXY(55, 1); write(' La Mine ');
 
     //Affiche les choix
-    deplacerCurseurXY(20, 29); write('?/ Combattre');
-    deplacerCurseurXY(20, 32); write('0/ Retourner au hall');
+    deplacerCurseurXY(20, 29); write('?/ Accepter un contrat');
+    deplacerCurseurXY(20, 31); write('4/ Combattre');
+    deplacerCurseurXY(20, 33); write('0/ Retourner au hall');
 
     afficherEnnemies();
 

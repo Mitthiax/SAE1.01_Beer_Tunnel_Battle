@@ -7,11 +7,11 @@ interface
     unitCombatConst;
 
   type
+    TStatut = (Disponibles, Accepte, Accompli, Echoue);
+
     TContrat = record
       typeEnnemie:     TEnnemie; // Type d'ennemie à éliminer
-      estAccompli:     boolean;  // True si le contrat est accompli, sinon false
-      estEchoue:       boolean;  // True si le contrat est échoué, sinon false
-      estAccepte:      boolean;  // True si le contrat est accepté, sinon false
+      statut:          TStatut;  // Statut du contrat
       nbEnnemies:      integer;  // Nombre d'ennemies à tuer pour remplir le contrat
       nbEnnemiesTues:  integer;  // Nombre d'ennemies déjà tués par le joueur
       quantiteCuivre:  integer;  // Quantité de Cuivre  reçu après avoir remplie le contrat
@@ -34,6 +34,11 @@ interface
   procedure arreterContrat();
 
   {
+    Procedure qui fait écchouer le contrat en courd
+  }
+  procedure echouerContrat();
+
+  {
     Procedure qui permet d'accepter un contrat
     Parametres:
       numero: integer; Numero du contrat
@@ -44,7 +49,6 @@ interface
     Procedure qui incrémente le nombre d'ennemie tués du contrat en cours
   }
   procedure incrementeVictoire();
-
 
   {
     Fonction qui retourne la liste des contrats disponibles
@@ -95,9 +99,7 @@ implementation
   begin
     // Initialisation de chaque attibuts du contrats
     contrat.typeEnnemie     := ennemie;
-    contrat.estAccompli     := false;
-    contrat.estEchoue       := false;
-    contrat.estAccepte      := false;
+    contrat.statut          := Disponibles;
     contrat.nbEnnemies      := randomInteger(1, 6);
     contrat.nbEnnemiesTues  := 0;
 
@@ -137,8 +139,23 @@ implementation
   }
   procedure arreterContrat();
   begin
-    listeContrats[contratEnCours].estAccepte := false;
-    contratEnCours := 0;
+    if contratEnCours <> 0 then
+    begin
+      listeContrats[contratEnCours].statut := Disponibles;
+      contratEnCours := 0;
+    end;
+  end;
+
+  {
+    Procedure qui fait écchouer le contrat en courd
+  }
+  procedure echouerContrat();
+  begin
+    if contratEnCours <> 0 then
+    begin
+      listeContrats[contratEnCours].statut := Echoue;
+      contratEnCours := 0;
+    end;
   end;
 
   {
@@ -148,11 +165,13 @@ implementation
   }
   procedure accepterContrat(numero: integer);
   begin
-    if not listeContrats[numero].estEchoue and not listeContrats[numero].estAccompli then
+    if listeContrats[numero].statut = Disponibles then
     begin
+      arreterContrat();
       contratEnCours := numero;
-      commencerCombat(listeContrats[contratEnCours].typeEnnemie)
+      listeContrats[contratEnCours].statut := Accepte;
     end
+    else if listeContrats[numero].statut = Accepte then arreterContrat();
   end;
 
   {
@@ -163,7 +182,7 @@ implementation
     listeContrats[contratEnCours].nbEnnemiesTues += 1;
     if listeContrats[contratEnCours].nbEnnemiesTues = listeContrats[contratEnCours].nbEnnemies then
     begin
-      listeContrats[contratEnCours].estAccompli := true;
+      listeContrats[contratEnCours].statut := Accompli;
     end;
   end;
 
@@ -184,7 +203,7 @@ implementation
   }
   function contratAccompli(): boolean;
   begin
-    contratAccompli := (contratEnCours <> 0) and listeContrats[contratEnCours].estAccompli;
+    contratAccompli := (contratEnCours <> 0) and (listeContrats[contratEnCours].statut = Accompli);
   end;
 
   {

@@ -18,7 +18,7 @@ interface
 
 implementation
   uses
-    SysUtils, Classes, libRandom, unitMineIHM, unitBeersIhm, unitContratsLogic, Inventaire, GestionPerso;
+    SysUtils, Classes, libRandom, unitMineIHM, unitBeersIhm, unitContratsLogic, Inventaire, GestionPerso, combat;
 
   {
     Procedure qui gère un contrat accompli
@@ -48,7 +48,15 @@ implementation
     mineIHM();
     choix := choixMineIHM();
 
-    if choix <> 0 then accepterContrat(choix);
+    
+    while (1 <= choix) and (choix <= 3) or () do
+    begin
+      accepterContrat(choix);
+      mineIHM();
+      choix := choixMineIHM();
+    end;
+
+    if choix = 4 then commencerCombat(getContratEnCours().typeEnnemie);
 
     afficherInterface(); // Retour au hall
   end;
