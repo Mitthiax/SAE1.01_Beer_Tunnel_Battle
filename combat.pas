@@ -132,7 +132,11 @@ implementation
   begin
     fuiteReussie := randomReal(1) < 0.2;
 
-    if fuiteReussie then afficherFuite()
+    if fuiteReussie then
+    begin
+      echouerContrat();
+      afficherFuite();
+    end
 
     else
     begin
