@@ -29,7 +29,7 @@ interface
 
 implementation
   uses
-    SysUtils, Classes, unitForgeIHM, Inventaire, unitCoffreLogic, unitCoffreConst, unitBeersIhm, unitInterfaceForgeIHM;
+    SysUtils, Classes, unitForgeIHM, Inventaire, unitCoffreLogic, unitCoffreConst, unitHallIhm, unitInterfaceForgeIHM;
 
   {
     Fonction qui retourne si un équipement est possédé

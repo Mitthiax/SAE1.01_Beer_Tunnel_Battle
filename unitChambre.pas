@@ -15,7 +15,7 @@ procedure quitter();
   
 implementation
 uses
-  SysUtils, Classes, unitBeersIhm, unitCoffreLogic, unitDormirIhm;
+  SysUtils, Classes, unitHallIhm, unitCoffreLogic, unitDormirIhm;
 
 
 //Procédure qui gere les choix fait par le joueur dans la chambre

@@ -4,7 +4,7 @@ program main;
 {$mode objfpc}{$H+}
 
 uses
-  classes,sysutils, unitMenuPrincipalLogic,GestionEcran,unitBeersTestUnitaire,unitBuffTestUnitaire,Testunitairegestionperso,unitTestUnitaireTous;
+  classes,sysutils, unitMenuPrincipalLogic,GestionEcran,unitHallTestUnitaire,unitBuffTestUnitaire,Testunitairegestionperso,unitTestUnitaireTous;
 begin 
   changerTailleConsole(200,40);
   randomize;

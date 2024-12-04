@@ -13,7 +13,7 @@ procedure quitter();
   
 implementation
 uses
-  SysUtils, Classes, unitBeersIhm, unitForgeIHM, unitForgeLogic;
+  SysUtils, Classes, unitHallIhm, unitForgeIHM, unitForgeLogic;
 
 
 //Procédure qui gere les choix fait par le joueur a la forge

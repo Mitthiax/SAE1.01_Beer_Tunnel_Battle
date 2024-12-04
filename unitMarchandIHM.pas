@@ -14,7 +14,7 @@ procedure objectmanquant(nom:string);
 implementation
 
 uses
-  SysUtils, Classes, GestionEcran, marchand, unitBeersIhm,journalihm;
+  SysUtils, Classes, GestionEcran, marchand, unitHallIhm,journalihm;
 
 //Affichague du titre et du texte pincipal de la taverne
 procedure afficherTextePrincipalMarchand();

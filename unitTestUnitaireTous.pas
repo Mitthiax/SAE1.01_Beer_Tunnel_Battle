@@ -7,7 +7,7 @@ interface
 
 implementation
 uses
-  SysUtils, Classes,testunitaire,testunitaireinventaire,unitCoffreTestsUnitaires,unitBuffTestUnitaire,unitBeersTestUnitaire,Testunitairegestionperso;
+  SysUtils, Classes,testunitaire,testunitaireinventaire,unitCoffreTestsUnitaires,unitBuffTestUnitaire,unitHallTestUnitaire,Testunitairegestionperso;
   
 procedure testsunitaireTous();
   begin

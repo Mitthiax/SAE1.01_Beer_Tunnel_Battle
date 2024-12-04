@@ -14,7 +14,7 @@ interface
 
 implementation
   uses
-    SysUtils, Classes, libRandom, unitMineIHM, unitBeersIhm, unitContratsLogic, Inventaire, GestionPerso, combat;
+    SysUtils, Classes, libRandom, unitMineIHM, unitHallIhm, unitContratsLogic, Inventaire, GestionPerso, combat;
 
   //Procédure qui gère un contrat accompli
   procedure recompensesContrat();

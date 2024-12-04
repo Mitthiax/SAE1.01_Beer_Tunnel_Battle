@@ -12,7 +12,7 @@ procedure afficherInterfaceBiere();
 implementation
 
  uses
-  SysUtils, Classes, GestionEcran, unitTaverneAnecdote, unitBeersIhm, unitTaverneIHM,journalihm; 
+  SysUtils, Classes, GestionEcran, unitTaverneAnecdote, unitHallIhm, unitTaverneIHM,journalihm; 
 
 //Affichague du titre et du texte pincipal de la taverne
 procedure afficherTextePrincipalBiere();

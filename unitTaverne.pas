@@ -15,7 +15,7 @@ procedure quitter();
 
 implementation
 uses
-  SysUtils, Classes, unitBeersIhm, unitTaverneAnecdote, unitTaverneAnecdoteIHM,gestionbuff,unitTaverneIHM, unitTaverneManger, unitTaverneMangerIhm;
+  SysUtils, Classes, unitHallIhm, unitTaverneAnecdote, unitTaverneAnecdoteIHM,gestionbuff,unitTaverneIHM, unitTaverneManger, unitTaverneMangerIhm;
 
 
 //Procédure qui gere les choix fait par le joueur a la taverne

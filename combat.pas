@@ -18,7 +18,7 @@ interface
 
 implementation
   uses
-    SysUtils, Classes, GestionPerso, unitCoffreLogic, unitCombatIHM, libRandom, gestionbuff, Inventaire, unitBeersIhm, unitContratsLogic, unitMineLogic;
+    SysUtils, Classes, GestionPerso, unitCoffreLogic, unitCombatIHM, libRandom, gestionbuff, Inventaire, unitHallIhm, unitContratsLogic, unitMineLogic;
 
     
   //fonction qui calcule les dégats infliger à l'ennemi 

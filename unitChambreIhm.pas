@@ -10,7 +10,7 @@ procedure afficherInterfaceChambre();
 
 implementation
 uses
-  SysUtils, Classes, unitChambre, GestionEcran, unitDormirIhm, unitCoffreLogic, unitBeersIhm,journalihm;
+  SysUtils, Classes, unitChambre, GestionEcran, unitDormirIhm, unitCoffreLogic, unitHallIhm,journalihm;
   
 
 //Affichague du titre et du texte pincipal de la Chambre

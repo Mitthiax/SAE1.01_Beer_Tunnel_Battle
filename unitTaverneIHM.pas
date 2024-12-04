@@ -11,7 +11,7 @@ procedure afficherInterfaceTaverne();
 implementation
 
 uses
-  SysUtils, Classes, GestionEcran, unitTaverne,journalihm,GestionPerso,unitBeersIhm, unitTaverneAnecdoteIHM, unitTaverneMangerIhm;
+  SysUtils, Classes, GestionEcran, unitTaverne,journalihm,GestionPerso,unitHallIhm, unitTaverneAnecdoteIHM, unitTaverneMangerIhm;
 
 //Affichage du titre et du texte pincipal de la taverne
 procedure afficherTextePrincipalTaverne();

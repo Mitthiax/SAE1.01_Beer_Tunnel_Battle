@@ -9,7 +9,7 @@ interface
   
 implementation
   uses
-    unitCreerPartieIHM, GestionPerso, unitBeersIhm;
+    unitCreerPartieIHM, GestionPerso, unitHallIhm;
   
   // Procédure qui lance une nouvelle partie
   procedure creerPartie();

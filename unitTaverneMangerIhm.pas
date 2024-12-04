@@ -11,7 +11,7 @@ procedure afficherInterfaceManger();
 implementation
 
 uses
-  SysUtils, Classes, GestionEcran, unitTaverne, unitTaverneManger, unitBeersIhm, unitTaverneIHM, journalihm;
+  SysUtils, Classes, GestionEcran, unitTaverne, unitTaverneManger, unitHallIhm, unitTaverneIHM, journalihm;
 
 //Affichage du titre et du texte principal de la nourriture de la taverne
 procedure afficherTextePrincipalManger();
