@@ -66,7 +66,7 @@ begin
         end;
     6 : begin
         deplacerCurseurXY(7,12);
-        write('On m''a dit qu''il y avait une bonne technique pour battre les Rhakhâs(orques), leur faire');
+        write('On m''a dit qu''il y avait une bonne technique pour battre les Rhakhâs(orcs), leur faire');
         deplacerCurseurXY(5,13);
         write('croire que vous êtes plus fort qu''eux et apparemment cela arrivera vraiment, comme si tout ce');
         deplacerCurseurXY(5,14);

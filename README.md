@@ -36,7 +36,7 @@ La taverne est un lieu de détente où vous pouvez boire une bière, manger, ou 
 
 ## Les Mines
 
-Les mines sont dangereuses mais riches en ressources. Vous pouvez y combattre des ennemis pour obtenir de l'expérience et des récompenses. Les ennemis varient en puissance et en récompenses. Par exemple, un gobelin a 100 points de vie et inflige 5 dégâts, tandis qu'un orque a 300 points de vie et inflige 35 dégâts. Chaque ennemi vaincu vous rapporte de l'expérience et de l'or. Les combats dans les mines sont générés de manière aléatoire, ce qui signifie que chaque ennemi peut avoir des caractéristiques légèrement différentes à chaque rencontre, ajoutant une couche de surprise et de défi. Soyez toujours prêt à affronter l'inconnu et à adapter votre stratégie en conséquence.
+Les mines sont dangereuses mais riches en ressources. Vous pouvez y combattre des ennemis pour obtenir de l'expérience et des récompenses. Les ennemis varient en puissance et en récompenses. Par exemple, un gobelin a 100 points de vie et inflige 5 dégâts, tandis qu'un orc a 300 points de vie et inflige 35 dégâts. Chaque ennemi vaincu vous rapporte de l'expérience et de l'or. Les combats dans les mines sont générés de manière aléatoire, ce qui signifie que chaque ennemi peut avoir des caractéristiques légèrement différentes à chaque rencontre, ajoutant une couche de surprise et de défi. Soyez toujours prêt à affronter l'inconnu et à adapter votre stratégie en conséquence.
 
 ## Combat
 

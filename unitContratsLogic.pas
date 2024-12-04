@@ -131,7 +131,7 @@ implementation
     contratEnCours := 0; // Code pour aucun contrat accepter
     listeContrats[1] := creerContrat(GOBLIN);
     listeContrats[2] := creerContrat(TROLL);
-    listeContrats[3] := creerContrat(ORQUE);
+    listeContrats[3] := creerContrat(ORC);
   end;
 
   //Procédure qui arrête le contrat on cours

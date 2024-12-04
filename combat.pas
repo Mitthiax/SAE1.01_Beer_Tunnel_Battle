@@ -206,7 +206,7 @@ implementation
     case choixEnnemi of
       1: ennemi := GOBLIN;
       2: ennemi := TROLL;
-      3: ennemi := ORQUE;
+      3: ennemi := ORC;
     end;
 
     commencerCombat(ennemi)

@@ -40,9 +40,9 @@ interface
       orMax:      100;
       XPMax:      75;
     );
-    ORQUE: TEnnemi =
+    ORC: TEnnemi =
     (
-      nom:        'Orque';
+      nom:        'Orc';
       PV:         300;
       degats:     35;
       cuivreMax:  50;
