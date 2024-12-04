@@ -26,9 +26,9 @@ implementation
   var
   degatmit:integer;
   begin
-    if random(15+getlevel())>2 then // on fait un jeu de harsard pour savoir si on réussi le coup ou pas(les chances sont augmenter avec le niveau)
+    if random(15+getlevel())>2 then // on fait un jeu de harsard pour savoir si on réussi le coup ou pas (la probalisité augmente avec le niveau)
     begin
-      degatmit:= getAttaqueJoueur()+random(5+getlevel()); //on donne la possibilité de mettre plus de dégats (une sorte de coup critique)(augmenter avec le niveau)
+      degatmit:= getAttaqueJoueur()+random(5+getlevel()); //on donne la possibilité de mettre plus de dégats (une sorte de coup critique) (la probalisité augmente avec le niveau)
     end
     else
     begin
@@ -41,10 +41,10 @@ implementation
   var
   degatrecureal:real;
   begin
-    if random(30-getlevel())<>0 then //on laisse une chance au joueur d'esquiver le coup(c'est petit un nain aussi, ça peut se baisser)
+    if random(30-getlevel())<>0 then //on laisse une chance au joueur d'esquiver le coup
     begin
-      degatrecureal:=couprecu+random(11-getlevel());//Augmente les degats que l'ennemi inflige (bah oui pourquoi ça serais que dans 1 sens lui aussi il a le droit au coup critique)(baisse avec le niveau)
-      degatrecureal:=degatrecureal-(degatrecureal*((getDefenceJoueur()+getBuffResistanceMax)/100));//calcul les degats reçu avec le bonus de protection (svp faites en sortes que la deffense depasse pas 100 sinon il risque de give des points de vie)
+      degatrecureal:=couprecu+random(11-getlevel());//Augmente les degats que l'ennemi inflige (la probabilité baisse avec le niveau)
+      degatrecureal:=degatrecureal-(degatrecureal*((getDefenceJoueur()+getBuffResistanceMax)/100));//calcul les degats reçu avec le bonus de protection
       if degatrecureal<0 then
       begin
         degatrecureal:=0;

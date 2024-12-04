@@ -21,10 +21,10 @@ uses
 var
   invent:tab_invent;
 
-//Initialise le tableau de l'inventaire(0 partout sauf pour l'or)
+//Initialise le tableau de l'inventaire (0 partout sauf pour l'or)
 procedure InventaireInit();
 var
-i:cont_invent;//incrémentation du for
+i:cont_invent;// Variable de boucle
 begin
 for i:= low(invent) to high (invent) do
   begin

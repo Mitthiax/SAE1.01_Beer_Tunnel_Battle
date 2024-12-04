@@ -13,7 +13,7 @@ procedure gestionSante(degatrecu:integer);
 procedure soignerJoueur();
 procedure soignerJoueur(pvrestorer:integer);
 
-//Fonction getvar
+// Getters
 function getexp():integer;
 function getlevel():integer;
 function getSante():integer;
@@ -22,7 +22,7 @@ function getnom():string;
 function gettaille():integer;
 function getgenre():string;
 
-//Procédure de set
+// Setters
 procedure setSantemax();
 
 implementation
@@ -86,7 +86,7 @@ begin
      exp+=expadd;
      while exp>=(level*100) do
      begin
-         exp-=(level*100) ; // on enleve l'exp de la monter de niveau mais on laisse celle en trop
+         exp-=(level*100) ; // on enlève l'expérience nécessaire au passage du niveau en laissant le surplus
          level+=1;
          Santemax:=LevelSante(level);
      end;
@@ -108,7 +108,7 @@ end;
     menu();
   end;
 
-//gere la baisse de la sante du joueur a cause des degats
+//Procédure qui gère la baisse de la sante du joueur à cause des degats
 procedure gestionSante(degatrecu:integer); // besoin du combat fini svp
 begin
   Sante-=degatrecu;
@@ -137,7 +137,7 @@ begin
   end; 
 end;
 
-//Ici on délcare toute les fonctions get de l'unité
+//Ici on déclare tous les getters et setters de l'unité
 
 procedure setSantemax();
 begin
