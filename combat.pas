@@ -18,7 +18,7 @@ interface
 
 implementation
   uses
-    SysUtils, Classes, GestionPerso, unitCoffreLogic, unitCombatIHM, libRandom, gestionbuff, Inventaire, unitBeersIhm, unitContratsLogic;
+    SysUtils, Classes, GestionPerso, unitCoffreLogic, unitCombatIHM, libRandom, gestionbuff, Inventaire, unitBeersIhm, unitContratsLogic, unitMineLogic;
 
     
   //fonction qui calcule les dégats infliger à l'ennemi 
@@ -191,7 +191,7 @@ implementation
     while (not estTermine) do estTermine := tourCombat(ennemi);
     
     if ennemi.PV <= 0 then incrementeVictoire();
-    afficherInterface();
+    ouvrirMine();
   end;
 
   //Procedure qui comme un combat contre un ennemi aléatoire

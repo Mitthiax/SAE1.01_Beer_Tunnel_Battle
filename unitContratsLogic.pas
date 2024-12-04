@@ -96,14 +96,13 @@ implementation
   function creerContrat(ennemi: TEnnemi): TContrat;
   var
     contrat: TContrat; // Contrat créé
-    i: integer; // Variable de boucle
 
   begin
     // Initialisation de chaque attibuts du contrats
-    contrat.typeEnnemi     := ennemi;
+    contrat.typeEnnemi      := ennemi;
     contrat.statut          := Disponibles;
-    contrat.nbEnnemis      := randomInteger(1, 6);
-    contrat.nbEnnemisTues  := 0;
+    contrat.nbEnnemis       := randomInteger(1, 6);
+    contrat.nbEnnemisTues   := 0;
 
     contrat.quantiteCuivre  := 0;
     contrat.quantiteFer     := 0;
@@ -111,6 +110,7 @@ implementation
     contrat.quantiteOr      := 0;
     contrat.quantiteXP      := 0;
 
+    // Les quantités des ressources sont aléatoires entre 25% et 100% (exclu) des récompences maximum des ennemis
     contrat.quantiteCuivre  := round(contrat.nbEnnemis * ennemi.cuivreMax * randomReal(0.25, 1));
     contrat.quantiteFer     := round(contrat.nbEnnemis * ennemi.ferMax * randomReal(0.25, 1));
     contrat.quantiteMythril := round(contrat.nbEnnemis * ennemi.mythrilMax * randomReal(0.25, 1));
