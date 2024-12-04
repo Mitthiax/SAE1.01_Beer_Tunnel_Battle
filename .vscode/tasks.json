@@ -2,8 +2,8 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "debug main",
-			"file": "main.lpr",
+			"label": "debug BeerTunnelsBattles",
+			"file": "BeerTunnelsBattles.lpr",
 			"type": "fpc",
 			"presentation": {
 				"showReuseMessage": false,

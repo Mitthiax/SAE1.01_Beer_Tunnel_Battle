@@ -1,4 +1,4 @@
-program main;
+program BeerTunnelsBattles;
 
 {$codepage utf8}
 {$mode objfpc}{$H+}

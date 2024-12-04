@@ -3,10 +3,10 @@
         {
             "type": "by-gdb",
             "request": "launch",
-            "name": "Launch(gdb) main",
-            "program": "main",
+            "name": "Launch(gdb) BeerTunnelsBattles",
+            "program": "BeerTunnelsBattles",
             "cwd": "${workspaceRoot}",
-            "preLaunchTask": "debug main"
+            "preLaunchTask": "debug BeerTunnelsBattles"
         }
     ]
 }
