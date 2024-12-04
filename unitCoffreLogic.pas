@@ -99,7 +99,7 @@ interface
 
 implementation
   uses
-    unitCoffreConst, unitCoffreIHM, unitBeerslogic, unitBeersIhm;
+    unitCoffreConst, unitCoffreIHM, unitChambreIhm;
 
   var
     estDisponible: TListeEquipement; // Liste des équipements disponibles
@@ -193,7 +193,7 @@ implementation
       coffreIHM();
       choix := coffreChoixEquipementIHM();
     end;
-    afficherInterface();
+    afficherInterfaceChambre();
   end;
 
   {

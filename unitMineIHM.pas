@@ -27,7 +27,7 @@ implementation
 //Procédure qui affiche les ennemis
   procedure afficherEnnemis();
   const
-    X = 48; Y = 5; // Coordonnées de l'affichage
+    X = 48; Y = 4; // Coordonnées de l'affichage
     COULEUR_ACCOMPLI = Green;
     COULEUR_ACCEPTE  = LightGreen;
     COULEUR_ECHOUE   = Red;
@@ -50,13 +50,14 @@ implementation
       else  couleur := White;
 
       // On affiche le cadre
-      dessinerCadreXY(X, Y +7*(i-1), X+22, Y+5 +7*(i-1), simple, couleur, Black);
+      dessinerCadreXY(X, Y +7*(i-1), X+22, Y+6 +7*(i-1), simple, couleur, Black);
       dessinerCadreXY(X+5, Y+1 +7*(i-1), X+16, Y+1 +7*(i-1), double, couleur, Black);
 
       deplacerCurseurXY(X-3, Y+1 +7*(i-1)); write(i);
       deplacerCurseurXY(X+11 - length(listeContrats[i].typeEnnemi.nom) div 2, Y+1 +7*(i-1)); write(listeContrats[i].typeEnnemi.nom);
-      deplacerCurseurXY(X+2, Y+3 +7*(i-1)); write('Statut : ', listeContrats[i].statut);
-      deplacerCurseurXY(X+2, Y+4 +7*(i-1)); write('Ennemis tués : ', listeContrats[i].nbEnnemisTues, '/', listeContrats[i].nbEnnemis);
+      deplacerCurseurXY(X+2, Y+3 +7*(i-1)); write('Niveau : ', i); // Chaque ennemi a une difficulté différente
+      deplacerCurseurXY(X+2, Y+4 +7*(i-1)); write('Statut : ', listeContrats[i].statut);
+      deplacerCurseurXY(X+2, Y+5 +7*(i-1)); write('Ennemis tués : ', listeContrats[i].nbEnnemisTues, '/', listeContrats[i].nbEnnemis);
 
     end;
     couleurTexte(White);
@@ -111,11 +112,11 @@ implementation
     effacerEcran();
     //Entête
     dessinerCadreXY(1, 0, 198, 39, simple, LightGreen, Black);
-    dessinerCadreXY(39, 0, 80, 0, double, Green, Black);
+    dessinerCadreXY(39, 1, 80, 1, double, Green, Black);
     couleurTexte(White);
 
     //Affiche le titre
-    deplacerCurseurXY(55, 0); write(' La Mine ');
+    deplacerCurseurXY(55, 1); write(' La Mine ');
 
     //Affiche les choix
     deplacerCurseurXY(20, 29); write('?/ Accepter un contrat');

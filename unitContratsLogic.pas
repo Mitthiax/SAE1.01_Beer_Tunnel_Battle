@@ -111,15 +111,11 @@ implementation
     contrat.quantiteOr      := 0;
     contrat.quantiteXP      := 0;
 
-    // Les quantités dependent du nombre d'ennemis, mais on ne veut pas que ce soit un multiple
-    for i := 1 to contrat.nbEnnemis do
-    begin
-      contrat.quantiteCuivre  += randomInteger(0, ennemi.cuivreMax);
-      contrat.quantiteFer     += randomInteger(0, ennemi.ferMax);
-      contrat.quantiteMythril += randomInteger(0, ennemi.mythrilMax);
-      contrat.quantiteOr      += randomInteger(0, ennemi.orMax);
-      contrat.quantiteXP      += randomInteger(0, ennemi.XPMax);
-    end;
+    contrat.quantiteCuivre  := round(contrat.nbEnnemis * ennemi.cuivreMax * randomReal(0.25, 1));
+    contrat.quantiteFer     := round(contrat.nbEnnemis * ennemi.ferMax * randomReal(0.25, 1));
+    contrat.quantiteMythril := round(contrat.nbEnnemis * ennemi.mythrilMax * randomReal(0.25, 1));
+    contrat.quantiteOr      := round(contrat.nbEnnemis * ennemi.orMax * randomReal(0.25, 1));
+    contrat.quantiteXP      := round(contrat.nbEnnemis * ennemi.XPMax * randomReal(0.25, 1));
 
     // Sortie
     creerContrat := contrat;

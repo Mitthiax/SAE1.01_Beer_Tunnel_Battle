@@ -25,11 +25,11 @@ begin
   randomize;
   //Entête
   dessinerCadreXY(1, 0, 198, 39, simple, LightGreen, Black);
-  dessinerCadreXY(39, 0, 80, 0, double, Green, Black);
+  dessinerCadreXY(39, 1, 80, 1, double, Green, Black);
   couleurTexte(White);
 
   //Affiche le titre
-  deplacerCurseurXY(46, 0); write(' La Taverne Patte de Cochon ');
+  deplacerCurseurXY(46, 1); write(' La Taverne Patte de Cochon ');
 
   //Afficher la phrase basic 
   deplacerCurseurXY(7,5); write('Voila votre bière bien fraiche.');
