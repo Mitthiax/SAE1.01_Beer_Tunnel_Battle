@@ -79,6 +79,22 @@ Pour toute question ou demande d'autorisation, veuillez contacter les auteurs au
 * matthieu.boisson@iut-dijon.u-bourgogne.fr
 * lucas.bambi-monot@iut-dijon.u-bourgogne.fr
 
+### Crédits
+Développeurs :
+CHARLES Adriana
+BOISSON Matthieu
+BAMBI--MONOT Lucas
+
+Testeur :
+Félix (BUT2 Informatique)
+
+Graphiste : 
+Macéo (BUT1 Réseaux Télécom)
+
+
+Merci à Félix pour son retour sur notre jeu et à Macéo pour nous avoir fourni un croquis pour le dessin du menu.
+Merci à toute l'équipe de développement pour avoir été aussi réactive et performante.
+
 ---
 
 Amusez-vous bien dans votre aventure à Beer Tunnels Battles !
