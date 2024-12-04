@@ -31,7 +31,6 @@ implementation
 
     while (i <= 18) and testEquipementsBloquesValide do
     begin
-    writeln(estDisponibleEquipement(i));
       // On verrifie si l'épée et le casque en cuivre sont bien débloqués
       if (i = epeeCuivre) or (i = casqueCuivre) then testEquipementsBloquesValide := estDisponibleEquipement(i)
 
